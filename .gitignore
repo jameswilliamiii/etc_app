@@ -14,3 +14,12 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+.DS_Store
+
+# Ignore Breakman output
+output.html
+
+# Ignore Heroku ENV Vars
+/config/heroku_env.rb
+/.env
