@@ -1,0 +1,32 @@
+<div class="contain-to-grid fixed">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h4>
+          <%= link_to root_url do %>
+            <%= image_tag 'etc_logo.svg', alt: 'ETC', class: 'etc_logo' %>
+          <% end %>
+        </h4>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li><%= link_to "Events", events_url %></li>
+        <li><%= link_to "Classes", classes_url %></li>
+        <li><a href="#connect" class="smooth on-page">Connect</a></li>
+        <li>
+          <% if on_home_view? %>
+            <%= link_to "Connect", "#{connect}", class: "smooth on-page" %>
+          <% else %>
+            <%= link_to("Connect", root_url(anchor: 'connect'), class: "smooth on-page") %>
+          <% end %>
+        </li>
+        <li><%= link_to "Join Us", apply_url %></li>
+        <!-- <li><a href="#">Blog</a></li> -->
+      </ul>
+    </section>
+  </nav>
+</div>
