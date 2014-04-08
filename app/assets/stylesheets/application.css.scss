@@ -10,6 +10,15 @@
  *
  *= require_self
  *= require foundation_and_overrides
-
+ *= require font-awesome
  *= require_tree .
  */
+
+ .white {
+   color:white;
+ }
+ .center {
+   text-align: center;
+ }
+ .heavy { font-weight: 500; }
+ .blue { color:#325180; }

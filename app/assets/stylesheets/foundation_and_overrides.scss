@@ -1130,11 +1130,11 @@
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+$topbar-bg-color: #FAFAFA;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: 45px;
+$topbar-height: 85px;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
@@ -1142,23 +1142,23 @@
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
-// $topbar-dropdown-bg: #333;
-// $topbar-dropdown-link-color: #fff;
-// $topbar-dropdown-link-bg: #333;
-// $topbar-dropdown-link-weight: normal;
+$topbar-dropdown-bg: #FAFAFA;
+$topbar-dropdown-link-color: #325180;
+$topbar-dropdown-link-bg: #FAFAFA;
+$topbar-dropdown-link-weight: bold;
 // $topbar-dropdown-toggle-size: 5px;
-// $topbar-dropdown-toggle-color: #fff;
+$topbar-dropdown-toggle-color: #325180;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: #fff;
-// $topbar-link-color-hover: #fff;
-// $topbar-link-color-active: #fff;
-// $topbar-link-color-active-hover: #fff;
-// $topbar-link-weight: normal;
-// $topbar-link-font-size: rem-calc(13);
+$topbar-link-color: #325180;
+$topbar-link-color-hover: darken(#325180, 20%);
+$topbar-link-color-active: $topbar-link-color-hover;
+$topbar-link-color-active-hover: $topbar-link-color-hover;
+$topbar-link-weight: bold;
+$topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg-hover: #272727;
+$topbar-link-bg-hover: #DDDDDD;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
@@ -1172,16 +1172,16 @@
 // $topbar-dropdown-label-text-transform: uppercase;
 // $topbar-dropdown-label-font-weight: bold;
 // $topbar-dropdown-label-font-size: rem-calc(10);
-// $topbar-dropdown-label-bg: #333;
+$topbar-dropdown-label-bg: #FAFAFA;
 
 // Top menu icon styles
 // $topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: rem-calc(13);
 // $topbar-menu-link-weight: bold;
-// $topbar-menu-link-color: #fff;
-// $topbar-menu-icon-color: #fff;
-// $topbar-menu-link-color-toggled: #888;
-// $topbar-menu-icon-color-toggled: #888;
+$topbar-menu-link-color: #325180;
+$topbar-menu-icon-color: #325180;
+$topbar-menu-link-color-toggled: #325180;
+$topbar-menu-icon-color-toggled: #325180;
 
 // Transitions and breakpoint styles
 // $topbar-transition-speed: 300ms;
@@ -1240,3 +1240,33 @@
 // $range-slider-handle-cursor: pointer;
 
 @import 'foundation';
+
+.contain-to-grid {
+  background-color: #FAFAFA;
+  border-bottom: 1px solid #BBBBBB;
+  opacity:0.96;
+  filter:alpha(opacity=96); /* For IE8 and earlier */;
+}
+.top-bar-section ul li > a {
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+  -webkit-transition: color 300ms ease-in;
+  -moz-transition: color 300ms ease-in;
+  -ms-transition: color 300ms ease-in;
+  -o-transition: color 300ms ease-in;
+  transition: color 300ms ease-in;
+  -webkit-transition: background 200ms ease-in;
+  -moz-transition: background 200ms ease-in;
+  -ms-transition: background 200ms ease-in;
+  -o-transition: background 200ms ease-in;
+  transition: background 200ms ease-in;
+}
+.top-bar .name {
+  margin-left: 5px;
+  height: $topbar-height - 5px;
+  h4 a img {
+   margin:5px;
+  }
+}

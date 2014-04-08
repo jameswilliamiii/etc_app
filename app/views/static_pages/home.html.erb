@@ -1,2 +1,166 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="home-image">
+  <div class="learn-more">
+    <a href="#main-points" class="smooth">
+      <span class="fa-stack fa-2x">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-angle-down fa-stack-1x"></i>
+      </span>
+    </a>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <h1 class="uvp">Elgin Technology Center</h1>
+      <h2 class="uvp">A Coworking Space for the Suburban Tech Community</h2>
+    </div>
+  </div>
+</div>
+
+<div id="main-points" class="main-points">
+  <div class="row">
+    <div class="large-4 medium-4 columns">
+      <div class="icon first">
+        <%= image_tag 'connect-2.svg', alt: 'connect' %>
+        <h6 class="white icon-title">connect</h6>
+        <h6 class="white icon-text">with like minded people who are passionate about building a successful startup or business.</h6>
+      </div>
+    </div>
+    <div class="large-4 medium-4 columns">
+      <div class="icon">
+        <%= image_tag 'create-2.svg', alt: 'create' %>
+        <h6 class="white icon-title">create</h6>
+        <h6 class="white icon-text">grow and evolve your business through the use of our education and mentorship opportunities.</h6>
+      </div>
+    </div>
+    <div class="large-4 medium-4 columns">
+      <div class="icon">
+        <%= image_tag 'collaborate-2.svg', alt: 'collaborate' %>
+        <h6 class="white icon-title">collaborate</h6>
+        <h6 class="white icon-text">with our community of entrepreneurs & creatives to take your business to the next level.</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="detailed-points" class="detailed-points">
+  <div class="row">
+    <div class="large-12 columns">
+      <h2>Membership Benefits</h2>
+      <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-3">
+        <li>
+          <h5 class="subheader">Open Coworking Space</h5>
+        </li>
+        <li>
+          <h5 class="subheader">Private Offices <span>*</span></h5>
+        </li>
+        <li>
+          <h5 class="subheader">Tech Events</h5>
+        </li>
+        <li>
+          <h5 class="subheader">Month-to-Month Membership</h5>
+        </li>
+        <li>
+          <h5 class="subheader">24-Hour Access</h5>
+        </li>
+        <li>
+          <h5 class="subheader">Meetup Space</h5>
+        </li>
+        <li>
+          <h5 class="subheader">Conference Rooms</h5>
+        </li>
+        <li>
+          <h5 class="subheader">Mentoring Office Hours</h5>
+        </li>
+        <li>
+          <h5 class="subheader">Networking & Social Events</h5>
+        </li>
+      </ul>
+      <div class="price">
+        <h4 class="subheader">Only <span>$100</span> per month</h4>
+        <small>* Additional charge required for private offices</small>
+      </div>
+      <a href="apply.html" class="button large radius success cta">Join Us</a>
+    </div>
+  </div>
+</div>
+<div id="members" class="members">
+  <h3>Some of our members include</h3>
+  <ul class="large-block-grid-4 medium-block-grid-4 small-block-grid-1">
+    <li><a href="http://readingglue.com" title="Reading Glue"><%= image_tag 'rg-logo.svg', alt: 'Reading Glue', class: 'rg-logo' %></a></li>
+    <li><a href="http://edisonave.com" title="Edison Avenue"><%= image_tag 'ea-logo.png', alt: 'Edison Avenue' %></a></li>
+    <li><a href="http://finalscope.herokuapp.com" title="Final Scope"><%= image_tag 'fs-logo.svg', alt: 'Final Scope' %></a></li>
+    <li><a href="http://reflectioncommunications.com/" title="Reflection Communications"><%= image_tag 'rc-logo.svg', alt: 'Reflection Communications' %></a></li>
+  </ul>
+</div>
+<div class="email-form">
+  <div class="row">
+    <div class="large-12 columns">
+      <h3 class="subheader center">Join our email list to learn about upcoming events</h3>
+      <!-- Begin MailChimp Signup Form -->
+      <div id="mc_embed_signup">
+      <form action="http://elgintechnologycenter.us5.list-manage.com/subscribe/post?u=2b6f61931fddc864c8fd42fef&amp;id=4840d19b15" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div class="row">
+          <div class="large-5 medium-6 medium-centered large-centered columns">
+            <div class="row collapse">
+              <div class="small-8 columns">
+                <div class="mc-field-group">
+                  <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your Email">
+                </div>
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+              </div>
+              <div class="small-4 columns">
+                <div id="mce-responses" class="clear">
+                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                  <div style="position: absolute; left: -5000px;"><input type="text" name="b_2b6f61931fddc864c8fd42fef_4840d19b15" value=""></div>
+                <input type="submit" value="SIGN UP" name="subscribe" id="mc-embedded-subscribe" class="button success postfix">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+      <!--End mc_embed_signup-->
+    </div>
+  </div>
+</div>
+<div id="connect" class="connect">
+  <div class="row">
+    <div class="large-9 medium-9 large-centered medium-centered columns">
+      <h3 class="subheader">Have questions or want to connect?</h3>
+      <ul class="large-block-grid-4 medium-block-grid-4 small-block-grid-2">
+        <li>
+          <a href="mailto:info@elgintech.org" class="social" title="Email">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-circle fa-stack-2x mail"></i>
+              <i class="fa fa-envelope-o fa-stack-1x icon"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.twitter.com/elgintech" class="social" title="Twitter">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-circle fa-stack-2x twitter"></i>
+              <i class="fa fa-twitter fa-stack-1x icon"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/ElginTech" class="social" title="Facebook">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-circle fa-stack-2x facebook"></i>
+              <i class="fa fa-facebook fa-stack-1x icon"></i>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://plus.google.com/u/0/100912084613948962656/posts" class="social" title="Google+">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-circle fa-stack-2x google-plus"></i>
+              <i class="fa fa-google-plus fa-stack-1x icon"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

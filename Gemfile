@@ -44,10 +44,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'turbolinks'
+# gem 'turbolinks'
 
 # Front end framework
 gem 'foundation-rails', '~> 5.2.1'
+
+# Font Awesome
+gem 'font-awesome-rails'
 
 # User authentication
 gem 'devise'
