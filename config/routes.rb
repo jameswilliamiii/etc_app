@@ -1,8 +1,8 @@
 EtcApp::Application.routes.draw do
 
-  root 'static_pages#index'
+  root 'static_pages#home'
 
-  get "/index"   => "static_pages#home"
+  get "/index"   => "static_pages#home",    as: :home
   get "/events"  => "static_pages#events",  as: :events
   get "/classes" => "static_pages#classes", as: :classes
   get "/apply"   => "static_pages#apply",   as: :apply

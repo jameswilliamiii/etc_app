@@ -16,12 +16,11 @@
       <ul class="right">
         <li><%= link_to "Events", events_url %></li>
         <li><%= link_to "Classes", classes_url %></li>
-        <li><a href="#connect" class="smooth on-page">Connect</a></li>
         <li>
           <% if on_home_view? %>
-            <%= link_to "Connect", "#{connect}", class: "smooth on-page" %>
+            <%= link_to "Connect", "#connect", class: "smooth on-page" %>
           <% else %>
-            <%= link_to("Connect", root_url(anchor: 'connect'), class: "smooth on-page") %>
+            <%= link_to "Connect", home_url(anchor: 'connect') %>
           <% end %>
         </li>
         <li><%= link_to "Join Us", apply_url %></li>
