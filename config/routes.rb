@@ -2,10 +2,11 @@ EtcApp::Application.routes.draw do
 
   root 'static_pages#home'
 
-  get "/index"   => "static_pages#home",    as: :home
-  get "/events"  => "static_pages#events",  as: :events
-  get "/classes" => "static_pages#classes", as: :classes
-  get "/apply"   => "static_pages#apply",   as: :apply
+  get "/index"              => "static_pages#home",               as: :home
+  get "/events"             => "static_pages#events",             as: :events
+  get "/classes"            => "static_pages#classes",            as: :classes
+  get "/apply"              => "static_pages#apply",              as: :apply
+  get "/class-registration" => "static_pages#class_registration", as: :class_registration
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
