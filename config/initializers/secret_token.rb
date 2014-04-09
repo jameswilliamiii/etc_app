@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-EtcApp::Application.config.secret_key_base = 'a1f56b9a3f96c4f4d85451699629c890058650a52bfe4d33c9871f8bd3c6d9a5c3a5f4569d44882bae25e34b65a4ef265800f1a46bf31e8594b5a8a5108d727b'
+EtcApp::Application.config.secret_key_base = ENV['SECRET_TOKEN']
