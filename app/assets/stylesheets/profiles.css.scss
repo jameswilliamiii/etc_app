@@ -1,0 +1,24 @@
+@import "foundation_and_overrides";
+
+.sub-nav.profiles {
+  margin-top: 0;
+}
+.postfix.search.button {
+  background: none;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  &:hover {
+    background-color: $primary-color;
+    color: white;
+  }
+}
+div.card {
+  background-color: $light-gray;
+  border: 1px solid $light-gray-border;
+  border-radius: $global-radius;
+  -webkit-box-shadow: 0 1px 2px 0px #BBBBBB;
+  -moz-box-shadow: 0 1px 2px 0px #BBBBBB;
+  box-shadow: 0 1px 2px 0px #BBBBBB;
+  padding: 1.2rem;
+
+}

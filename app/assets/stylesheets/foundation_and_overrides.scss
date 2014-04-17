@@ -1241,32 +1241,50 @@ $topbar-menu-icon-color-toggled: #325180;
 
 @import 'foundation';
 
+$light-gray: #FAFAFA;
+$light-gray-border: #BBBBBB;
+
 .contain-to-grid {
   background-color: #FAFAFA;
-  border-bottom: 1px solid #BBBBBB;
   opacity:0.96;
   filter:alpha(opacity=96); /* For IE8 and earlier */;
+  @media #{$medium-up} {
+    border-bottom: 1px solid #BBBBBB;
+  }
 }
 .top-bar-section ul li > a {
 text-transform: uppercase;
 letter-spacing: 2px;
 }
-.top-bar-section li:not(.has-form) a:not(.button):hover {
-  -webkit-transition: color 300ms ease-in;
-  -moz-transition: color 300ms ease-in;
-  -ms-transition: color 300ms ease-in;
-  -o-transition: color 300ms ease-in;
-  transition: color 300ms ease-in;
-  -webkit-transition: background 200ms ease-in;
-  -moz-transition: background 200ms ease-in;
-  -ms-transition: background 200ms ease-in;
-  -o-transition: background 200ms ease-in;
-  transition: background 200ms ease-in;
+.top-bar-section li:not(.has-form) a:not(.button) {
+  @media #{$medium} {
+    padding: 0 20px;
+  }
+  &:hover {
+    -webkit-transition: color 300ms ease-in;
+    -moz-transition: color 300ms ease-in;
+    -ms-transition: color 300ms ease-in;
+    -o-transition: color 300ms ease-in;
+    transition: color 300ms ease-in;
+    -webkit-transition: background 200ms ease-in;
+    -moz-transition: background 200ms ease-in;
+    -ms-transition: background 200ms ease-in;
+    -o-transition: background 200ms ease-in;
+    transition: background 200ms ease-in;
+  }
 }
 .top-bar .name {
   margin-left: 5px;
   height: $topbar-height - 5px;
   h4 a img {
    margin:5px;
+  }
+}
+.sub-nav dt a, .sub-nav dd a, .sub-nav li a {
+  text-decoration: none;
+  color: #999999;
+  padding: 0.1875rem 0.3rem;
+  &:hover {
+    color: $anchor-font-color-hover
   }
 }
