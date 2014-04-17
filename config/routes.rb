@@ -8,6 +8,8 @@ EtcApp::Application.routes.draw do
   get "/apply"              => "static_pages#apply",              as: :apply
   get "/class-registration" => "static_pages#class_registration", as: :class_registration
 
+  resources :profiles
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
