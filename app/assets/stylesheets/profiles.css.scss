@@ -12,6 +12,9 @@
     color: white;
   }
 }
+div.card-wrapper {
+  margin: 1.0rem 0;
+}
 div.card {
   background-color: $light-gray;
   border: 1px solid $light-gray-border;
@@ -20,5 +23,36 @@ div.card {
   -moz-box-shadow: 0 1px 2px 0px #BBBBBB;
   box-shadow: 0 1px 2px 0px #BBBBBB;
   padding: 1.2rem;
-
+  h5 {
+    color: $profile-card-text;
+  }
+  p {
+    margin-bottom: 5px;
+    color: $profile-card-text;
+    a {
+      margin-bottom: 0;
+      color: $profile-card-text;
+      text-decoration: underline;
+    }
+  }
+  p.company { margin-bottom: 10px; }
+  .circular-profile-pic {
+    width: 150px;
+    border-radius: 75px;
+    -webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+  }
+  .member-type {
+    margin: 10px;
+    p {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 0.8rem;
+      color: #999;
+    }
+  }
+}
+.pagination-centered {
+  margin-bottom: 3.0rem;
 }

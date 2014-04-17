@@ -6,12 +6,11 @@
     <div class="wrapper">
       <div class="row">
         <div class="large-6 medium-12 columns">
-          <dl class="sub-nav profiles">
-            <dt>Filter:</dt>
-            <dd class="active"><a href="#">All</a></dd>
-            <dd><a href="#">Companies</a></dd>
-            <dd><a href="#">Internal</a></dd>
-            <dd><a href="#">External</a></dd>
+          <ul class="sub-nav profiles">
+            <li><a href="#">All</a></li>
+            <li><a href="#">Companies</a></li>
+            <li class="active"><a href="#">Premiers</a></li>
+            <li><a href="#">Members</a></li>
           </dl>
         </div>
         <div class="large-5 large-offset-1 medium-6 columns left">
@@ -29,38 +28,184 @@
       </div>
       <div class="row">
         <div class="small-12 columns">
-          <ul class="large-block-grid-2 small-block-grid-1">
-            <li>
-              <div class="card">
-                Testing
-              </div>
-            </li>
-            <li>
-              <div class="card">
-                Testing
-              </div>
-            </li>
-            <li>
-              <div class="card">
-                Testing
-              </div>
-            </li>
-            <li>
-              <div class="card">
-                Testing
-              </div>
-            </li>
-            <li>
-              <div class="card">
-                Testing
-              </div>
-            </li>
-            <li>
-              <div class="card">
-                Testing
-              </div>
-            </li>
-          </ul>
+          <div class="card-wrapper">
+            <ul class="large-block-grid-2 small-block-grid-1">
+              <li>
+                <div class="card">
+                  <div class="row">
+                    <div class="small-4 columns center">
+                      <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic" %>
+                      <div class="member-type">
+                        <p>Premier</p>
+                      </div>
+                    </div>
+                    <div class="small-8 columns">
+                      <h5>James Stubblefield</h5>
+                      <p class="company">Reading Glue</p>
+                      <p>Member since: Dec 2013</p>
+                      <p>
+                        Skills:
+                        <a href="#">ruby</a>,
+                        <a href="#">rails</a>,
+                        <a href="#">ruby on rails</a>,
+                        <a href="#">html</a>,
+                        <a href="#">css</a>,
+                        <a href="#">entrepreneurship</a>,
+                        <a href="#">startups</a>
+                        ...
+                      </p>
+                      <%= link_to "Learn more", '#' %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="card">
+                  <div class="row">
+                    <div class="small-4 columns center">
+                      <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic" %>
+                      <div class="member-type">
+                        <p>Member</p>
+                      </div>
+                    </div>
+                    <div class="small-8 columns">
+                      <h5>James Stubblefield</h5>
+                      <p class="company">Reading Glue</p>
+                      <p>Member since: Dec 2013</p>
+                      <p>
+                        Skills:
+                        <a href="#">ruby</a>,
+                        <a href="#">rails</a>,
+                        <a href="#">ruby on rails</a>,
+                        <a href="#">html</a>,
+                        <a href="#">css</a>,
+                        <a href="#">entrepreneurship</a>,
+                        <a href="#">startups</a>
+                        ...
+                      </p>
+                      <%= link_to "Learn more", '#' %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="card">
+                  <div class="row">
+                    <div class="small-4 columns center">
+                      <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic" %>
+                      <div class="member-type">
+                        <p>INTERNAL</p>
+                      </div>
+                    </div>
+                    <div class="small-8 columns">
+                      <h5>James Stubblefield</h5>
+                      <p class="company">Reading Glue</p>
+                      <p>Member since: Dec 2013</p>
+                      <p>
+                        Skills:
+                        <a href="#">ruby</a>,
+                        <a href="#">rails</a>,
+                        <a href="#">ruby on rails</a>,
+                        <a href="#">html</a>,
+                        <a href="#">css</a>,
+                        <a href="#">entrepreneurship</a>,
+                        <a href="#">startups</a>
+                        ...
+                      </p>
+                      <%= link_to "Learn more", '#' %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="card">
+                  <div class="row">
+                    <div class="small-4 columns center">
+                      <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic" %>
+                      <div class="member-type">
+                        <p>INTERNAL</p>
+                      </div>
+                    </div>
+                    <div class="small-8 columns">
+                      <h5>James Stubblefield</h5>
+                      <p class="company">Reading Glue</p>
+                      <p>Member since: Dec 2013</p>
+                      <p>
+                        Skills:
+                        <a href="#">ruby</a>,
+                        <a href="#">rails</a>,
+                        <a href="#">ruby on rails</a>,
+                        <a href="#">html</a>,
+                        <a href="#">css</a>,
+                        <a href="#">entrepreneurship</a>,
+                        <a href="#">startups</a>
+                        ...
+                      </p>
+                      <%= link_to "Learn more", '#' %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="card">
+                  <div class="row">
+                    <div class="small-4 columns center">
+                      <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic" %>
+                      <div class="member-type">
+                        <p>INTERNAL</p>
+                      </div>
+                    </div>
+                    <div class="small-8 columns">
+                      <h5>James Stubblefield</h5>
+                      <p class="company">Reading Glue</p>
+                      <p>Member since: Dec 2013</p>
+                      <p>
+                        Skills:
+                        <a href="#">ruby</a>,
+                        <a href="#">rails</a>,
+                        <a href="#">ruby on rails</a>,
+                        <a href="#">html</a>,
+                        <a href="#">css</a>,
+                        <a href="#">entrepreneurship</a>,
+                        <a href="#">startups</a>
+                        ...
+                      </p>
+                      <%= link_to "Learn more", '#' %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="card">
+                  <div class="row">
+                    <div class="small-4 columns center">
+                      <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic" %>
+                      <div class="member-type">
+                        <p>INTERNAL</p>
+                      </div>
+                    </div>
+                    <div class="small-8 columns">
+                      <h5>James Stubblefield</h5>
+                      <p class="company">Reading Glue</p>
+                      <p>Member since: Dec 2013</p>
+                      <p>
+                        Skills:
+                        <a href="#">ruby</a>,
+                        <a href="#">rails</a>,
+                        <a href="#">ruby on rails</a>,
+                        <a href="#">html</a>,
+                        <a href="#">css</a>,
+                        <a href="#">entrepreneurship</a>,
+                        <a href="#">startups</a>
+                        ...
+                      </p>
+                      <%= link_to "Learn more", '#' %>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="row">

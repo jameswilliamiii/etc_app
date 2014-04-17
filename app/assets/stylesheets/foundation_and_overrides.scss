@@ -1243,6 +1243,7 @@ $topbar-menu-icon-color-toggled: #325180;
 
 $light-gray: #FAFAFA;
 $light-gray-border: #BBBBBB;
+$profile-card-text: #666666;
 
 .contain-to-grid {
   background-color: #FAFAFA;
@@ -1284,7 +1285,9 @@ letter-spacing: 2px;
   text-decoration: none;
   color: #999999;
   padding: 0.1875rem 0.3rem;
+  border-radius: $global-radius;
+  text-transform: uppercase;
   &:hover {
-    color: $anchor-font-color-hover
+    background-color: $pagination-link-active-bg;
   }
 }
