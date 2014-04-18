@@ -7,6 +7,7 @@
   background: none;
   border: 2px solid $primary-color;
   color: $primary-color;
+  border-radius: $global-radius;
   &:hover {
     background-color: $primary-color;
     color: white;
@@ -23,8 +24,12 @@ div.card {
   -moz-box-shadow: 0 1px 2px 0px #BBBBBB;
   box-shadow: 0 1px 2px 0px #BBBBBB;
   padding: 1.2rem;
+  min-height: 230px !important;
   h5 {
     color: $profile-card-text;
+    a {
+      color: $profile-card-text;
+    }
   }
   p {
     margin-bottom: 5px;
