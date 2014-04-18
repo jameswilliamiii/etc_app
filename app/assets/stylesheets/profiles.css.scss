@@ -99,7 +99,15 @@ div.card {
     color: white;
     .fa-circle { color: $primary-color; }
     &:hover {
-      .fa-circle { color: lighten($primary-color, 15%); }
+      color: white;
+      .fa-circle {
+        color: #FFB800;
+        -webkit-transition: color 200ms ease-in;
+        -moz-transition: color 200ms ease-in;
+        -ms-transition: color 200ms ease-in;
+        -o-transition: color 200ms ease-in;
+        transition: color 200ms ease-in;
+      }
     }
   }
 }
@@ -119,8 +127,18 @@ div.card {
   .company {
     color: $topbar-link-color;
     font-size: 1.5rem;
+    a {
+      color: $topbar-link-color;
+      &:hover {
+        color: $topbar-link-color;
+        text-decoration: underline;
+      }
+    }
   }
   p {
     margin: 0.8rem 0;
+    a {
+      &:hover { text-decoration: underline; }
+    }
   }
 }
