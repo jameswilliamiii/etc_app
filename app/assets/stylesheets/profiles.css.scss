@@ -93,7 +93,7 @@ div.card {
   text-align: center;
   margin: 2.0rem 2.0rem 0 2.0rem;
   @media #{$small-only} {
-    margin: 2.0rem 7.5rem 0 7.5rem;
+    margin: 2.0rem 6.0rem 0 6.0rem;
   }
   a {
     color: white;
@@ -118,7 +118,10 @@ div.card {
   -webkit-border-radius: $global-radius;
   -moz-border-radius: $global-radius;
   padding: 2.0rem;
-  margin: 0 2.0rem 2.0rem 2.0rem;
+  margin: 0 1.5rem 2.0rem 1.5rem;
+  @media #{$small-only} {
+    margin: 0 0 2.0rem 0;
+  }
   .name {
     color: $topbar-link-color;
     font-size: 1.75rem;
