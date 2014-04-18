@@ -1289,7 +1289,7 @@ letter-spacing: 2px;
   border-radius: $global-radius;
   text-transform: uppercase;
   @media #{$small-only} {
-    padding: 0.1875rem 0.5rem;
+    padding: 0.1875rem 0.3rem;
     font-size: 0.6rem;
   }
   &:hover {
