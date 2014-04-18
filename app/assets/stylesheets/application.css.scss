@@ -9,11 +9,18 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require foundation_and_overrides
  *= require font-awesome
  *= require_tree .
  */
 
+ @import 'foundation_and_overrides';
+
+ img.etc_logo {
+  @media #{$small-only} {
+    width: 130px !important;
+    margin-top: 15px !important;
+  }
+ }
  .white {
    color:white;
  }
