@@ -30,6 +30,11 @@
 // $include-print-styles: true;
 // $include-html-global-classes: $include-html-classes;
 
+// Custom color vars
+$light-gray: #FAFAFA;
+$light-gray-border: #BBBBBB;
+$profile-card-text: #666666;
+
 // Grid
 
 // $include-html-grid-classes: $include-html-classes;
@@ -1130,7 +1135,7 @@
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #FAFAFA;
+$topbar-bg-color: $light-gray;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1142,17 +1147,17 @@ $topbar-height: 85px;
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
-$topbar-dropdown-bg: #FAFAFA;
+$topbar-dropdown-bg: $light-gray;
 $topbar-dropdown-link-color: #325180;
-$topbar-dropdown-link-bg: #FAFAFA;
+$topbar-dropdown-link-bg: $light-gray;
 $topbar-dropdown-link-weight: bold;
 // $topbar-dropdown-toggle-size: 5px;
-$topbar-dropdown-toggle-color: #325180;
+$topbar-dropdown-toggle-color: $topbar-dropdown-link-color;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-$topbar-link-color: #325180;
-$topbar-link-color-hover: darken(#325180, 20%);
+$topbar-link-color: $topbar-dropdown-link-color;
+$topbar-link-color-hover: darken($topbar-link-color, 20%);
 $topbar-link-color-active: $topbar-link-color-hover;
 $topbar-link-color-active-hover: $topbar-link-color-hover;
 $topbar-link-weight: bold;
@@ -1172,16 +1177,16 @@ $topbar-link-bg-hover: #DDDDDD;
 // $topbar-dropdown-label-text-transform: uppercase;
 // $topbar-dropdown-label-font-weight: bold;
 // $topbar-dropdown-label-font-size: rem-calc(10);
-$topbar-dropdown-label-bg: #FAFAFA;
+$topbar-dropdown-label-bg: $light-gray;
 
 // Top menu icon styles
 // $topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: rem-calc(13);
 // $topbar-menu-link-weight: bold;
-$topbar-menu-link-color: #325180;
-$topbar-menu-icon-color: #325180;
-$topbar-menu-link-color-toggled: #325180;
-$topbar-menu-icon-color-toggled: #325180;
+$topbar-menu-link-color: $topbar-link-color;
+$topbar-menu-icon-color: $topbar-link-color;
+$topbar-menu-link-color-toggled: $topbar-link-color;
+$topbar-menu-icon-color-toggled: $topbar-link-color;
 
 // Transitions and breakpoint styles
 // $topbar-transition-speed: 300ms;
@@ -1241,12 +1246,8 @@ $topbar-menu-icon-color-toggled: #325180;
 
 @import 'foundation';
 
-$light-gray: #FAFAFA;
-$light-gray-border: #BBBBBB;
-$profile-card-text: #666666;
-
 .contain-to-grid {
-  background-color: #FAFAFA;
+  background-color: $light-gray;
   opacity:0.96;
   filter:alpha(opacity=96); /* For IE8 and earlier */;
   @media #{$medium-up} {
