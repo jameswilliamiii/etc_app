@@ -1,23 +1,30 @@
 <%= form_for @profile, :"data-abide" => "" do |f| %>
   <div class="row">
-    <div class="medium-6 columns end">
-      <%= f.label :name %>
-      <%= f.text_field :name, required: true %>
+    <div class="medium-6 columns">
+      <div class="row">
+        <div class="medium-12 columns">
+          <%= f.label :name %>
+          <%= f.text_field :name, required: true %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-12 columns">
+          <%= f.label :company %>
+          <%= f.text_field :company %>
+        </div>
+      </div>
+    </div>
+    <div class="medium-4 offset-medium-2 columns">
+      Photo area to be added later
     </div>
   </div>
-  <div class="row">
-    <div class="medium-6 columns end">
-      <%= f.label :company %>
-      <%= f.text_field :company %>
-    </div>
-  </div>
-  <%= f.check_box :public %>
-  <%= f.label :public, "Profile visible to non-members" %>
+  <%= f.check_box :public, checked: true %>
+  <%= f.label :public, "Visible by non-members" %>
   <%= f.label :skill_list do %>
-    Skills list <small> (separate each skill by a comma)</small>
+    Skills List <small> (separate each skill by a comma)</small>
   <% end %>
   <%= f.text_field :skill_list, placeholder: "html, css, ruby, ruby on rails" %>
-  <%= f.label :details, "Profile details" %>
+  <%= f.label :details, "Profile Details" %>
   <%= f.text_area :details, rows: 10 %>
   <div class="row">
     <div class="medium-4 columns">
@@ -47,5 +54,5 @@
       <%= f.text_field :email, placeholder: "you@domaon.com", pattern: "email" %>
     </div>
   </div>
-  <%= f.submit "Save", class: "button success radius" %>
+  <%= f.submit "Save Profile", class: "button success radius" %>
 <% end %>
