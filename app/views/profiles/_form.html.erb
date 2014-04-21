@@ -1,0 +1,51 @@
+<%= form_for @profile, :"data-abide" => "" do |f| %>
+  <div class="row">
+    <div class="medium-6 columns end">
+      <%= f.label :name %>
+      <%= f.text_field :name, required: true %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-6 columns end">
+      <%= f.label :company %>
+      <%= f.text_field :company %>
+    </div>
+  </div>
+  <%= f.check_box :public %>
+  <%= f.label :public, "Profile visible to non-members" %>
+  <%= f.label :skill_list do %>
+    Skills list <small> (separate each skill by a comma)</small>
+  <% end %>
+  <%= f.text_field :skill_list, placeholder: "html, css, ruby, ruby on rails" %>
+  <%= f.label :details, "Profile details" %>
+  <%= f.text_area :details, rows: 10 %>
+  <div class="row">
+    <div class="medium-4 columns">
+      <%= f.label :twitter %>
+      <%= f.text_field :twitter, placeholder: "https://twitter.com/username", pattern: "url" %>
+    </div>
+    <div class="medium-4 columns">
+      <%= f.label :facebook %>
+      <%= f.text_field :facebook, placeholder: "https://facebook.com/username", pattern: "url" %>
+    </div>
+    <div class="medium-4 columns">
+      <%= f.label :linkedin, "LinkedIn" %>
+      <%= f.text_field :linkedin, placeholder: "https://www.linkedin.com/in/username", pattern: "url" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns">
+      <%= f.label :github %>
+      <%= f.text_field :github, placeholder: "https://github.com/jameswilliamiii", pattern: "url" %>
+    </div>
+    <div class="medium-4 columns">
+      <%= f.label :website %>
+      <%= f.text_field :twitter, placeholder: "http://yourwebsite.com", pattern: "url" %>
+    </div>
+    <div class="medium-4 columns">
+      <%= f.label :email %>
+      <%= f.text_field :email, placeholder: "you@domaon.com", pattern: "email" %>
+    </div>
+  </div>
+  <%= f.submit "Save", class: "button success radius" %>
+<% end %>
