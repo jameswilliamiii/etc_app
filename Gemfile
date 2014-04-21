@@ -59,7 +59,7 @@ gem 'devise'
 gem 'jbuilder', '~> 1.2'
 
 # Tagging for user profile skills
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', '~> 3.1.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
