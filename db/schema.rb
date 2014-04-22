@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421172555) do
+ActiveRecord::Schema.define(version: 20140422152650) do
 
   create_table "profiles", force: true do |t|
     t.string   "name"
@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(version: 20140421172555) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile_type"
   end
+
+  add_index "profiles", ["profile_type"], name: "index_profiles_on_profile_type"
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

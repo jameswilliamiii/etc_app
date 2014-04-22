@@ -7,7 +7,7 @@ class Profile < ActiveRecord::Base
       case key.to_sym
       when :skill
         scope.tagged_with(value.downcase, :any => true, :wild => true)
-      # when :type
+      # when :member_type
       #   if value == "companies"
       #     scope.where(["profile_type > ?", "company"])
       #   elsif value == "premier"

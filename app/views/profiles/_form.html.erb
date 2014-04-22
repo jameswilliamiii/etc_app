@@ -23,8 +23,18 @@
       </div>
     </div>
   </div>
-  <%= f.check_box :public, checked: true %>
-  <%= f.label :public, "Visible by non-members" %>
+  <div class="row">
+    <div class="medium-4 columns">
+      <%= f.radio_button :profile_type, "personal" %>
+      <%= f.label :profile_type, "Personal Profile", value: "personal" %>
+      <%= f.radio_button :profile_type, "company" %>
+      <%= f.label :profile_type, "Company Profile", value: "company" %>
+    </div>
+    <div class="medium-8 columns">
+      <%= f.check_box :public, checked: true %>
+      <%= f.label :public, "Visible by non-members" %>
+    </div>
+  </div>
   <%= f.label :skill_list do %>
     Skills List <small> (separate each skill by a comma)</small>
   <% end %>
