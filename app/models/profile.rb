@@ -18,7 +18,7 @@ class Profile < ActiveRecord::Base
       #     scope
       #   end
       when :search
-        scope.joins(:skills).where("LOWER(profiles.name) LIKE ? OR LOWER(profiles.company) LIKE ? OR LOWER(tags.name) LIKE ?", "%#{value.downcase}%", "%#{value.downcase}%", "%#{value.downcase}" )
+        scope.joins(:skills).where("LOWER(profiles.name) LIKE ? OR LOWER(profiles.company) LIKE ? OR LOWER(tags.name) LIKE ?", "%#{value.downcase}%", "%#{value.downcase}%", "%#{value.downcase}" ).group("profiles.id")
       else
         scope
       end
