@@ -35,6 +35,8 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
+    @profile.destroy
+    redirect_to profiles_url, notice: "Profile successfully deleted"
   end
 
   private

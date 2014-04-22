@@ -65,5 +65,12 @@
       <small class="error">Must be a valid url using 'http://'</small>
     </div>
   </div>
-  <%= f.submit "Save Profile", class: "button success radius" %>
+  <ul class="inline-list">
+    <li>
+      <%= f.submit "Save Profile", class: "button success radius" %>
+    </li>
+    <li>
+      <%= link_to("Delete Profile", profile_url(@profile), method: "delete", class: "button alert radius", confirm: "Are you sure you want to delete this profile?") if @profile.id %>
+    </li>
+  </ul>
 <% end %>
