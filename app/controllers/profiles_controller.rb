@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile_instance_var, except: [ :index, :new, :create ]
 
   def index
-    @profiles = Profile.page params[:page]
+    @profiles = Profile.filter(params).page params[:page]
   end
 
   def show
