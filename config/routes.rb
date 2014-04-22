@@ -1,7 +1,8 @@
 EtcApp::Application.routes.draw do
 
-  devise_for :users
   root 'static_pages#home'
+
+  devise_for :users
 
   get "/index"              => "static_pages#home",               as: :home
   get "/events"             => "static_pages#events",             as: :events
