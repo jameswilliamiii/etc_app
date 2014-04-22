@@ -10,9 +10,6 @@ EtcApp::Application.routes.draw do
 
   resources :profiles
 
-  # Test route for making static version of profile show page
-  get "/profiles/show" => "profiles#show"
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
