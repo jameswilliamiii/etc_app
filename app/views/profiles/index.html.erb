@@ -30,192 +30,34 @@
         <div class="small-12 columns">
           <div class="card-wrapper">
             <ul class="large-block-grid-2 small-block-grid-1">
-              <li>
-                <div class="card">
-                  <div class="row">
-                    <div class="small-4 columns profile-photo">
-                      <%= link_to "/profiles/show" do %>
-                        <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic-small" %>
-                      <% end %>
-                      <div class="member-type">
-                        <p>Premier</p>
+              <% @profiles.each do |profile| %>
+                <li>
+                  <div class="card">
+                    <div class="row">
+                      <div class="small-4 columns profile-photo">
+                        <%= link_to profile_url(profile) do %>
+                          <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic-small" %>
+                        <% end %>
+                        <div class="member-type">
+                          <p>Premier</p>
+                        </div>
+                      </div>
+                      <div class="small-8 columns">
+                        <h5><%= link_to profile.name, profile_url(profile) %></h5>
+                        <p class="company"><%= profile.company %></p>
+                        <p>Member since: Dec 2013</p>
+                        <p>
+                          Skills:
+                          <% profile.skill_list.first(4).each do |s| %>
+                            <%= link_to s, profiles_url(skill: s) %><%= last_skill(s, profile.skill_list.first(4)) ? " ..." : "," %>
+                          <% end %>
+                        </p>
+                        <%= link_to "Learn more", profile_url(profile) %>
                       </div>
                     </div>
-                    <div class="small-8 columns">
-                      <h5><%= link_to "James Stubblefield", "/profiles/show" %></h5>
-                      <p class="company">Reading Glue</p>
-                      <p>Member since: Dec 2013</p>
-                      <p>
-                        Skills:
-                        <a href="#">ruby</a>,
-                        <a href="#">rails</a>,
-                        <a href="#">ruby on rails</a>,
-                        <a href="#">html</a>,
-                        <a href="#">css</a>,
-                        <a href="#">entrepreneurship</a>,
-                        <a href="#">startups</a>
-                        ...
-                      </p>
-                      <%= link_to "Learn more", '/profiles/show' %>
-                    </div>
                   </div>
-                </div>
-              </li>
-              <li>
-                <div class="card">
-                  <div class="row">
-                    <div class="small-4 columns profile-photo">
-                      <%= link_to "/profiles/show" do %>
-                        <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic-small" %>
-                      <% end %>
-                      <div class="member-type">
-                        <p>Premier</p>
-                      </div>
-                    </div>
-                    <div class="small-8 columns">
-                      <h5><%= link_to "James Stubblefield", "/profiles/show" %></h5>
-                      <p class="company">Reading Glue</p>
-                      <p>Member since: Dec 2013</p>
-                      <p>
-                        Skills:
-                        <a href="#">ruby</a>,
-                        <a href="#">rails</a>,
-                        <a href="#">ruby on rails</a>,
-                        <a href="#">html</a>,
-                        <a href="#">css</a>,
-                        <a href="#">entrepreneurship</a>,
-                        <a href="#">startups</a>
-                        ...
-                      </p>
-                      <%= link_to "Learn more", '/profiles/show' %>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="card">
-                  <div class="row">
-                    <div class="small-4 columns profile-photo">
-                      <%= link_to "/profiles/show" do %>
-                        <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic-small" %>
-                      <% end %>
-                      <div class="member-type">
-                        <p>Premier</p>
-                      </div>
-                    </div>
-                    <div class="small-8 columns">
-                      <h5><%= link_to "James Stubblefield", "/profiles/show" %></h5>
-                      <p class="company">Reading Glue</p>
-                      <p>Member since: Dec 2013</p>
-                      <p>
-                        Skills:
-                        <a href="#">ruby</a>,
-                        <a href="#">rails</a>,
-                        <a href="#">ruby on rails</a>,
-                        <a href="#">html</a>,
-                        <a href="#">css</a>,
-                        <a href="#">entrepreneurship</a>,
-                        <a href="#">startups</a>
-                        ...
-                      </p>
-                      <%= link_to "Learn more", '/profiles/show' %>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="card">
-                  <div class="row">
-                    <div class="small-4 columns profile-photo">
-                      <%= link_to "/profiles/show" do %>
-                        <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic-small" %>
-                      <% end %>
-                      <div class="member-type">
-                        <p>Premier</p>
-                      </div>
-                    </div>
-                    <div class="small-8 columns">
-                      <h5><%= link_to "James Stubblefield", "/profiles/show" %></h5>
-                      <p class="company">Reading Glue</p>
-                      <p>Member since: Dec 2013</p>
-                      <p>
-                        Skills:
-                        <a href="#">ruby</a>,
-                        <a href="#">rails</a>,
-                        <a href="#">ruby on rails</a>,
-                        <a href="#">html</a>,
-                        <a href="#">css</a>,
-                        <a href="#">entrepreneurship</a>,
-                        <a href="#">startups</a>
-                        ...
-                      </p>
-                      <%= link_to "Learn more", '/profiles/show' %>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="card">
-                  <div class="row">
-                    <div class="small-4 columns profile-photo">
-                      <%= link_to "/profiles/show" do %>
-                        <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic-small" %>
-                      <% end %>
-                      <div class="member-type">
-                        <p>Premier</p>
-                      </div>
-                    </div>
-                    <div class="small-8 columns">
-                      <h5><%= link_to "James Stubblefield", "/profiles/show" %></h5>
-                      <p class="company">Reading Glue</p>
-                      <p>Member since: Dec 2013</p>
-                      <p>
-                        Skills:
-                        <a href="#">ruby</a>,
-                        <a href="#">rails</a>,
-                        <a href="#">ruby on rails</a>,
-                        <a href="#">html</a>,
-                        <a href="#">css</a>,
-                        <a href="#">entrepreneurship</a>,
-                        <a href="#">startups</a>
-                        ...
-                      </p>
-                      <%= link_to "Learn more", '/profiles/show' %>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="card">
-                  <div class="row">
-                    <div class="small-4 columns profile-photo">
-                      <%= link_to "/profiles/show" do %>
-                        <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic-small" %>
-                      <% end %>
-                      <div class="member-type">
-                        <p>Premier</p>
-                      </div>
-                    </div>
-                    <div class="small-8 columns">
-                      <h5><%= link_to "James Stubblefield", "/profiles/show" %></h5>
-                      <p class="company">Reading Glue</p>
-                      <p>Member since: Dec 2013</p>
-                      <p>
-                        Skills:
-                        <a href="#">ruby</a>,
-                        <a href="#">rails</a>,
-                        <a href="#">ruby on rails</a>,
-                        <a href="#">html</a>,
-                        <a href="#">css</a>,
-                        <a href="#">entrepreneurship</a>,
-                        <a href="#">startups</a>
-                        ...
-                      </p>
-                      <%= link_to "Learn more", '/profiles/show' %>
-                    </div>
-                  </div>
-                </div>
-              </li>
+                </li>
+              <% end %>
             </ul>
           </div>
         </div>

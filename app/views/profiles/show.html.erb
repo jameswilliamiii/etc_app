@@ -74,10 +74,7 @@
             <p>
               Skills:
               <% @profile.skill_list.each do |s| %>
-                <%= link_to s, profiles_url(skill: s) %>
-                <% unless last_skill(s, @profile.skill_list) %>
-                ,
-                <% end %>
+                <%= link_to s, profiles_url(skill: s) %><%= last_skill(s, @profile.skill_list) ? "" : "," %>
               <% end %>
             </p>
             <%= h simple_format(@profile.details).html_safe %>

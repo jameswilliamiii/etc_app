@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile_instance_var, except: [ :index, :new, :create ]
 
   def index
+    @profiles = Profile.all
   end
 
   def show
