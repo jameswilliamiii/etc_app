@@ -58,6 +58,9 @@
                   </div>
                 </li>
               <% end %>
+              <% unless @profiles.present? %>
+                <h4 class="subheader">Sorry, there are no profiles matching your request.</h4>
+              <% end %>
             </ul>
           </div>
         </div>
