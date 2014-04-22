@@ -2,4 +2,8 @@ module ProfilesHelper
   def last_skill(skill, skill_list)
     skill == skill_list.last
   end
+
+  def is_active_sub_nav?(member_level)
+    "active" if params[:type] == member_level
+  end
 end
