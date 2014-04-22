@@ -1,5 +1,6 @@
 EtcApp::Application.routes.draw do
 
+  devise_for :users
   root 'static_pages#home'
 
   get "/index"              => "static_pages#home",               as: :home
