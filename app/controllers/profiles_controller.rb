@@ -26,6 +26,11 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    if @profile.update_attributes profile_params
+      redirect_to @profile, notice: "Profile sucessfully updated"
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -34,7 +39,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:name, :company, :public, :details, :twitter, :facebook, :linkedin, :github, :website, :email)
+    params.require(:profile).permit(:name, :company, :public, :details, :twitter, :facebook, :linkedin, :github, :website, :email, :skill_list)
   end
 
   def set_profile_instance_var

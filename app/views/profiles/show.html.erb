@@ -4,7 +4,7 @@
       <div class="profile-breadcrumbs">
         <ul class="breadcrumbs">
           <li><%= link_to "All Profiles", profiles_url %></li>
-          <li class="unavailable">James Stubblefield</li>
+          <li class="unavailable"><%= @profile.name %></li>
         </ul>
       </div>
       <div class="row">
@@ -12,67 +12,70 @@
           <div class="profile-photo">
             <%= image_tag "profile_pic_large.jpg", alt: "profile pic", class: "circular-profile-pic" %>
           </div>
-          <div class="social-links">
-            <ul class="small-block-grid-3">
-              <li>
-                <%= link_to "#", title: "Twitter" do %>
-                  <%= fa_stacked_icon "twitter", base: "circle" %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to "#", title: "Facebook" do %>
-                  <%= fa_stacked_icon "facebook", base: "circle" %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to "#", title: "LinkedIn" do %>
-                  <%= fa_stacked_icon "linkedin", base: "circle" %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to "#", title: "Github" do %>
-                  <%= fa_stacked_icon "github", base: "circle" %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to "#", title: "Website" do %>
-                  <%= fa_stacked_icon "globe", base: "circle" %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to "#", title: "Email" do %>
-                  <%= fa_stacked_icon "envelope", base: "circle" %>
-                <% end %>
-              </li>
-            </ul>
+          <div class="member-since">
+            <p>Member since: Dec 2013</p>
           </div>
         </div>
         <div class="medium-8 large-9 columns">
           <div class="profile-details">
-            <h1 class="name">James Stubblefield</h1>
-            <h2 class="company"><%= link_to "Reading Glue Inc.", "http://readingglue.com" %></h2>
-            <p>Member since: Dec 2013</p>
+            <h1 class="name"><%= @profile.name %></h1>
+            <h2 class="company"><%= @profile.company %></h2>
+            <div class="social-links">
+              <ul class="inline-list">
+                <% if @profile.twitter.present? %>
+                  <li>
+                    <%= link_to @profile.twitter, title: "Twitter" do %>
+                      <%= fa_stacked_icon "twitter", base: "circle" %>
+                    <% end %>
+                  </li>
+                <% end %>
+                <% if @profile.facebook.present?  %>
+                  <li>
+                    <%= link_to @profile.facebook, title: "Facebook" do %>
+                      <%= fa_stacked_icon "facebook", base: "circle" %>
+                    <% end %>
+                  </li>
+                <% end %>
+                <% if @profile.linkedin.present? %>
+                  <li>
+                    <%= link_to @profile.linkedin, title: "LinkedIn" do %>
+                      <%= fa_stacked_icon "linkedin", base: "circle" %>
+                    <% end %>
+                  </li>
+                <% end %>
+                <% if @profile.github.present? %>
+                  <li>
+                    <%= link_to @profile.github, title: "Github" do %>
+                      <%= fa_stacked_icon "github", base: "circle" %>
+                    <% end %>
+                  </li>
+                <% end %>
+                <% if @profile.website.present? %>
+                  <li>
+                    <%= link_to @profile.website, title: "Website" do %>
+                      <%= fa_stacked_icon "globe", base: "circle" %>
+                    <% end %>
+                  </li>
+                <% end %>
+                <% if @profile.email.present? %>
+                  <li>
+                    <%= link_to "mailto:#{@profile.email}", title: "Email" do %>
+                      <%= fa_stacked_icon "envelope", base: "circle" %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
             <p>
               Skills:
-              <a href="#">ruby</a>,
-              <a href="#">rails</a>,
-              <a href="#">ruby on rails</a>,
-              <a href="#">html</a>,
-              <a href="#">css</a>,
-              <a href="#">entrepreneurship</a>,
-              <a href="#">startups</a>,
-              <a href="#">lean startup</a>,
-              <a href="#">agile development</a>,
-              <a href="#">project management</a>,
-              <a href="#">product management</a>
+              <% @profile.skill_list.each do |s| %>
+                <%= link_to s, profiles_url(skill: s) %>
+                <% unless last_skill(s, @profile.skill_list) %>
+                ,
+                <% end %>
+              <% end %>
             </p>
-            <p>
-              James is an entrepreneur with over 2 years Ruby on Rails development experience.  He is the founder of Reading Glue, an edtech startup focused on providing a digital solution that saves teachers time and improves parent involvement by tracking a student's reading performance in the classroom and home.
-              <br><br>
-              James is also a member of the Elgin Technology Center's Board of Directors.  Most recently James was the instructor of ETC's inaugural Building a Lean Business class.
-              <br><br>
-              When not working on Reading Glue or ETC, James can be found mentoring new programmers in ETC as well as young entrepreneurs attending Starter School.
-            </p>
+            <%= h simple_format(@profile.details).html_safe %>
           </div>
         </div>
       </div>

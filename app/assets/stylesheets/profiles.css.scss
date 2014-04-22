@@ -89,12 +89,16 @@ div.card {
     -moz-border-radius: 75px;
   }
 }
-.social-links {
-  text-align: center;
-  margin: 2.0rem 2.0rem 0 2.0rem;
-  @media #{$small-only} {
-    margin: 2.0rem 6.0rem 0 6.0rem;
+.member-since {
+  p {
+    text-align: center;
+    color: #999;
+    margin-top: 1.0rem;
+    text-transform: uppercase;
+    font-size: 0.825rem;
   }
+}
+.social-links {
   a {
     color: white;
     .fa-circle { color: $primary-color; }
