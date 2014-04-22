@@ -46,12 +46,6 @@ div.card {
     }
   }
   p.company { margin-bottom: 10px; }
-  .circular-profile-pic {
-    width: 150px;
-    border-radius: 75px;
-    -webkit-border-radius: 75px;
-    -moz-border-radius: 75px;
-  }
   .member-type {
     margin: 10px;
     p {
@@ -87,6 +81,12 @@ div.card {
     border-radius: 100px;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
+  }
+  .circular-profile-pic-small {
+    width: 150px;
+    border-radius: 75px;
+    -webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
   }
 }
 .social-links {
@@ -143,5 +143,13 @@ div.card {
     a {
       &:hover { text-decoration: underline; }
     }
+  }
+}
+
+// Profiles form styles
+.form-photo {
+  @media #{$small-only} {
+    text-align: left;
+    margin: 2rem 0;
   }
 }

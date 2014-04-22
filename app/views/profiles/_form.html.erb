@@ -1,10 +1,18 @@
-<%= form_for @profile, :"data-abide" => "" do |f| %>
+<%= form_for @profile, html: { :"data-abide" => "" } do |f| %>
   <div class="row">
-    <div class="medium-6 columns">
+    <div class="medium-4 offset-medium-2 medium-push-8 columns profile-photo">
+      <div class="form-photo">
+        <%= image_tag "empty_profile_photo.svg", class: "circular-profile-pic-small" %>
+      </div>
+    </div>
+    <div class="medium-6 medium-pull-6 columns">
       <div class="row">
         <div class="medium-12 columns">
-          <%= f.label :name %>
-          <%= f.text_field :name, required: true %>
+          <div class="input-wrapper">
+            <%= f.label :name %>
+            <%= f.text_field :name, required: true %>
+            <small class="error">Name is required</small>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -13,9 +21,6 @@
           <%= f.text_field :company %>
         </div>
       </div>
-    </div>
-    <div class="medium-4 offset-medium-2 columns">
-      Photo area to be added later
     </div>
   </div>
   <%= f.check_box :public, checked: true %>
@@ -30,28 +35,34 @@
     <div class="medium-4 columns">
       <%= f.label :twitter %>
       <%= f.text_field :twitter, placeholder: "https://twitter.com/username", pattern: "url" %>
+      <small class="error">Must be a valid url using 'http://'</small>
     </div>
     <div class="medium-4 columns">
       <%= f.label :facebook %>
       <%= f.text_field :facebook, placeholder: "https://facebook.com/username", pattern: "url" %>
+      <small class="error">Must be a valid url using 'http://'</small>
     </div>
     <div class="medium-4 columns">
       <%= f.label :linkedin, "LinkedIn" %>
       <%= f.text_field :linkedin, placeholder: "https://www.linkedin.com/in/username", pattern: "url" %>
+      <small class="error">Must be a valid url using 'http://'</small>
     </div>
   </div>
   <div class="row">
     <div class="medium-4 columns">
       <%= f.label :github %>
       <%= f.text_field :github, placeholder: "https://github.com/jameswilliamiii", pattern: "url" %>
+      <small class="error">Must be a valid url using 'http://'</small>
     </div>
     <div class="medium-4 columns">
       <%= f.label :website %>
       <%= f.text_field :twitter, placeholder: "http://yourwebsite.com", pattern: "url" %>
+      <small class="error">Must be a valid url using 'http://'</small>
     </div>
     <div class="medium-4 columns">
       <%= f.label :email %>
       <%= f.text_field :email, placeholder: "you@domaon.com", pattern: "email" %>
+      <small class="error">Must be a valid url using 'http://'</small>
     </div>
   </div>
   <%= f.submit "Save Profile", class: "button success radius" %>
