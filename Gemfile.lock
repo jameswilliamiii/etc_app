@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/jameswilliamiii/kaminari.git
+  revision: 0a4d5905dec1c4efcf2bf8f5fc2c70d1bf5cbf0d
+  specs:
+    kaminari (0.15.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -232,6 +240,7 @@ DEPENDENCIES
   foundation-rails (~> 5.2.1)
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari!
   launchy
   pg
   quiet_assets

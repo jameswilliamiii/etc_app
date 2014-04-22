@@ -61,6 +61,9 @@ gem 'jbuilder', '~> 1.2'
 # Tagging for user profile skills
 gem 'acts-as-taggable-on', '~> 3.1.1'
 
+# Pagination
+gem 'kaminari', git: 'https://github.com/jameswilliamiii/kaminari.git'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
