@@ -14,6 +14,11 @@
           </div>
           <div class="member-since">
             <p>Member since: Dec 2013</p>
+            <p>
+              <%= link_to edit_profile_url(@profile) do %>
+                <%= fa_icon "edit" %> Edit Profile
+              <% end %>
+            </p>
           </div>
         </div>
         <div class="medium-8 large-9 columns">
