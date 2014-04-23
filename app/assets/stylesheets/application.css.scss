@@ -13,19 +13,29 @@
  *= require_tree .
  */
 
- @import 'foundation_and_overrides';
+@import 'foundation_and_overrides';
 
- img.etc_logo {
+img.etc_logo {
   @media #{$small-only} {
     width: 130px !important;
     margin-top: 15px !important;
   }
- }
- .white {
-   color:white;
- }
- .center {
-   text-align: center;
- }
- .heavy { font-weight: 500; }
- .blue { color:#325180; }
+}
+.white {
+  color:white;
+}
+.center {
+  text-align: center;
+}
+.heavy { font-weight: 500; }
+.blue { color:#325180; }
+
+
+// Devise styles
+[data-abide] {
+  div.errors {
+   small.error.visiable {
+     display: inline-block;
+   }
+  }
+}

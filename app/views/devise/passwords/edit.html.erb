@@ -1,16 +1,39 @@
-<h2>Change your password</h2>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="wrapper">
+      <div class="row">
+        <div class="medium-8 medium-centered columns">
+          <h2>Change your password</h2>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+          <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :"data-abide" => "" }) do |f| %>
+            <%= devise_error_messages! %>
+            <%= f.hidden_field :reset_password_token %>
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
+            <div>
+              <%= f.label :password, "New password" %>
+              <%= f.password_field :password, id: "password", autofocus: true, required: true, pattern: "^.{8,128}$" %>
+              <small class="error">Password must be minimum of 8 characters long</small>
+            </div>
+            <% if resource.errors.include?(:email) %>
+              <div class="errors">
+                <small class="error"><%= resource.errors.full_messages_for(:email).join(", ") %></small>
+              </div>
+            <% end %>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
+            <div>
+              <%= f.label :password_confirmation, "Confirm new password" %>
+              <%= f.password_field :password_confirmation, required: true, :"data-equalto" => "password" %>
+              <small class="error">Must match the password entered above</small>
+            </div>
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
+            <div>
+              <%= f.submit "Change my password", class: "button radius success" %>
+            </div>
+          <% end %>
 
-<%= render "devise/shared/links" %>
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

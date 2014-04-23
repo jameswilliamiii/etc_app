@@ -1300,3 +1300,11 @@ letter-spacing: 2px;
   margin-top: 1.0rem;
   margin-bottom: 1.0rem;
 }
+[data-abide] {
+  div.errors {
+   small.error {
+     display: block;
+     margin-top: -1.0rem;
+   }
+  }
+}
