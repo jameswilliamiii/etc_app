@@ -8,9 +8,9 @@
         <div class="large-6 medium-12 columns">
           <ul class="sub-nav profiles">
             <li class="<%= is_active_sub_nav?(nil) %>"><%= link_to "All", profiles_url %></li>
-            <li class="<%= is_active_sub_nav?('companies') %>"><%= link_to "Companies", profiles_url(member_type: 'companies') %></li>
-            <li class="<%= is_active_sub_nav?('premier') %>"><%= link_to "Premier", profiles_url(member_type: 'premier') %></li>
-            <li class="<%= is_active_sub_nav?('member') %>"><%= link_to "Member", profiles_url(member_type: 'member') %></li>
+            <li class="<%= is_active_sub_nav?('companies') %>"><%= link_to "Companies", profiles_url(membership_type: 'companies') %></li>
+            <li class="<%= is_active_sub_nav?('premier') %>"><%= link_to "Premier", profiles_url(membership_type: 'premier') %></li>
+            <li class="<%= is_active_sub_nav?('member') %>"><%= link_to "Member", profiles_url(membership_type: 'member') %></li>
           </dl>
         </div>
         <div class="large-5 large-offset-1 medium-6 columns left">
