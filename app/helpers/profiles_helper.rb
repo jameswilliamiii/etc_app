@@ -6,4 +6,8 @@ module ProfilesHelper
   def is_active_sub_nav?(member_level)
     "active" if params[:type] == member_level
   end
+
+  def search_or_tag_params_present?
+    params[:search].present? || params[:skill].present?
+  end
 end
