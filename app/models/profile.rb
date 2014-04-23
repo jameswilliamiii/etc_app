@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
   acts_as_taggable_on :skills
+  belongs_to :user
 
   def self.filter(attributes)
     attributes.inject(self) do |scope, (key, value)|

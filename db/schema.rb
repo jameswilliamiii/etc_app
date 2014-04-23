@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422193602) do
+ActiveRecord::Schema.define(version: 20140423051345) do
 
   create_table "profiles", force: true do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140422193602) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "profile_type"
+    t.integer  "user_id"
   end
 
   add_index "profiles", ["profile_type"], name: "index_profiles_on_profile_type"
