@@ -1,29 +1,79 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="wrapper">
+      <div class="row">
+        <div class="medium-8 medium-centered columns">
+          <h2>Edit <%= resource_name.to_s.humanize %></h2>
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :"data-abide" => "" }) do |f| %>
+            <div class="row">
+              <div class="medium-6 columns end">
+                <%= f.label :first_name, "First Name" %>
+                <%= f.text_field :first_name, autofocus: true, required: true %>
+                <small class="error">First name is required</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-6 columns end">
+                <%= f.label :last_name, "Last Name" %>
+                <%= f.text_field :last_name, required: true %>
+                <small class="error">Last name is required</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-6 columns end">
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true, required: true, pattern: "email" %>
+                <small class="error">A valid email is required</small>
+                <% if resource.errors.include?(:email) %>
+                  <div class="errors">
+                    <small class="error"><%= resource.errors.full_messages_for(:email).join(", ") %></small>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>
+                Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+              </div>
+            <% end %>
+            <div class="row">
+              <div class="medium-6 columns end">
+                <%= f.label :password do %>
+                  Password
+                  <small> (leave blank if you don't want to change it)</small>
+                <% end %>
+                <%= f.password_field :password, id: "password", autocomplete: "off", pattern: "password" %>
+                <small class="error">Password must be a minimum of 8 characters</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-6 columns end">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, :"data-qualto" => "password" %>
+                <small class="error">Must match password entered above</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-6 columns end">
+                <%= f.label :current_password do %>
+                  Current Password
+                  <small>(we need your current password to confirm your changes)</small>
+                <% end %>
+                <%= f.password_field :current_password, required: true %>
+                <small class="error">Current password is required</small>
+                <% if resource.errors.include?(:current_password) %>
+                  <div class="errors">
+                    <small class="error"><%= resource.errors.full_messages_for(:current_password).join(", ") %></small>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div>
+              <%= f.submit "Update", class: "button radius success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

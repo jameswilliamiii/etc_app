@@ -6,12 +6,11 @@
           <h2>Change your password</h2>
 
           <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :"data-abide" => "" }) do |f| %>
-            <%= devise_error_messages! %>
             <%= f.hidden_field :reset_password_token %>
 
             <div>
               <%= f.label :password, "New password" %>
-              <%= f.password_field :password, id: "password", autofocus: true, required: true, pattern: "^.{8,128}$" %>
+              <%= f.password_field :password, id: "password", autofocus: true, required: true, pattern: "password" %>
               <small class="error">Password must be minimum of 8 characters long</small>
             </div>
             <% if resource.errors.include?(:email) %>

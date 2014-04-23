@@ -1,12 +1,23 @@
-<h2>Resend confirmation instructions</h2>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="wrapper">
+      <div class="row">
+        <div class="medium-8 medium-centered columns">
+          <h2>Resend confirmation instructions</h2>
+          <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :"data-abide" => "" }) do |f| %>
+            <div>
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true, required: true, pattern: "email" %>
+              <small class="error">A valid email is required</small>
 
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.submit "Resend confirmation instructions" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+            </div>
+            <div>
+              <%= f.submit "Resend confirmation instructions", class: "button radius success" %>
+            </div>
+          <% end %>
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

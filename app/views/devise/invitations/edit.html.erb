@@ -1,14 +1,25 @@
-<h2><%= t 'devise.invitations.edit.header' %></h2>
-
-<%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :invitation_token %>
-
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
-
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
-
-  <p><%= f.submit t("devise.invitations.edit.submit_button") %></p>
-<% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="wrapper">
+      <div class="row">
+        <div class="medium-8 medium-centered columns">
+          <h2><%= t 'devise.invitations.edit.header' %></h2>
+          <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put, :"data-abide" => "" } do |f| %>
+            <%= f.hidden_field :invitation_token %>
+            <div>
+              <%= f.label :password %>
+              <%= f.password_field :password, id: "password", required: true, pattern: "password" %>
+            </div>
+            <div>
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, :"data-equalto" => "password" %>
+            </div>
+            <div>
+              <%= f.submit t("devise.invitations.edit.submit_button"), class: "button radius success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
