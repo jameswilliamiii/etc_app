@@ -3,6 +3,10 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.filter(params).page params[:page]
+    unless @profiles.present?
+      ids = Profile.pluck(:id)
+      @random_profiles = Profile.find(ids.sample(2))
+    end
   end
 
   def show
