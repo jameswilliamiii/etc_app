@@ -37,8 +37,8 @@
               <% @profiles.each do |profile| %>
                 <%= render 'profile_card', object: profile %>
               <% end %>
-              <% unless @profiles.present? %>
-                <h5 class="subheader">Sorry, there are no profiles matching: <i><%= params[:search] %></i></h5>
+              <% if @random_profiles.present? %>
+                <h5 class="subheader">Sorry, there are no profiles matching: <i><%= params[:search] %><%= params[:skill] %><%= params[:membership_type] %></i></h5>
                 <h5 class="subheader profile-header-spacer">Here are some other members you might be interested in.</h5>
                 <% @random_profiles.each do |profile| %>
                   <%= render 'profile_card', object: profile %>
