@@ -15,8 +15,10 @@
           <div class="member-since">
             <p>Member since: Dec 2013</p>
             <p>
-              <%= link_to edit_profile_url(@profile) do %>
-                <%= fa_icon "edit" %> Edit Profile
+              <% if current_user == @profile.user %>
+                <%= link_to edit_profile_url(@profile) do %>
+                  <%= fa_icon "edit" %> Edit Profile
+                <% end %>
               <% end %>
             </p>
           </div>

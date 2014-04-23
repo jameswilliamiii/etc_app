@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile_instance_var, except: [ :index, :new, :create ]
+  before_action :authenticate_user!, except: [ :index, :show ]
 
   def index
     @profiles = Profile.filter(params).page params[:page]
