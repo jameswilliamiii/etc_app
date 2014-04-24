@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   has_many :profiles
 
   validates_presence_of [ :email, :first_name, :last_name, :membership_type ]
+
+  def is_admin?
+    self.admin == true
+  end
 end

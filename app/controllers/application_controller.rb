@@ -12,4 +12,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:accept_invitation) << [ :first_name, :last_name ]
     devise_parameter_sanitizer.for(:invite) << [ :membership_type, :first_name, :last_name, :member_since ]
   end
+
+  def authenticate_admin!
+    unless current_user.is_admin?
+      redirect_to user_root_url, alert: "You do not have access to this page"
+  end
 end
