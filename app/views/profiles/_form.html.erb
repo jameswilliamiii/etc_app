@@ -29,6 +29,11 @@
       <%= f.label :profile_type, "Personal Profile", value: "personal" %>
       <%= f.radio_button :profile_type, "company" %>
       <%= f.label :profile_type, "Company Profile", value: "company" %>
+      <% if @profile.errors.include?(:profile_type) %>
+        <div class="errors profile-error">
+          <small class="error"><%= @profile.errors.full_messages_for(:profile_type).join(", ") %></small>
+        </div>
+      <% end %>
     </div>
     <div class="medium-8 columns">
       <%= f.check_box :public, checked: true %>

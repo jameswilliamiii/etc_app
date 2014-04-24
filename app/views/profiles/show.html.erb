@@ -13,7 +13,7 @@
             <%= image_tag "profile_pic_large.jpg", alt: "profile pic", class: "circular-profile-pic" %>
           </div>
           <div class="member-since">
-            <p>Member since: Dec 2013</p>
+            <p>Member since: <%= @profile.user.member_since.strftime('%b %Y') %></p>
             <p>
               <% if current_user == @profile.user %>
                 <%= link_to edit_profile_url(@profile) do %>
