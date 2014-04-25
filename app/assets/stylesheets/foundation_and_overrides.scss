@@ -35,6 +35,8 @@ $light-gray: #FAFAFA;
 $light-gray-border: #BBBBBB;
 $profile-card-text: #666666;
 
+$nav-borders: 1px solid #CCC;
+
 // Grid
 
 // $include-html-grid-classes: $include-html-classes;
@@ -1248,8 +1250,6 @@ $topbar-menu-icon-color-toggled: $topbar-link-color;
 
 .contain-to-grid {
   background-color: $light-gray;
-  opacity:0.96;
-  filter:alpha(opacity=96); /* For IE8 and earlier */;
   @media #{$medium-up} {
     border-bottom: 1px solid #BBBBBB;
   }

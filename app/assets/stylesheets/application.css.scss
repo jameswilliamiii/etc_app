@@ -10,10 +10,13 @@
  *
  *= require_self
  *= require font-awesome
- *= require_tree .
+ *= .
  */
 
 @import 'foundation_and_overrides';
+@import 'profiles';
+@import 'static_pages';
+@import 'users';
 
 img.etc_logo {
   @media #{$small-only} {
@@ -30,6 +33,40 @@ img.etc_logo {
 .heavy { font-weight: 500; }
 .blue { color:#325180; }
 
+// Nav styles
+img.nav-profile-pic {
+  width: 45px;
+  border-radius: 23px;
+  -webkit-border-radius: 23px;
+  -moz-border-radius: 23px;
+  border: 1px solid $light-gray-border;
+}
+a.dropdown-top-item {
+  line-height: $topbar-height;
+}
+
+.top-bar-section li:not(.has-form) {
+  a:not(.button) {
+    line-height: 42px;
+    border-top: $nav-borders;
+    border-right: $nav-borders;
+    border-left: $nav-borders;
+  }
+  a:not(.button).dropdown-top-item {
+    border-bottom: $nav-borders;
+    @media #{$medium-up} {
+      line-height: 85px;
+      border: none;
+    }
+  }
+  a:not(.button).last-nav-item {
+    border-bottom: $nav-borders;
+  }
+}
+.dropdown li.back h5 {
+  font-size: $topbar-link-font-size;
+  text-transform: uppercase;
+}
 
 // Devise styles
 [data-abide] {

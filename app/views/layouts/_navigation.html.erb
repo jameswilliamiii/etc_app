@@ -14,11 +14,28 @@
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
-        <li><%= link_to "Events", events_url %></li>
-        <li><%= link_to "Classes", classes_url %></li>
-        <li><%= link_to "Directory", profiles_url %></li>
-        <li><%= link_to "Join Us", apply_url %></li>
-        <!-- <li><a href="#">Blog</a></li> -->
+        <% if user_signed_in? %>
+          <li class="has-dropdown">
+            <%= link_to '#', class: "dropdown-top-item" do %>
+              <%= current_user.name %>
+              <%= image_tag "profile_pic_small.jpg", class: "nav-profile-pic" %>
+            <% end %>
+            <ul class="dropdown">
+              <li><%= link_to "Sign Out", destroy_user_session_url %></li>
+              <li><%= link_to "Account", user_root_url %></li>
+              <li><%= link_to "Events", events_url %></li>
+              <li><%= link_to "Classes", classes_url %></li>
+              <li><%= link_to "Directory", profiles_url, class: "last-nav-item" %></li>
+            </ul>
+          </li>
+          <!-- <li><a href="#">Blog</a></li> -->
+        <% else %>
+          <li><%= link_to "Events", events_url %></li>
+          <li><%= link_to "Classes", classes_url %></li>
+          <li><%= link_to "Directory", profiles_url %></li>
+          <li><%= link_to "Join Us", apply_url %></li>
+          <!-- <li><a href="#">Blog</a></li> -->
+        <% end %>
       </ul>
     </section>
   </nav>
