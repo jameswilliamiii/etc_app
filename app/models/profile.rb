@@ -27,4 +27,8 @@ class Profile < ActiveRecord::Base
       end
     end
   end
+
+  def is_public?
+    self.public = true
+  end
 end
