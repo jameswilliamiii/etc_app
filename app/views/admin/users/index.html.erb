@@ -32,8 +32,12 @@
                     <% end %>
                   </li>
                   <li>
-                    <%= link_to admin_user_invite_url(user), method: "post", title: "Invite" do %>
-                      <%= fa_stacked_icon "envelope-o", base: "circle" %>
+                    <% if user.invitation_accepted? %>
+                      <%= fa_stacked_icon "envelope-o", base: "circle", class: "disabled" %>
+                    <% else %>
+                      <%= link_to admin_user_invite_url(user), class: disable_invite?, method: "post", title: "Invite" do %>
+                        <%= fa_stacked_icon "envelope-o", base: "circle" %>
+                      <% end %>
                     <% end %>
                   </li>
                 </ul>

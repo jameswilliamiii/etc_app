@@ -101,6 +101,16 @@ table {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0;
+    .disabled {
+      font-size: 0.8rem;
+      color: #BBB;
+      @media #{$small-only} {
+        margin: 5px 0;
+      }
+      .fa-stack-1x {
+        color: white;
+      }
+    }
     a {
       font-size: 0.8rem;
       @media #{$small-only} {
