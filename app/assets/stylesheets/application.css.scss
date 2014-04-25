@@ -45,7 +45,7 @@ a.dropdown-top-item {
   line-height: $topbar-height;
 }
 
-.top-bar-section li:not(.has-form) {
+.top-bar-section.signed-in li:not(.has-form) {
   a:not(.button) {
     line-height: 42px;
     border-top: $nav-borders;
