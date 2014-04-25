@@ -86,7 +86,8 @@ a.dropdown-top-item {
 }
 
 // Admin styles
-table {
+table.responsive {
+  width: 100%;
   th {
     text-transform: uppercase;
   }
