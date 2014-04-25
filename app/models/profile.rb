@@ -2,7 +2,7 @@ class Profile < ActiveRecord::Base
   acts_as_taggable_on :skills
   belongs_to :user
   validates_presence_of [ :name, :profile_type, :user_id ]
-  paginates_per 25
+  paginates_per 6
 
   def self.filter(attributes)
     attributes.inject(self) do |scope, (key, value)|

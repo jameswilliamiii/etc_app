@@ -21,7 +21,9 @@ EtcApp::Application.routes.draw do
   get "/class-registration" => "static_pages#class_registration", as: :class_registration
 
   namespace :admin do
-    resources :users, except: [ :new, :create ]
+    resources :users, except: [ :new, :create ] do
+      post "/invite" => "users#invite_user"
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
