@@ -6,10 +6,11 @@ EtcApp::Application.routes.draw do
   # This route must be above the devise routes to keep people from going to sign_up action
   get "/users/sign_up" => redirect('/users/sign_in')
 
-  devise_for :users
+  devise_for :users, :controllers => { :invitations => 'admin/invitations' }
 
   devise_scope :user do
     get 'user', :to => 'users#show', :as => :user_root
+    get "admin/users/invitation/new" => "devise/invitations#new"
   end
 
   resources :profiles

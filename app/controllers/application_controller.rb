@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin!
     unless current_user.is_admin?
-      redirect_to user_root_url, alert: "You do not have access to this page"
+      redirect_to user_root_url, alert: "You do not have access to that page"
+    end
+  end
+
+  def authenticate_inviter!
+    authenticate_admin!
   end
 end

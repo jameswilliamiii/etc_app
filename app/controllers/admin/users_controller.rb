@@ -1,4 +1,4 @@
-class AdminUsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   before_action :assign_user_instance_var, except: [ :index, :invite_user ]
   before_action :authenticate_admin!
 
