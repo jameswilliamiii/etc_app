@@ -1,7 +1,162 @@
 <div class="row">
   <div class="large-12 columns">
     <div class="wrapper">
-
+      <div class="row">
+        <div class="medium-12 columns">
+          <div class="panel radius">
+            <div class="row">
+              <div class="medium-9 columns">
+                <h4>User Account Details</h4>
+              </div>
+              <div class="medium-3 columns">
+                <div class="edit-link">
+                  <%= link_to edit_user_registration_url do %>
+                    <%= fa_icon "edit" %> Edit
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Name:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= @user.name %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Email:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= @user.email %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Joined:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= @user.member_since.strftime('%b %Y') %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Plan:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= @user.membership_type.titleize %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="medium-12 columns">
+          <div class="panel radius">
+            <div class="row">
+              <div class="medium-9 columns">
+                <h4>Profile Details</h4>
+              </div>
+              <div class="medium-3 columns">
+                <div class="edit-link">
+                  <%= link_to edit_profile_url(@profile) do %>
+                    <%= fa_icon "edit" %> Edit
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Type:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= @profile.profile_type.titleize %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Name:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= @profile.name %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Company:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= @profile.company %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Seen By:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= @profile.public ? "Anyone" : "Only Members" %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Details:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= simple_format(@profile.details) %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Twitter:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= link_to(@profile.twitter.partition('.com/').last, @profile.twitter) if @profile.twitter.present? %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Facebook:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= link_to(@profile.facebook.partition('.com/').last, @profile.facebook) if @profile.facebook.present? %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">LinkedIn:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= link_to(@profile.linkedin.partition('.com/').last, @profile.linkedin) if @profile.linkedin.present? %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Github:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= link_to(@profile.github.partition('.com/').last, @profile.github) if @profile.github.present? %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Website:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= link_to(@profile.website, @profile.website) if @profile.website.present? %></p>
+              </div>
+            </div>
+            <div class="row collapse">
+              <div class="small-3 medium-2 large-1 columns user-details">
+                <p class="label-left"><small class="bold-label">Email:</small></p>
+              </div>
+              <div class="small-9 medium-10 large-11 columns user-details">
+                <p class="details-right"><%= link_to @profile.email, "mailto:#{@profile.email}" %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

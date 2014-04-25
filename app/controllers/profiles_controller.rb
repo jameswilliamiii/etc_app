@@ -17,6 +17,8 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
+    @profile.name = current_user.name
+    @profile.email = current_user.email
   end
 
   def create
