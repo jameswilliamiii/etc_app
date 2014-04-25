@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require font-awesome
+ *= require responsive-tables
  *= .
  */
 
@@ -81,5 +82,33 @@ a.dropdown-top-item {
    small.error.visiable {
      display: inline-block;
    }
+  }
+}
+
+// Admin styles
+table {
+  th {
+    text-transform: uppercase;
+  }
+  th.actions { min-width: 200px !important; }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .invitation-status {
+    text-align: center;
+  }
+  ul.inline-list {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    a {
+      font-size: 0.8rem;
+      @media #{$small-only} {
+        margin: 5px 0;
+      }
+      .fa-stack-1x {
+        color: white;
+      }
+    }
   }
 }

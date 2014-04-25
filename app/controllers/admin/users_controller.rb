@@ -30,7 +30,7 @@ class Admin::UsersController < ApplicationController
   def invite_user
     @user = User.find params[:user_id]
     @user.invite!(current_user)
-    redirect_to @user, notice: "#{@user.name} was sent an invitation to join"
+    redirect_to admin_user_url(@user), notice: "#{@user.name} was sent an invitation to join"
   end
 
   private

@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
   def has_profile?
     self.profiles.present?
   end
+
+  def invitation_accepted?
+    self.invitation_accepted_at.present?
+  end
 end
