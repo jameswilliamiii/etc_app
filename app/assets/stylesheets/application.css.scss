@@ -59,7 +59,7 @@ a.dropdown-top-item {
       border: none;
     }
   }
-  a:not(.button).last-nav-item {
+  a:not(.button).last-dropdown-item {
     border-bottom: $nav-borders;
   }
 }
