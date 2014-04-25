@@ -22,4 +22,8 @@ class User < ActiveRecord::Base
   def invitation_accepted?
     self.invitation_accepted_at.present?
   end
+
+  def profile
+    self.profiles.first
+  end
 end

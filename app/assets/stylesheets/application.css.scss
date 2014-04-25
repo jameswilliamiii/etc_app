@@ -90,7 +90,7 @@ table {
   th {
     text-transform: uppercase;
   }
-  th.actions { min-width: 200px !important; }
+  th.actions { min-width: 180px !important; }
   .uppercase {
     text-transform: uppercase;
   }
@@ -127,5 +127,11 @@ p.invitation-status {
     vertical-align: text-top;
     margin-left: 5px;
     margin-bottom: 0;
+  }
+}
+div.invite-user {
+  text-transform: uppercase;
+  @media #{$medium-up} {
+    float: right;
   }
 }

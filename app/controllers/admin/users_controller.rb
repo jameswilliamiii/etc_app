@@ -16,7 +16,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      redirect_to @profile, notice: "#{@user.name} was updated successfully"
+      redirect_to admin_user_url(@user), notice: "#{@user.name} was updated successfully"
     else
       render 'edit'
     end

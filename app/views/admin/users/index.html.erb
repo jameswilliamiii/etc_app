@@ -1,7 +1,16 @@
 <div class="row">
   <div class="large-12 columns">
     <div class="wrapper">
-      <h2>All Members of ETC</h2>
+      <div class="row">
+        <div class="medium-8 columns">
+          <h2>All Members of ETC</h2>
+        </div>
+        <div class="medium-4 columns">
+          <div class="invite-user">
+            <%= link_to "Invite New Member", new_user_invitation_url, class: "button radius small" %>
+          </div>
+        </div>
+      </div>
       <table class="responsive users-table">
         <thead>
           <tr>
@@ -9,6 +18,7 @@
             <th>Email</th>
             <th>Type</th>
             <th>Invite Status</th>
+            <th>Profile</th>
             <th class="actions">Actions</th>
           </tr>
         </thead>
@@ -19,6 +29,7 @@
               <td><%= link_to user.email, "mailto:#{user.email}" %></td>
               <td class="uppercase"><%= user.membership_type %></td>
               <td class="uppercase invitation-status"><%= invitation_status(user) %></td>
+              <td><%= link_to(truncate(profile_url(user.profile), length: 25),profile_url(user.profile)) if user.has_profile? %></td>
               <td>
                 <ul class="inline-list uppercase">
                   <li>
@@ -35,7 +46,7 @@
                     <% if user.invitation_accepted? %>
                       <%= fa_stacked_icon "envelope-o", base: "circle", class: "disabled" %>
                     <% else %>
-                      <%= link_to admin_user_invite_url(user), class: disable_invite?, method: "post", title: "Invite" do %>
+                      <%= link_to admin_user_invite_url(user), method: "post", title: "Invite" do %>
                         <%= fa_stacked_icon "envelope-o", base: "circle" %>
                       <% end %>
                     <% end %>

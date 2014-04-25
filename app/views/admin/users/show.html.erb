@@ -27,7 +27,7 @@
             <h2 class="company"><%= @user.membership_type.titleize %></h2>
             <p>Email: <%= link_to @user.email, "mailto:#{@user.email}" %></p>
             <p class="invitation-status">Invitation status: <%= invitation_status(@user) %></p>
-            <p>Profile: <%= link_to(profile_url(@user.profiles.first), profile_url(@user.profiles.first)) if @user.has_profile? %></p>
+            <p>Profile: <%= link_to(profile_url(@user.profile), profile_url(@user.profile)) if @user.has_profile? %></p>
           </div>
         </div>
       </div>
