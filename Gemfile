@@ -44,6 +44,9 @@ end
 # Using pg for dev and production
 gem 'pg'
 
+# Used for full-text search in pg
+gem 'pg_search'
+
 gem 'jquery-rails'
 # gem 'turbolinks'
 

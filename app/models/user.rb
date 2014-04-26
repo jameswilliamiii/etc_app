@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include PgSearch
+  pg_search_scope :search_by_full_name_or_company, against: [ :first_name, :last_name ], associated_against: {:profiles => :company}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
@@ -32,7 +34,7 @@ class User < ActiveRecord::Base
       return scope if value.blank?
       case key.to_sym
       when :search
-        scope
+        scope.search_by_full_name_or_company(value)
       else
         scope
       end
