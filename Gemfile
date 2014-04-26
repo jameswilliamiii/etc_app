@@ -23,7 +23,6 @@ group :test do
 end
 
 group :development do
-  gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'brakeman', :require => false
@@ -33,7 +32,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
@@ -42,6 +40,9 @@ group :assets do
   gem 'coffee-rails', '~> 4.0.0'
   gem 'uglifier', '>= 1.3.0'
 end
+
+# Using pg for dev and production
+gem 'pg'
 
 gem 'jquery-rails'
 # gem 'turbolinks'

@@ -26,4 +26,16 @@ class User < ActiveRecord::Base
   def profile
     self.profiles.first
   end
+
+  def self.filter(attributes)
+    attributes.inject(self) do |scope, (key, value)|
+      return scope if value.blank?
+      case key.to_sym
+      when :search
+        scope
+      else
+        scope
+      end
+    end
+  end
 end

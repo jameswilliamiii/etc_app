@@ -87,11 +87,16 @@ a.dropdown-top-item {
 
 // Admin styles
 table.responsive {
-  width: 100%;
+  @media #{$medium-up} {
+    width: 100%;
+  }
   th {
     text-transform: uppercase;
   }
-  th.actions { min-width: 180px !important; }
+  th.actions {
+    min-width: 180px !important;
+    text-align: center;
+  }
   .uppercase {
     text-transform: uppercase;
   }
@@ -131,8 +136,14 @@ p.invitation-status {
   }
 }
 div.invite-user {
-  text-transform: uppercase;
-  @media #{$medium-up} {
-    float: right;
+  p {
+    font-size: 1.0rem;
+    text-transform: uppercase;
+    margin-bottom: 1.0rem;
+    font-size: 0.8rem;
   }
 }
+div.user-search {
+  margin-top: 1.5rem;
+}
+small.show-all { margin-left: 1.0rem; }

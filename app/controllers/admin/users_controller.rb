@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @users = User.page params[:page]
+    @users = User.filter(params).page params[:page]
   end
 
   def show

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140424193620) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "profiles", force: true do |t|
     t.string   "name"
     t.string   "company"
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140424193620) do
     t.integer  "user_id"
   end
 
-  add_index "profiles", ["profile_type"], name: "index_profiles_on_profile_type"
+  add_index "profiles", ["profile_type"], name: "index_profiles_on_profile_type", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -42,14 +45,14 @@ ActiveRecord::Schema.define(version: 20140424193620) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
 
   create_table "tags", force: true do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -79,11 +82,11 @@ ActiveRecord::Schema.define(version: 20140424193620) do
     t.boolean  "admin"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count"
-  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
-  add_index "users", ["membership_type"], name: "index_users_on_membership_type"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+  add_index "users", ["membership_type"], name: "index_users_on_membership_type", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
