@@ -7,6 +7,7 @@ Contributors: James Stubblefield
 ## Step 1
 
 ETC_APP uses PostgreSQL, so you will need to make sure this is set up on your local machine by installing the gem.
+
     gem install pg
 
 You will then need to create and migrate your database.
@@ -24,11 +25,11 @@ This app uses the following environment variables.
 
 You will need to make sure these are set up locally or your app will throw errors.
 
-You can generate a secret token for rails by running the following command.  Store that token as ENV["SECRET_TOKEN"].
+You can generate a secret token for rails by running the following command.  Store that token as `ENV["SECRET_TOKEN"]`.
 
     $  rake secret
 
-Repeat that same step two more times to get unique keys for ENV["DEVISE_SECRET_KEY"] and ENV["DEVISE_PEPPER"].
+Repeat that same step two more times to get unique keys for `ENV["DEVISE_SECRET_KEY"]` and `ENV["DEVISE_PEPPER"]`.
 
 ## Step 3
 
@@ -46,4 +47,4 @@ You will need to create your first user through console with the following comma
     u.admin = true
     u.save
 
-This will create your user account and assign you as admin so you can use those functions.
+This will create your user account and assign you as admin so you can use those functions.  All other users can be added by console or through the app by using the `users/invitation/new` path.  The app is set up to use [devise_invitable gem](https://github.com/scambra/devise_invitable).
