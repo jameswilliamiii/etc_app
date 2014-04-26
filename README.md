@@ -1,8 +1,6 @@
 Rails application for the Elgin Technology Center
 
-Contributors:
-
-James Stubblefield
+Contributors: James Stubblefield
 
 # Initial Setup of app
 
@@ -13,24 +11,30 @@ ETC_APP uses PostgreSQL, so you will need to make sure this is set up on your lo
 
 You will then need to create and migrate your database.
 
-    rake db:create
-    rake db:migrate
+    $  rake db:create
+    $  rake db:migrate
 
 ## Step 2
 
 This app uses the following environment variables.
 
-    ENV['SECRET_TOKEN']
-    ENV['DEVISE_SECRET_KEY']
-    ENV['DEVISE_PEPPER']
+    ENV["SECRET_TOKEN"]
+    ENV["DEVISE_SECRET_KEY"]
+    ENV["DEVISE_PEPPER"]
 
 You will need to make sure these are set up locally or your app will throw errors.
+
+You can generate a secret token for rails by running the following command.  Store that token as ENV["SECRET_TOKEN"].
+
+    $  rake secret
+
+Repeat that same step two more times to get unique keys for ENV["DEVISE_SECRET_KEY"] and ENV["DEVISE_PEPPER"].
 
 ## Step 3
 
 You will need to create your first user through console with the following commands.  Make sure your password is at least 8 characters long.
 
-    rails c
+    $  rails c
     u = User.new
     u.email = "your@email.com"
     u.password = "your_password"
