@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424193620) do
+ActiveRecord::Schema.define(version: 20140428204323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 20140424193620) do
     t.datetime "updated_at"
     t.string   "profile_type"
     t.integer  "user_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "profiles", ["profile_type"], name: "index_profiles_on_profile_type", using: :btree

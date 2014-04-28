@@ -1,8 +1,17 @@
-<%= form_for @profile, html: { :"data-abide" => "" } do |f| %>
+<%= form_for @profile, html: { :"data-abide" => "", :multipart => true } do |f| %>
   <div class="row">
     <div class="medium-4 offset-medium-2 medium-push-8 columns profile-photo">
       <div class="form-photo">
-        <%= image_tag "empty_profile_photo.svg", class: "circular-profile-pic-small" %>
+        <img src="" alt="" id="image-preview">
+        <div class="file-upload-hidden">
+          <%= f.file_field :avatar %>
+        </div>
+        <div class="file-upload-visible">
+          <div class="filename">
+            <small id="filename"></small>
+          </div>
+          <button type="button" onclick="chooseFile();" class="small radius secondary">CHOOSE IMAGE</button>
+        </div>
       </div>
     </div>
     <div class="medium-6 medium-pull-6 columns">
@@ -21,23 +30,25 @@
           <%= f.text_field :company %>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="medium-4 columns">
-      <%= f.radio_button :profile_type, "personal" %>
-      <%= f.label :profile_type, "Personal Profile", value: "personal" %>
-      <%= f.radio_button :profile_type, "company" %>
-      <%= f.label :profile_type, "Company Profile", value: "company" %>
-      <% if @profile.errors.include?(:profile_type) %>
-        <div class="errors profile-error">
-          <small class="error"><%= @profile.errors.full_messages_for(:profile_type).join(", ") %></small>
+      <div class="row">
+        <div class="medium-12 columns">
+          <%= f.radio_button :profile_type, "personal" %>
+          <%= f.label :profile_type, "Personal Profile", value: "personal" %>
+          <%= f.radio_button :profile_type, "company" %>
+          <%= f.label :profile_type, "Company Profile", value: "company" %>
+          <% if @profile.errors.include?(:profile_type) %>
+            <div class="errors profile-error">
+              <small class="error"><%= @profile.errors.full_messages_for(:profile_type).join(", ") %></small>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
-    <div class="medium-8 columns">
-      <%= f.check_box :public, checked: true %>
-      <%= f.label :public, "Visible by non-members" %>
+      </div>
+      <div class="row">
+        <div class="medium-12 columns">
+          <%= f.check_box :public, checked: true %>
+          <%= f.label :public, "Visible by non-members" %>
+        </div>
+      </div>
     </div>
   </div>
   <%= f.label :skill_list do %>

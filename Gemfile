@@ -71,6 +71,12 @@ gem 'acts-as-taggable-on', '~> 3.1.1'
 # Pagination
 gem 'kaminari', git: 'https://github.com/jameswilliamiii/kaminari.git'
 
+# File uploads
+gem "paperclip", "~> 4.1"
+
+# Cropping images
+gem 'papercrop'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require jquery.jcrop
+//= require papercrop
 //= require_tree .
 
 $(function(){ $(document).foundation();
@@ -80,4 +82,25 @@ $(function(){ $(document).foundation();
     e.preventDefault();
   });
 
+  $('input[type=file]').change(function () {
+    var input = $(this);
+    if (input[0].files && input[0].files[0]) {
+      var file = input[0].files[0]
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          $('#image-preview').attr('src', e.target.result);
+      };
+      reader.readAsDataURL(input[0].files[0]);
+      if (file) {
+        //Put the file name into a div with id of 'filename'
+        $('#filename').html(file.name);
+      }
+    }
+  });
+
 });
+
+// Fire file upload for profiles form
+function chooseFile() {
+  $("#profile_avatar").click();
+}

@@ -1,6 +1,8 @@
 class Profile < ActiveRecord::Base
   acts_as_taggable_on :skills
   belongs_to :user
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "150x150>" }, :default_url => "/images/:style/missing.png"
+  crop_attached_file :avatar
   validates_presence_of [ :name, :profile_type, :user_id ]
   paginates_per 6
 
