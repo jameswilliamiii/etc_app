@@ -31,4 +31,8 @@ class Profile < ActiveRecord::Base
   def is_public?
     self.public = true
   end
+
+  def is_personal?
+    self.profile_type == "personal"
+  end
 end

@@ -25,8 +25,16 @@
         </div>
         <div class="medium-8 large-9 columns">
           <div class="profile-details">
-            <h1 class="name"><%= @profile.name %></h1>
-            <h2 class="company"><%= @profile.company %></h2>
+            <% if @profile.is_personal? %>
+              <h1 class="name"><%= @profile.name %></h1>
+            <% else %>
+              <h1 class="name"><%= @profile.company %></h1>
+            <% end %>
+            <% if @profile.is_personal? %>
+              <h2 class="company"><%= @profile.company %></h2>
+            <% else %>
+              <h2 class="company">Contact: <%= @profile.name %></h2>
+            <% end %>
             <div class="social-links">
               <ul class="inline-list">
                 <% if @profile.twitter.present? %>
