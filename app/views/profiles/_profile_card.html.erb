@@ -10,9 +10,14 @@
         </div>
       </div>
       <div class="small-8 columns">
-        <h5><%= link_to object.name, profile_url(object) %></h5>
-        <p class="company"><%= object.company %></p>
-        <p>Member since: <%= object.user.member_since %></p>
+        <% if object.is_personal? %>
+          <h5><%= link_to object.name, profile_url(object) %></h5>
+          <p class="company"><%= object.company %></p>
+        <% else %>
+          <h5><%= link_to object.company, profile_url(object) %></h5>
+          <p class="company"><%= object.name %></p>
+        <% end %>
+        <p>Member since: <%= object.user.member_since.strftime('%b %Y') %></p>
         <p>
           Skills:
           <% object.skill_list.first(3).each do |s| %>
