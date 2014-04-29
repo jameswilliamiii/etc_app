@@ -5,7 +5,7 @@
         <% if @profile.avatar.present? %>
           <%= image_tag @profile.avatar.url(:thumb), id: "image-preview" %>
         <% else %>
-          <img src="" alt="" id="image-preview">
+          <img src="" alt="Profile Image" id="image-preview">
         <% end %>
         <div class="file-upload-hidden">
           <%= f.file_field :avatar %>

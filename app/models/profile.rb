@@ -1,11 +1,10 @@
 class Profile < ActiveRecord::Base
-  acts_as_taggable_on :skills
+  include PgSearch
 
   belongs_to :user
 
   has_attached_file :avatar, styles: { large: ["500x500>"], medium: ["300x300", :png], thumb: ["150x150#", :png] },
                              processors: [ :cropper ],
-                             # convert_options: {medium: "-gravity center -extent 320x320", thumb: "-gravity center -extent 160x160"},
                              default_url: "/assets/empty_profile_photo.png",
                              storage: :s3,
                              s3_credentials: { bucket: ENV['S3_BUCKET'], access_key_id: ENV['S3_ACCESS_KEY'], secret_access_key: ENV['S3_SECRET_ACCESS_KEY'] }
@@ -16,6 +15,12 @@ class Profile < ActiveRecord::Base
   validates_attachment :avatar, content_type: { :content_type => ["image/jpg", "image/gif", "image/png", "image/jpeg"], message: "must be png, jpg, or gif format" }
 
   after_update :reprocess_avatar, :if => :cropping?
+
+  acts_as_taggable_on :skills
+
+  default_scope {ordered_by_membership_type}
+
+  pg_search_scope :search_by_name_or_skill, against: [ :name, :company ], associated_against: {:skills => :name}, using: {tsearch: {dictionary: "english"}}
 
   paginates_per 6
 
@@ -29,24 +34,28 @@ class Profile < ActiveRecord::Base
     @geometry[style] ||= Paperclip::Geometry.from_file(avatar_path)
   end
 
+  def self.ordered_by_membership_type
+    joins(:user).order('membership_type DESC').order('member_since ASC')
+  end
+
   def self.filter(attributes)
     attributes.inject(self) do |scope, (key, value)|
       return scope if value.blank?
       case key.to_sym
       when :skill
-        scope.tagged_with(value.downcase, :any => true, :wild => true)
+        scope.unscoped.tagged_with(value.downcase, :any => true, :wild => true)
       when :membership_type
         if value == "companies"
           scope.where(["profile_type = ?", "company"])
         elsif value == "premier"
-          scope.joins(:user).where(["profile_type = ? AND membership_type = ?", "personal", "premier"])
+          scope.joins(:user).where(["membership_type = ?", "premier"])
         elsif value == "member"
-          scope.joins(:user).where(["profile_type = ? AND membership_type = ?", "personal", "member"])
+          scope.joins(:user).where(["membership_type = ?", "member"])
         else
           scope
         end
       when :search
-        scope.joins(:skills).where("LOWER(profiles.name) ILIKE ? OR LOWER(profiles.company) ILIKE ? OR LOWER(tags.name) ILIKE ?", "%#{value.downcase}%", "%#{value.downcase}%", "%#{value.downcase}" ).group("profiles.id")
+        scope.search_by_name_or_skill(value)
       else
         scope
       end
