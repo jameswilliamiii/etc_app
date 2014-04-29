@@ -29,7 +29,11 @@ class ProfilesController < ApplicationController
     @profile = Profile.new profile_params
     @profile.user_id = current_user.id
     if @profile.save
-      redirect_to @profile, notice: "Profile successfully created"
+      if @profile.avatar.present?
+        render 'crop'
+      else
+        redirect_to @profile, notice: "Profile successfully created"
+      end
     else
       render 'new'
     end
@@ -41,10 +45,18 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update_attributes profile_params
-      redirect_to @profile, notice: "Profile sucessfully updated"
+      if @profile.avatar.present?
+        render 'crop'
+      else
+        redirect_to @profile, notice: "Profile successfully updated"
+      end
     else
       render 'edit'
     end
+  end
+
+  def crop
+
   end
 
   def destroy
@@ -55,7 +67,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:name, :company, :public, :details, :twitter, :facebook, :linkedin, :github, :website, :email, :profile_type, :user_id, :skill_list, :avatar)
+    params.require(:profile).permit(:name, :company, :public, :details, :twitter, :facebook, :linkedin, :github, :website, :email, :profile_type, :user_id, :skill_list, :avatar, :crop_x, :crop_y, :crop_w, :crop_h)
   end
 
   def set_profile_instance_var
