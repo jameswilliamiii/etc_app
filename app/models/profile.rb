@@ -5,7 +5,7 @@ class Profile < ActiveRecord::Base
 
   has_attached_file :avatar, styles: { large: ["500x500>"], medium: ["300x300", :png], thumb: ["150x150#", :png] },
                              processors: [ :cropper ],
-                             convert_options: {medium: "-gravity center -extent 320x320", thumb: "-gravity center -extent 160x160"},
+                             # convert_options: {medium: "-gravity center -extent 320x320", thumb: "-gravity center -extent 160x160"},
                              default_url: "/assets/empty_profile_photo.png",
                              storage: :s3,
                              s3_credentials: { bucket: ENV['S3_BUCKET'], access_key_id: ENV['S3_ACCESS_KEY'], secret_access_key: ENV['S3_SECRET_ACCESS_KEY'] }

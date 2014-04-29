@@ -179,5 +179,16 @@ h5.profile-header-spacer {
 img#image-preview {
   max-width: 150px !important;
 }
-.jcrop img {max-width: none}
+.jcrop {
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
+  border: 1px solid #BBB;
+  overflow: hidden;
+  img {
+    max-width: none;
+  }
+}
 div.profile-error { margin-top: 10px; }

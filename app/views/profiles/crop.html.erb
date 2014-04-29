@@ -1,6 +1,6 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag 'jquery.Jcrop' %>
-  <%= javascript_include_tag '' %>
+  <%= javascript_include_tag 'jquery.Jcrop.min.js' %>
   <script type="text/javascript" charset="utf-8">
     $(function() {
       $('#cropbox').Jcrop({
@@ -34,7 +34,7 @@
     <div class="wrapper">
       <%= image_tag @profile.avatar.url(:large), id: 'cropbox' %>
       <h4>Preview</h4>
-      <div class="jcrop" style="width: 150px; height: 150px; overflow: hidden;">
+      <div class="jcrop">
         <%= image_tag @profile.avatar.url(:large), :id => "preview" %>
       </div>
       <%= form_for @profile do |f| %>
