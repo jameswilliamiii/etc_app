@@ -74,8 +74,8 @@ gem 'kaminari', git: 'https://github.com/jameswilliamiii/kaminari.git'
 # File uploads
 gem "paperclip", "~> 4.1"
 
-# Cropping images
-gem 'papercrop'
+# Storage through Amazon S3
+gem 'aws-sdk', '~> 1.5.7'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

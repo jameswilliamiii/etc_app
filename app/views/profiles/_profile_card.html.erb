@@ -3,7 +3,7 @@
     <div class="row">
       <div class="small-4 columns profile-photo">
         <%= link_to profile_url(object) do %>
-          <%= image_tag "profile_pic_small.jpg", alt: "profile pic", class: "circular-profile-pic-small" %>
+          <%= image_tag object.avatar.url(:thumb), alt: "profile pic", class: "circular-profile-pic-small" %>
         <% end %>
         <div class="member-type">
           <p>Premier</p>

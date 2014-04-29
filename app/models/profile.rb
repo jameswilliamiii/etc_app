@@ -3,14 +3,14 @@ class Profile < ActiveRecord::Base
 
   belongs_to :user
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "150x150>" }, :default_url => "/images/:style/missing.png"
-
-  crop_attached_file :avatar
+  has_attached_file :avatar, styles: { medium: ["300x300", :png], thumb: ["150x150", :png] },
+                             convert_options: {medium: "-gravity center -extent 320x320", thumb: "-gravity center -extent 160x160"},
+                             default_url: "/assets/empty_profile_photo.png",
+                             storage: :s3,
+                             s3_credentials: { bucket: ENV['S3_BUCKET'], access_key_id: ENV['S3_ACCESS_KEY'], secret_access_key: ENV['S3_SECRET_ACCESS_KEY'] }
 
   validates_presence_of [ :name, :profile_type, :user_id ]
-  validates_attachment :avatar, :content_type => { :content_type => ["image/jpg", "image/gif", "image/png"] }
-  validates_attachment_content_type :avatar, :content_type => /\Aimage/
-  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
+  validates_attachment :avatar, content_type: { :content_type => ["image/jpg", "image/gif", "image/png", "image/jpeg"], message: "must be png, jpg, or gif format" }
 
   paginates_per 6
 

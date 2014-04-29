@@ -18,12 +18,20 @@
           <li class="has-dropdown">
             <%= link_to '#', class: "dropdown-top-item last-dropdown-item" do %>
               <div class="show-for-small-only">
-                <%= image_tag "profile_pic_small.jpg", class: "nav-profile-pic" %>
+                <% if current_user.has_profile? %>
+                  <%= image_tag current_user.profile.avatar.url(:thumb), class: "nav-profile-pic" %>
+                <% else %>
+                  <%= image_tag "empty_profile_photo.png", class: "nav-profile-pic" %>
+                <% end %>
                 <%= truncate(current_user.name, length: 22) %>
               </div>
               <div class="hide-for-small-only">
                 <%= truncate(current_user.name, length: 30) %>
-                <%= image_tag "profile_pic_small.jpg", class: "nav-profile-pic" %>
+                <% if current_user.has_profile? %>
+                  <%= image_tag current_user.profile.avatar.url(:thumb), class: "nav-profile-pic" %>
+                <% else %>
+                  <%= image_tag "empty_profile_photo.png", class: "nav-profile-pic" %>
+                <% end %>
               </div>
             <% end %>
             <ul class="dropdown">

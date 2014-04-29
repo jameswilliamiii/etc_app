@@ -13,8 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require jquery.jcrop
-//= require papercrop
 //= require_tree .
 
 $(function(){ $(document).foundation();
@@ -103,4 +101,5 @@ $(function(){ $(document).foundation();
 // Fire file upload for profiles form
 function chooseFile() {
   $("#profile_avatar").click();
+  return false;
 }

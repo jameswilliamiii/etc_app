@@ -40,6 +40,11 @@ GEM
     addressable (2.3.5)
     arel (4.0.2)
     atomic (1.1.16)
+    aws-sdk (1.5.8)
+      httparty (~> 0.7)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2)
     better_errors (0.8.0)
       coderay (>= 1.0.0)
@@ -111,6 +116,9 @@ GEM
       tilt
     highline (1.6.19)
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -128,6 +136,7 @@ GEM
     mini_portile (0.5.1)
     minitest (4.7.5)
     multi_json (1.9.2)
+    multi_xml (0.5.5)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
@@ -136,10 +145,6 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
-    papercrop (0.2.0)
-      jquery-rails
-      paperclip (>= 3.4)
-      rails (>= 3.1)
     pg (0.17.1)
     pg_search (0.7.3)
       activerecord (>= 3.1)
@@ -236,6 +241,7 @@ GEM
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
     websocket (1.0.7)
@@ -247,6 +253,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 3.1.1)
+  aws-sdk (~> 1.5.7)
   better_errors
   binding_of_caller
   brakeman
@@ -263,7 +270,6 @@ DEPENDENCIES
   kaminari!
   launchy
   paperclip (~> 4.1)
-  papercrop
   pg
   pg_search
   quiet_assets

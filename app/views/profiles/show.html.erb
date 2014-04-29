@@ -10,7 +10,7 @@
       <div class="row">
         <div class="medium-4 large-3 columns">
           <div class="profile-photo">
-            <%= image_tag "profile_pic_large.jpg", alt: "profile pic", class: "circular-profile-pic" %>
+            <%= image_tag @profile.avatar.url(:medium), alt: "profile pic", class: "circular-profile-pic" %>
           </div>
           <div class="member-since">
             <p>Member since: <%= @profile.user.member_since.strftime('%b %Y') %></p>
