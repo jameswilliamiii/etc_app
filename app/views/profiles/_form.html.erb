@@ -2,15 +2,20 @@
   <div class="row">
     <div class="medium-4 offset-medium-2 medium-push-8 columns profile-photo">
       <div class="form-photo">
-        <img src="" alt="" id="image-preview">
+        <% if @profile.avatar.present? %>
+          <%= image_tag @profile.abatar.url(:thumb) %>
+        <% else %>
+          <img src="" alt="" id="image-preview">
+        <% end %>
         <div class="file-upload-hidden">
           <%= f.file_field :avatar %>
         </div>
         <div class="file-upload-visible">
           <div class="filename">
-            <small id="filename"></small>
           </div>
-          <button type="button" onclick="chooseFile();" class="small radius secondary">CHOOSE IMAGE</button>
+          <%= link_to "#", class: "button small secondary radius", onclick: "chooseFile();" do %>
+            <span id="filename">CHOOSE IMAGE</span>
+          <% end %>
         </div>
       </div>
     </div>
