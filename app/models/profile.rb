@@ -20,7 +20,7 @@ class Profile < ActiveRecord::Base
 
   default_scope {ordered_by_membership_type}
 
-  pg_search_scope :search_by_name_or_skill, against: [ :name, :company ], associated_against: {:skills => :name}, using: {tsearch: {dictionary: "english"}}
+  pg_search_scope :search_by_name_or_skill, against: [ :name, :company ], associated_against: {:skills => :name}, using: { tsearch: { prefix: true, dictionary: 'english' } }
 
   paginates_per 6
 
