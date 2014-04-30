@@ -10,4 +10,12 @@ module ProfilesHelper
   def search_or_tag_params_present?
     params[:search].present? || params[:skill].present?
   end
+
+  def profile_member_type(profile)
+    if profile.profile_type == "company"
+      "Company"
+    else
+      profile.user.membership_type.titleize
+    end
+  end
 end

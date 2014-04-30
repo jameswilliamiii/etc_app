@@ -6,7 +6,7 @@
           <%= image_tag object.avatar.url(:thumb), alt: "profile pic", class: "circular-profile-pic-small" %>
         <% end %>
         <div class="member-type">
-          <p>Premier</p>
+          <p><%= profile_member_type(object) %></p>
         </div>
       </div>
       <div class="small-8 columns">
