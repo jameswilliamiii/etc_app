@@ -19,6 +19,7 @@ EtcApp::Application.routes.draw do
   get "/events"             => "static_pages#events",             as: :events
   get "/classes"            => "static_pages#classes",            as: :classes
   get "/apply"              => "static_pages#apply",              as: :apply
+  get "/pricing"            => "static_pages#pricing",            as: :pricing
   get "/class-registration" => "static_pages#class_registration", as: :class_registration
 
   namespace :admin do
