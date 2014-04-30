@@ -16,13 +16,13 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    # if current_user.profiles.present?
-    #   redirect_to profile_url(current_user.profile), alert: "You can only create 1 profile."
-    # else
+    if current_user.profiles.present?
+      redirect_to profile_url(current_user.profile), alert: "You can only create 1 profile."
+    else
       @profile = Profile.new
       @profile.name = current_user.name
       @profile.email = current_user.email
-    # end
+    end
   end
 
   def create
