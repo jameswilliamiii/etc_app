@@ -41,7 +41,7 @@ $(function(){ $(document).foundation();
   // Start smooth scroll
   $('a.smooth').click(function(){
       $('html, body').animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top - 85
+        scrollTop: $( $.attr(this, 'href') ).offset().top
       }, 500);
       return false;
   });
@@ -49,7 +49,7 @@ $(function(){ $(document).foundation();
   $(window).on("load", function () {
       var urlHash = window.location.href.split("#")[1];
       $('html,body').animate({
-          scrollTop: $('#' + urlHash).offset().top - 85
+          scrollTop: $('#' + urlHash).offset().top
       }, 20);
   });
 
