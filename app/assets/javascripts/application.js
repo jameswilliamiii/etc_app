@@ -80,6 +80,7 @@ $(function(){ $(document).foundation();
     e.preventDefault();
   });
 
+  //Image preview in the Profile form
   $('input[type=file]').change(function () {
     var input = $(this);
     if (input[0].files && input[0].files[0]) {

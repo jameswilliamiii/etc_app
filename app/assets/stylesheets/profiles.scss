@@ -179,16 +179,30 @@ h5.profile-header-spacer {
 img#image-preview {
   max-width: 150px !important;
 }
-.jcrop {
-  width: 150px;
-  height: 150px;
-  border-radius: 75px;
-  -webkit-border-radius: 75px;
-  -moz-border-radius: 75px;
-  border: 1px solid #BBB;
-  overflow: hidden;
-  img {
-    max-width: none;
+ul.crop {
+  margin-top: 1.0rem;
+}
+div.preview {
+  margin: 1rem 0 1rem 75px;
+  .preview-text {
+    width: 150px;
+    text-align: center;
   }
+  .jcrop {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    -webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+    border: 1px solid #BBB;
+    overflow: hidden;
+    img {
+      max-width: none;
+    }
+  }
+}
+div.crop-form {
+  width: 300px;
+  text-align: center;
 }
 div.profile-error { margin-top: 10px; }

@@ -35,7 +35,7 @@ class Profile < ActiveRecord::Base
   end
 
   def self.ordered_by_membership_type
-    joins(:user).order('membership_type DESC').order('member_since ASC')
+    joins(:user).order('membership_type DESC').order('member_since ASC').readonly(false)
   end
 
   def self.filter(attributes)

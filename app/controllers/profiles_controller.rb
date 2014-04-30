@@ -29,11 +29,8 @@ class ProfilesController < ApplicationController
     @profile = Profile.new profile_params
     @profile.user_id = current_user.id
     if @profile.save
-      if @profile.avatar.present?
-        render 'crop'
-      else
-        redirect_to @profile, notice: "Profile successfully created"
-      end
+      flash[:notice] = "Profile successfully created"
+      crop_avatar?
     else
       render 'new'
     end
@@ -45,11 +42,8 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update_attributes profile_params
-      if @profile.avatar.present?
-        render 'crop'
-      else
-        redirect_to @profile, notice: "Profile successfully updated"
-      end
+      flash[:notice] = "Profile successfully updated"
+      crop_avatar?
     else
       render 'edit'
     end
@@ -78,6 +72,14 @@ class ProfilesController < ApplicationController
     set_profile_instance_var
     unless current_user == @profile.user || current_user.is_admin?
       redirect_to profiles_url, alert: "You do not have access to that page"
+    end
+  end
+
+  def crop_avatar?
+    if params[:profile][:avatar].present?
+      render 'crop'
+    else
+      redirect_to @profile
     end
   end
 end
