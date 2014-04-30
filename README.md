@@ -6,7 +6,7 @@ Contributors: James Stubblefield
 
 ## Step 1
 
-ETC_APP uses PostgreSQL, so you will need to make sure this is set up on your local machine by installing the gem.
+ETC_APP uses PostgreSQL, so you will need to make sure this is set up on your local machine by installing the gem.  You will need to use a version of PostgreSQL greater than 8.4.
 
     gem install pg
 
@@ -22,6 +22,9 @@ This app uses the following environment variables.
     ENV["SECRET_TOKEN"]
     ENV["DEVISE_SECRET_KEY"]
     ENV["DEVISE_PEPPER"]
+    ENV['S3_BUCKET']
+    ENV['S3_ACCESS_KEY']
+    ENV['S3_SECRET_ACCESS_KEY']
 
 You will need to make sure these are set up locally or your app will throw errors.
 
