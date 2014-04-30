@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   include PgSearch
-  pg_search_scope :search_by_full_name_or_company, against: [ :first_name, :last_name ], associated_against: {:profiles => :company}
+  pg_search_scope :search_by_full_name_or_company, against: [ :first_name, :last_name ], associated_against: {:profiles => :company}, using: { tsearch: { prefix: true, dictionary: 'english' } }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
