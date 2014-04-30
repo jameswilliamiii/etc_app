@@ -71,6 +71,14 @@
             <% if @user.has_profile? %>
               <div class="row collapse">
                 <div class="small-3 medium-2 large-1 columns user-details">
+                  <p class="label-left"><small class="bold-label">Link:</small></p>
+                </div>
+                <div class="small-9 medium-10 large-11 columns user-details">
+                  <p class="details-right"><%= link_to profile_url(@profile), profile_url(@profile) %></p>
+                </div>
+              </div>
+              <div class="row collapse">
+                <div class="small-3 medium-2 large-1 columns user-details">
                   <p class="label-left"><small class="bold-label">Type:</small></p>
                 </div>
                 <div class="small-9 medium-10 large-11 columns user-details">

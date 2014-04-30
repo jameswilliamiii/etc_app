@@ -23,6 +23,8 @@ lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, non, 
 puts "Creating new profiles"
 skills_list_array = "html5, css3, ruby, ruby on rails, lean startup, entrepreneurship, social media, marketing, project management, javascript, startups, mentorship, project management, video production, print design, php, python".gsub(",", "").split
 users.each{ |u| Profile.create(name: u.name, public: true, details: lorem, email: u.email, profile_type: ['personal', 'company'].sample, user_id: u.id, skill_list: skills_list_array.sample(4)) }
+profiles = Profile.where profile_type: "company"
+profiles.each{ |p| p.update_attributes company: "Elgin Technology Center" }
 
 puts "Assigning admin status"
 u = User.find_by_email('jameswilliamiii@gmail.com')
