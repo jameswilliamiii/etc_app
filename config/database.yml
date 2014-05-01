@@ -16,6 +16,14 @@ test:
   password:
   host: localhost
 
+  staging:
+    adapter: postgresql
+    encoding: unicode
+    database: etc_app_development
+    pool: 5
+    username:
+    password:
+
 production:
   adapter: postgresql
   encoding: unicode
