@@ -46,16 +46,6 @@ $(function(){ $(document).foundation();
       return false;
   });
 
-  $(window).on("load", function () {
-      var urlPathname = window.location.pathname;
-      if(urlPathname.indexOf('#') > -1){
-        var urlHash = window.location.href.split("#")[1];
-        $('html,body').animate({
-            scrollTop: $('#' + urlHash).offset().top
-        }, 20);
-      }
-  });
-
   //SVG Fallback
   var svg = !!('createElementNS' in document && document.createElementNS('http://www.w3.org/2000/svg','svg').createSVGRect);
     if (!svg){
