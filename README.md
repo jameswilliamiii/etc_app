@@ -25,6 +25,8 @@ This app uses the following environment variables.
     ENV['S3_BUCKET']
     ENV['S3_ACCESS_KEY']
     ENV['S3_SECRET_ACCESS_KEY']
+    ENV["MANDRILL_USERNAME"] # Only for production
+    ENV["MANDRILL_API_KEY"] # Only for production
 
 You will need to make sure these are set up locally or your app will throw errors.
 
