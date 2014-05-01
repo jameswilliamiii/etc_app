@@ -47,10 +47,13 @@ $(function(){ $(document).foundation();
   });
 
   $(window).on("load", function () {
-      var urlHash = window.location.href.split("#")[1];
-      $('html,body').animate({
-          scrollTop: $('#' + urlHash).offset().top
-      }, 20);
+      var urlPathname = window.location.pathname;
+      if(urlPathname.indexOf('#') > -1){
+        var urlHash = window.location.href.split("#")[1];
+        $('html,body').animate({
+            scrollTop: $('#' + urlHash).offset().top
+        }, 20);
+      }
   });
 
   //SVG Fallback
