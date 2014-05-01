@@ -27,7 +27,10 @@ group :development do
   gem 'binding_of_caller'
   gem 'brakeman', :require => false
   gem 'thin'
+  # Hide assets in logs
   gem 'quiet_assets'
+  # Preview emails
+  gem "mail_view", "~> 2.0.4"
 
 end
 
