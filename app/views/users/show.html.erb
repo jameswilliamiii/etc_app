@@ -74,7 +74,7 @@
                   <p class="label-left"><small class="bold-label">Link:</small></p>
                 </div>
                 <div class="small-9 medium-10 large-11 columns user-details">
-                  <p class="details-right"><%= link_to profile_url(@profile), profile_url(@profile) %></p>
+                  <p class="details-right"><%= link_to "View Profile", profile_url(@profile) %></p>
                 </div>
               </div>
               <div class="row collapse">
@@ -164,13 +164,13 @@
                 <div class="small-9 medium-10 large-11 columns user-details">
                   <p class="details-right"><%= link_to @profile.email, "mailto:#{@profile.email}" %></p>
                 </div>
+              </div>
             <% else %>
               <br>
               <p class="subheader">It looks like you have not created a profile yet.  Would you like to create one now?</p>
               <br><br>
               <%= link_to "CREATE MY PROFILE", new_profile_url, class: "button success radius" %>
             <% end %>
-            </div>
           </div>
         </div>
       </div>
