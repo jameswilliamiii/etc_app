@@ -29,8 +29,6 @@ group :development do
   gem 'thin'
   # Hide assets in logs
   gem 'quiet_assets'
-  # Preview emails
-  gem "mail_view", "~> 2.0.4"
 
 end
 
@@ -79,6 +77,9 @@ gem "paperclip", "~> 4.1"
 
 # Storage through Amazon S3
 gem 'aws-sdk', '~> 1.5.7'
+
+# Preview emails
+gem "mail_view", "~> 2.0.4"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
