@@ -69,36 +69,45 @@
               </div>
             </div>
             <% if @user.has_profile? %>
-              <div class="row collapse">
-                <div class="small-3 medium-2 large-1 columns user-details">
-                  <p class="label-left"><small class="bold-label">Link:</small></p>
+              <div class="row">
+                <div class="medium-4 medium-push-8 columns">
+                  <div class="thumb-wrapper">
+                    <%= image_tag @profile.avatar.url(:thumb), class: "thumb" %>
+                  </div>
                 </div>
-                <div class="small-9 medium-10 large-11 columns user-details">
-                  <p class="details-right"><%= link_to "View Profile", profile_url(@profile) %></p>
-                </div>
-              </div>
-              <div class="row collapse">
-                <div class="small-3 medium-2 large-1 columns user-details">
-                  <p class="label-left"><small class="bold-label">Type:</small></p>
-                </div>
-                <div class="small-9 medium-10 large-11 columns user-details">
-                  <p class="details-right"><%= @profile.profile_type.titleize %></p>
-                </div>
-              </div>
-              <div class="row collapse">
-                <div class="small-3 medium-2 large-1 columns user-details">
-                  <p class="label-left"><small class="bold-label">Name:</small></p>
-                </div>
-                <div class="small-9 medium-10 large-11 columns user-details">
-                  <p class="details-right"><%= @profile.name %></p>
-                </div>
-              </div>
-              <div class="row collapse">
-                <div class="small-3 medium-2 large-1 columns user-details">
-                  <p class="label-left"><small class="bold-label">Company:</small></p>
-                </div>
-                <div class="small-9 medium-10 large-11 columns user-details">
-                  <p class="details-right"><%= @profile.company %></p>
+                <div class="medium-8 medium-pull-4 columns">
+                  <div class="row collapse">
+                    <div class="small-3 medium-2 large-1 columns user-details">
+                      <p class="label-left"><small class="bold-label">Link:</small></p>
+                    </div>
+                    <div class="small-9 medium-10 large-11 columns user-details">
+                      <p class="details-right"><%= link_to "View Profile", profile_url(@profile) %></p>
+                    </div>
+                  </div>
+                  <div class="row collapse">
+                    <div class="small-3 medium-2 large-1 columns user-details">
+                      <p class="label-left"><small class="bold-label">Type:</small></p>
+                    </div>
+                    <div class="small-9 medium-10 large-11 columns user-details">
+                      <p class="details-right"><%= @profile.profile_type.titleize %></p>
+                    </div>
+                  </div>
+                  <div class="row collapse">
+                    <div class="small-3 medium-2 large-1 columns user-details">
+                      <p class="label-left"><small class="bold-label">Name:</small></p>
+                    </div>
+                    <div class="small-9 medium-10 large-11 columns user-details">
+                      <p class="details-right"><%= @profile.name %></p>
+                    </div>
+                  </div>
+                  <div class="row collapse">
+                    <div class="small-3 medium-2 large-1 columns user-details">
+                      <p class="label-left"><small class="bold-label">Company:</small></p>
+                    </div>
+                    <div class="small-9 medium-10 large-11 columns user-details">
+                      <p class="details-right"><%= @profile.company %></p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="row collapse">

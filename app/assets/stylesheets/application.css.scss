@@ -34,6 +34,17 @@ img.etc_logo {
 }
 .heavy { font-weight: 500; }
 .blue { color:#325180; }
+.thumb-wrapper {
+  @media #{$small-only} {
+    margin: 1.0rem 0 1.0rem;
+  }
+  img.thumb {
+    width: 120px;
+    border-radius: 60px;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+  }
+}
 
 // Nav styles
 img.nav-profile-pic {
