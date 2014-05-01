@@ -35,6 +35,9 @@ img.etc_logo {
 .heavy { font-weight: 500; }
 .blue { color:#325180; }
 .thumb-wrapper {
+  @media #{$medium-up} {
+    float: right;
+  }
   @media #{$small-only} {
     margin: 1.0rem 0 1.0rem;
   }
