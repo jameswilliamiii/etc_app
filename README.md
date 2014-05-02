@@ -22,9 +22,9 @@ This app uses the following environment variables.
     ENV["SECRET_TOKEN"]
     ENV["DEVISE_SECRET_KEY"]
     ENV["DEVISE_PEPPER"]
-    ENV['S3_BUCKET']
-    ENV['S3_ACCESS_KEY']
-    ENV['S3_SECRET_ACCESS_KEY']
+    ENV["S3_BUCKET"]
+    ENV["S3_ACCESS_KEY"]
+    ENV["S3_SECRET_ACCESS_KEY"]
     ENV["MANDRILL_USERNAME"] # Only for production
     ENV["MANDRILL_API_KEY"] # Only for production
 
