@@ -27,7 +27,7 @@
 <div class="row">
   <div class="medium-6 columns end">
     <%= f.label :membership_type, "Membership Type" %>
-    <%= f.select :membership_type, [ [ "Premier", "premier" ], [ "Member", "member" ] ], { prompt: "Please select", required: true } %>
+    <%= f.select :membership_type, [ [ "Premier", "premier" ], [ "Standard", "standard" ] ], { prompt: "Please select", required: true } %>
     <small class="error">You must select a membership type</small>
     <% if resource.errors.include?(:membership_type) %>
       <div class="errors">

@@ -9,7 +9,7 @@
           <ul class="sub-nav profiles">
             <li class="<%= is_active_sub_nav?(nil) %>"><%= link_to "All", profiles_url %></li>
             <li class="<%= is_active_sub_nav?('premier') %>"><%= link_to "Premier", profiles_url(membership_type: 'premier') %></li>
-            <li class="<%= is_active_sub_nav?('member') %>"><%= link_to "Member", profiles_url(membership_type: 'member') %></li>
+            <li class="<%= is_active_sub_nav?('standard') %>"><%= link_to "Standard", profiles_url(membership_type: 'standard') %></li>
             <li class="<%= is_active_sub_nav?('companies') %>"><%= link_to "Companies", profiles_url(membership_type: 'companies') %></li>
           </dl>
         </div>

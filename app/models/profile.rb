@@ -49,8 +49,8 @@ class Profile < ActiveRecord::Base
           scope.where(["profile_type = ?", "company"])
         elsif value == "premier"
           scope.joins(:user).where(["membership_type = ?", "premier"])
-        elsif value == "member"
-          scope.joins(:user).where(["membership_type = ?", "member"])
+        elsif value == "standard"
+          scope.joins(:user).where(["membership_type = ?", "standard"])
         else
           scope
         end
