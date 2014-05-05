@@ -8,9 +8,9 @@
             <li><%= link_to 'Home', root_url %></li>
             <li>
               <% if on_home_view? %>
-                <%= link_to 'Benefits', '#detailed-points', class: "smooth" %>
+                <%= link_to 'Pricing', '#detailed-points', class: "smooth" %>
               <% else %>
-                <%= link_to 'Benefits', home_url(anchor: 'detailed-points') %>
+                <%= link_to 'Pricing', home_url(anchor: 'detailed-points') %>
               <% end %>
             </li>
             <% if on_home_view? %>
