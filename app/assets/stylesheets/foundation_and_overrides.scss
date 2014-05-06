@@ -31,6 +31,7 @@
 // $include-html-global-classes: $include-html-classes;
 
 // Custom vars
+$etc-blue: #325180;
 $light-gray: #FAFAFA;
 $light-gray-border: #BBBBBB;
 $profile-card-text: #666666;
@@ -806,12 +807,12 @@ $panel-border-color: $light-gray-border;
 // $price-table-margin-bottom: rem-calc(20);
 
 // We use these to control the title styles
-// $price-title-bg: #333;
+$price-title-bg: $etc-blue;
 // $price-title-padding: rem-calc(15 20);
 // $price-title-align: center;
 // $price-title-color: #eee;
 // $price-title-weight: normal;
-$price-title-size: rem-calc(22);
+$price-title-size: rem-calc(20);
 // $price-title-font-family: $body-font-family;
 
 // We use these to control the price styles
@@ -829,7 +830,7 @@ $price-title-size: rem-calc(22);
 // $price-desc-color: #777;
 // $price-desc-padding: rem-calc(15);
 // $price-desc-align: center;
-// $price-desc-font-size: rem-calc(12);
+$price-desc-font-size: rem-calc(14);
 // $price-desc-weight: normal;
 // $price-desc-line-height: 1.4;
 // $price-desc-bottom-border: dotted 1px #ddd;
@@ -1150,7 +1151,7 @@ $topbar-height: 85px;
 
 // Style the top bar dropdown elements
 $topbar-dropdown-bg: $light-gray;
-$topbar-dropdown-link-color: #325180;
+$topbar-dropdown-link-color: $etc-blue;
 $topbar-dropdown-link-bg: $light-gray;
 $topbar-dropdown-link-weight: bold;
 // $topbar-dropdown-toggle-size: 5px;
