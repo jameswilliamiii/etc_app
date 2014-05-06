@@ -34,7 +34,6 @@ end
 
 group :production, :staging do
   gem 'rails_12factor'
-  gem 'unicorn'
 end
 
 group :assets do
@@ -81,6 +80,8 @@ gem 'aws-sdk', '~> 1.5.7'
 
 # Preview emails
 gem "mail_view", "~> 2.0.4"
+
+gem 'unicorn'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
