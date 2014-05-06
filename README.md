@@ -28,6 +28,7 @@ This app uses the following environment variables.
     ENV["MANDRILL_USERNAME"] # Only for production
     ENV["MANDRILL_API_KEY"] # Only for production
     ENV["WEB_CONCURRENCY"] = "1" # Unicorn - Set 1 for DEVELOPMENT, 3 PRODUCTION
+    ENV["NEW_RELIC_KEY"] # Use license key from New Relic
 
 You will need to make sure these are set up locally or your app will throw errors.
 
