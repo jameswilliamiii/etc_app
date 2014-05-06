@@ -15,9 +15,11 @@
           <div class="member-since">
             <p>Member since: <%= @profile.user.member_since.strftime('%b %Y') %></p>
             <p>
-              <% if current_user == @profile.user || current_user.is_admin? %>
-                <%= link_to edit_profile_url(@profile) do %>
-                  <%= fa_icon "edit" %> Edit Profile
+              <% if user_signed_in? %>
+                <% if current_user == @profile.user || current_user.is_admin? %>
+                  <%= link_to edit_profile_url(@profile) do %>
+                    <%= fa_icon "edit" %> Edit Profile
+                  <% end %>
                 <% end %>
               <% end %>
             </p>
@@ -33,10 +35,10 @@
             <% if @profile.is_personal? %>
               <h2 class="company"><%= @profile.company %></h2>
             <% else %>
-              <h2 class="company">Contact: <%= @profile.name %></h2>
+              <h2 class="company"><%= @profile.name %></h2>
             <% end %>
             <div class="social-links">
-              <ul class="inline-list">
+              <ul class="small-block-grid-6 social">
                 <% if @profile.twitter.present? %>
                   <li>
                     <%= link_to @profile.twitter, title: "Twitter" do %>

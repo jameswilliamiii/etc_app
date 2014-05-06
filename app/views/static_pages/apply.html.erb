@@ -2,109 +2,106 @@
   <div class="large-12 columns">
     <div class="wrapper">
       <h2>Elgin Technology Center Membership Application</h2>
-      <h5 class="subheader">
-
-      </h5>
-    </div>
-    <div class="row">
-      <div class="large-12 columns">
-        <%= form_tag application_url, method: "post", :"data-abide" => ""  do %>
-          <div class="row">
-            <div class="medium-12 columns">
-              <%= label_tag "Membership type" %>
-              <%= radio_button_tag "application[membership_type]", "premier", is_premier?(params) %>
-              <%= label_tag "application[membership_type_premier]", "Premier" %>
-              <%= radio_button_tag "application[membership_type]", "standard", is_standard?(params) %>
-              <%= label_tag "application[membership_type_standard]", "Standard" %>
+      <div class="row">
+        <div class="large-12 columns">
+          <%= form_tag application_url, method: "post", :"data-abide" => ""  do %>
+            <div class="row">
+              <div class="medium-12 columns">
+                <%= label_tag "Membership type" %>
+                <%= radio_button_tag "application[membership_type]", "premier", is_premier?(params) %>
+                <%= label_tag "application[membership_type_premier]", "Premier" %>
+                <%= radio_button_tag "application[membership_type]", "standard", is_standard?(params) %>
+                <%= label_tag "application[membership_type_standard]", "Standard" %>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="medium-12 columns">
-              <%= label_tag "name" do %>
-                Name <span>*</span>
-              <% end %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="medium-6 columns">
-              <%= text_field_tag "application[first_name]", nil, placeholder: "First", required: true %>
-              <small class="error">First name is required</small>
-            </div>
-            <div class="medium-6 columns">
-              <%= text_field_tag "application[last_name]", nil, placeholder: "Last", required: true %>
-              <small class="error">Last name is required</small>
-            </div>
-          </div>
-          <div class="row">
-            <div class="medium-6 columns">
-              <%= label_tag "application[email]" do %>
-                Email <span>*</span>
-              <% end %>
-              <%= text_field_tag "application[email]", nil, required: true, pattern: "email" %>
-              <small class="error">A valid email is required</small>
-            </div>
-            <div class="medium-6 columns">
-              <%= label_tag "application[phone]" do %>
-                Phone number <span>*</span>
-              <% end %>
-              <%= phone_field_tag "application[phone]", nil, placeholder: "123-456-7890", required: true, pattern: "phone" %>
-              <small class="error">A valid phone number is required</small>
-            </div>
-          </div>
-          <div class="row">
-            <div class="medium-6 columns">
-              <%= label_tag "application[business]" do %>
-                Business name <span>*</span>
-              <% end %>
-              <%= text_field_tag "application[business]", nil, required: true %>
-              <small class="error">This section is required</small>
-            </div>
-            <div class="medium-6 columns">
-              <%= label_tag "application[url]", "If you have a website, demo/prototype - provide URL" %>
-              <%= url_field_tag "application[url]", nil, placeholder: "http://mydemo.com" %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="medium-12 columns">
-              <div>
-                <%= label_tag "application[ques_1]" do %>
-                  How long have you been working on the company? Are you working on it full time? <span>*</span>
+            <div class="row">
+              <div class="medium-12 columns">
+                <%= label_tag "name" do %>
+                  Name <span>*</span>
                 <% end %>
-                <%= text_field_tag "application[ques_1]", nil, required: true %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-6 columns">
+                <%= text_field_tag "application[first_name]", nil, placeholder: "First", required: true %>
+                <small class="error">First name is required</small>
+              </div>
+              <div class="medium-6 columns">
+                <%= text_field_tag "application[last_name]", nil, placeholder: "Last", required: true %>
+                <small class="error">Last name is required</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-6 columns">
+                <%= label_tag "application[email]" do %>
+                  Email <span>*</span>
+                <% end %>
+                <%= text_field_tag "application[email]", nil, required: true, pattern: "email" %>
+                <small class="error">A valid email is required</small>
+              </div>
+              <div class="medium-6 columns">
+                <%= label_tag "application[phone]" do %>
+                  Phone number <span>*</span>
+                <% end %>
+                <%= phone_field_tag "application[phone]", nil, placeholder: "123-456-7890", required: true, pattern: "phone" %>
+                <small class="error">A valid phone number is required</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-6 columns">
+                <%= label_tag "application[business]" do %>
+                  Business name <span>*</span>
+                <% end %>
+                <%= text_field_tag "application[business]", nil, required: true %>
                 <small class="error">This section is required</small>
               </div>
-              <div>
-                <%= label_tag "application[ques_2]" do %>
-                  Please describe your business in three (3) sentences or less <span>*</span>
-                <% end %>
-                <%= text_area_tag "application[ques_2]", nil, rows: 3, required: true %>
-                <small class="error">This section is required</small>
+              <div class="medium-6 columns">
+                <%= label_tag "application[url]", "Business or demo/prototype URL" %>
+                <%= url_field_tag "application[url]", nil, placeholder: "http://mydemo.com" %>
               </div>
-              <div>
-                <%= label_tag "application[ques_3]" do %>
-                  Tell us about your journey as an entrepreneur and why you are passionate about your business <span>*</span>
-                <% end %>
-                <%= text_area_tag "application[ques_3]", nil, rows: 5, required: true %>
-                <small class="error">This section is required</small>
-              </div>
-              <div>
-                <%= label_tag "application[ques_4]" do %>
-                  Tell us about the technologies used to build your business <span>*</span>
-                <% end %>
-                <%= text_area_tag "application[ques_4]", nil, rows: 5, required: true %>
-                <small class="error">This section is required</small>
-              </div>
-              <div>
-                <%= label_tag "application[ques_5]" do %>
-                  How can you give back to this collaborative community (mentorship, workshops, trainings, skills, etc)? <span>*</span>
-                <% end %>
-                <%= text_area_tag "application[ques_5]", nil, rows: 5, required: true %>
-                <small class="error">This section is required</small>
-              </div>
-              <%= submit_tag "SUBMIT APPLICATION", class: "button radius success" %>
             </div>
-          </div>
-        <% end %>
+            <div class="row">
+              <div class="medium-9 columns end">
+                <div>
+                  <%= label_tag "application[ques_1]" do %>
+                    How long have you been working on the company? Are you working on it full time? <span>*</span>
+                  <% end %>
+                  <%= text_field_tag "application[ques_1]", nil, required: true %>
+                  <small class="error">This section is required</small>
+                </div>
+                <div>
+                  <%= label_tag "application[ques_2]" do %>
+                    Please describe your business in three (3) sentences or less <span>*</span>
+                  <% end %>
+                  <%= text_area_tag "application[ques_2]", nil, rows: 3, required: true %>
+                  <small class="error">This section is required</small>
+                </div>
+                <div>
+                  <%= label_tag "application[ques_3]" do %>
+                    Tell us about your journey as an entrepreneur and why you are passionate about your business <span>*</span>
+                  <% end %>
+                  <%= text_area_tag "application[ques_3]", nil, rows: 5, required: true %>
+                  <small class="error">This section is required</small>
+                </div>
+                <div>
+                  <%= label_tag "application[ques_4]" do %>
+                    Tell us about the technologies used to build your business <span>*</span>
+                  <% end %>
+                  <%= text_area_tag "application[ques_4]", nil, rows: 5, required: true %>
+                  <small class="error">This section is required</small>
+                </div>
+                <div>
+                  <%= label_tag "application[ques_5]" do %>
+                    How can you give back to this collaborative community (mentorship, workshops, trainings, skills, etc)? <span>*</span>
+                  <% end %>
+                  <%= text_area_tag "application[ques_5]", nil, rows: 5, required: true %>
+                  <small class="error">This section is required</small>
+                </div>
+                <%= submit_tag "SUBMIT APPLICATION", class: "button radius success" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

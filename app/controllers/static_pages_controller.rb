@@ -12,7 +12,9 @@ class StaticPagesController < ApplicationController
   end
 
   def apply_email
-    app = params[:application]
+    form = params[:application]
+    ContactMailer.membership_application(form).deliver
+    redirect_to apply_confirmation_url, notice: "Your application was successfully submitted"
   end
 
   def apply_confirmation

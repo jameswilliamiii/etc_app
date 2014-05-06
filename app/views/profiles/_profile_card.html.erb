@@ -17,7 +17,7 @@
           <h5><%= link_to object.company, profile_url(object) %></h5>
           <p class="company"><%= object.name %></p>
         <% end %>
-        <p>Member since: <%= object.user.member_since.strftime('%b %Y') %></p>
+        <p>Joined: <%= object.user.member_since.strftime('%b %Y') %></p>
         <p>
           Skills:
           <% object.skill_list.first(3).each do |s| %>
