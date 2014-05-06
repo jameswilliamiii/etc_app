@@ -83,6 +83,8 @@ gem "mail_view", "~> 2.0.4"
 
 gem 'unicorn'
 
+gem 'newrelic_rpm'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
