@@ -10,8 +10,4 @@ class StaticPagesController < ApplicationController
 
   def apply
   end
-
-  def pricing
-
-  end
 end
