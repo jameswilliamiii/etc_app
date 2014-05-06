@@ -27,6 +27,7 @@ This app uses the following environment variables.
     ENV["S3_SECRET_ACCESS_KEY"]
     ENV["MANDRILL_USERNAME"] # Only for production
     ENV["MANDRILL_API_KEY"] # Only for production
+    ENV["WEB_CONCURRENCY"] = "1" # Unicorn - Set 1 for DEVELOPMENT, 3 PRODUCTION
 
 You will need to make sure these are set up locally or your app will throw errors.
 
