@@ -10,4 +10,11 @@ class StaticPagesController < ApplicationController
 
   def apply
   end
+
+  def apply_email
+    app = params[:application]
+  end
+
+  def apply_confirmation
+  end
 end

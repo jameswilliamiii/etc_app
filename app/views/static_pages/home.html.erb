@@ -64,7 +64,7 @@
                 <li class="bullet-item">Free Conference Room Usage</li>
                 <li class="bullet-item">Mentoring Office Hours</li>
                 <li class="bullet-item">Member Only Events</li>
-                <li class="cta-button"><%= link_to "JOIN US", apply_url, class: "button radius success" %></li>
+                <li class="cta-button"><%= link_to "JOIN ETC", apply_url(membership_type: "premier"), class: "button radius success" %></li>
               </ul>
               <div class="pricing-table-small-text"><small>* Private offices include an additional cost</small></div>
             </li>
@@ -81,7 +81,7 @@
                 <li class="bullet-item">Discounted conference room rental</li>
                 <li class="bullet-item">Mentoring Office Hours</li>
                 <li class="bullet-item">Member Only Events</li>
-                <li class="cta-button"><%= link_to "JOIN US", apply_url, class: "button radius success" %></li>
+                <li class="cta-button"><%= link_to "JOIN ETC", apply_url(membership_type: "standard"), class: "button radius success" %></li>
               </ul>
               <div class="pricing-table-small-text"><small>* $105 per month paid quarterly</small></div>
             </li>

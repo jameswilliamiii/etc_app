@@ -15,12 +15,14 @@ EtcApp::Application.routes.draw do
 
   resources :profiles
 
-  get "/index"              => "static_pages#home",               as: :home
-  get "/events"             => "static_pages#events",             as: :events
-  get "/classes"            => "static_pages#classes",            as: :classes
-  get "/apply"              => "static_pages#apply",              as: :apply
-  get "/pricing"            => "static_pages#pricing",            as: :pricing
-  get "/class-registration" => "static_pages#class_registration", as: :class_registration
+  get  "/index"              => "static_pages#home",               as: :home
+  get  "/events"             => "static_pages#events",             as: :events
+  get  "/classes"            => "static_pages#classes",            as: :classes
+  get  "/apply"              => "static_pages#apply",              as: :apply
+  post "/apply"              => "static_pages#apply_email",        as: :application
+  get  "/apply/confirmation" => "static_pages#apply_confirmation", as: :apply_confirmation
+  get  "/pricing"            => "static_pages#pricing",            as: :pricing
+  get  "/class-registration" => "static_pages#class_registration", as: :class_registration
 
   namespace :admin do
     resources :users, except: [ :new, :create ] do
