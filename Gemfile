@@ -29,7 +29,6 @@ group :development do
   gem 'thin'
   # Hide assets in logs
   gem 'quiet_assets'
-  gem 'sitemap_generator'
 
 end
 
@@ -86,6 +85,9 @@ gem "mail_view", "~> 2.0.4"
 gem 'unicorn'
 
 gem 'newrelic_rpm'
+
+# Create sitemaps using rake tasks
+gem 'sitemap_generator'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

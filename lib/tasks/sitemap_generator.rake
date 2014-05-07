@@ -1,6 +1,5 @@
 require 'aws'
 require 'rake'
-require 'sitemap_generator/tasks'
 
 class Rake::Task
   def replace &block
