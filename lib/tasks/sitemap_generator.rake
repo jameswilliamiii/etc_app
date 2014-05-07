@@ -1,4 +1,5 @@
 require 'aws'
+require 'rake'
 
 class Rake::Task
   def replace &block
