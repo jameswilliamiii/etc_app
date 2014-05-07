@@ -9,7 +9,9 @@ div.home-image {
   position:relative;
   @media #{$small-only} {
     height: 410px;
-    background-size: cover;
+  }
+  @media #{$large-up} {
+    height: 550px;
   }
 }
 .uvp {
@@ -20,8 +22,6 @@ h1.uvp {
   color: white;
   text-transform: uppercase;
   letter-spacing: 5px;
-  font-size: 4.5rem;
-  margin-top: 1.0em;
   @media #{$small-only} {
     font-size: 2.2rem;
     margin-top: 0.3em;
@@ -30,7 +30,7 @@ h1.uvp {
     font-size: 3.8rem;
     margin-top: 1.0em;
   }
-  @media #{$xlarge-only} {
+  @media #{$large-up} {
     font-size: 4.0rem;
     margin-top: 1.3em;
   }
@@ -41,12 +41,12 @@ h2.uvp {
   font-weight:400;
   color:white;
   @media #{$small-only} {
-    font-size: 1.625rem;
+    font-size: 1.5rem;
   }
   @media #{$medium-only} {
-    font-size: 2.25rem;
+    font-size: 2.1rem;
   }
-  @media #{$xlarge-only} {
+  @media #{$large-up} {
     font-size: 2.7rem;
   }
 }
