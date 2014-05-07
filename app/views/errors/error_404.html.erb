@@ -1,0 +1,18 @@
+<%= content_for :title do %>
+  404 Error
+<% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="wrapper">
+      <div class="row">
+        <div class="large-12">
+          <h1>404 Error</h1>
+          <h2>We're sorry, but something went wrong.</h2>
+          <h3>The content that you requested could not be found.</h3>
+          <p>You tried to access '<%= @not_found_path %>', which is not a valid page.</p>
+          <p>Want to <%= link_to "go back to our home page", root_url, class: "call-to-action-blue" %> and try again?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

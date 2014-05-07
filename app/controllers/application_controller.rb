@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  unless Rails.application.config.consider_all_requests_local
+    rescue_from Exception, with: lambda { |exception| render_error 500, exception }
+    rescue_from ActionController::RoutingError, ActionController::UnknownController, ::AbstractController::ActionNotFound, ActiveRecord::RecordNotFound, with: lambda { |exception| render_error 404, exception }
+  end
+
   protected
 
   def configure_permitted_parameters
@@ -21,5 +26,14 @@ class ApplicationController < ActionController::Base
 
   def authenticate_inviter!
     authenticate_admin!
+  end
+
+  def render_error(status, exception)
+    logger.error "ERROR: #{exception.inspect}"  #{exception.backtrace.join('')} will log full backtrace if needed for troubleshooting
+    logger.error "USER ID: #{current_user.id}" if user_signed_in?
+    respond_to do |format|
+      format.html { render template: "errors/error_#{status}", layout: 'layouts/application', status: status }
+      format.all { render nothing: true, status: status }
+    end
   end
 end

@@ -1,5 +1,7 @@
 EtcApp::Application.routes.draw do
 
+  get "errors/error_404"
+  get "errors/error_500"
   get "user/show"
   root 'static_pages#home'
 
@@ -32,6 +34,10 @@ EtcApp::Application.routes.draw do
 
   if Rails.env.development?
     mount MailPreview => 'mail_view'
+  end
+
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#error_404'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

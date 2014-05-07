@@ -1,0 +1,23 @@
+<%= content_for :title do %>
+  500 Error
+<% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="wrapper">
+      <div class="row">
+        <div class="large-12">
+          <h1>500 Error</h1>
+          <h2>We're sorry, but something went wrong.</h2>
+          <h3>This page is seen when there is an internal error.</h3>
+          <p>Would you mind helping us out and letting us know what you were doing when the error occurred?</p>
+          <p>
+            Please
+            <%= link_to "click here", "mailto:info@elgintech.org?subject=Error on elgintech.org" %>
+            to tell us what you were doing, or you can
+            <%= link_to "go back to our home page", root_url, class: "call-to-action-blue" %> and try again.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
