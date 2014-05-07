@@ -1,7 +1,5 @@
 EtcApp::Application.routes.draw do
 
-  get "errors/error_404"
-  get "errors/error_500"
   get "user/show"
   root 'static_pages#home'
 
@@ -25,6 +23,8 @@ EtcApp::Application.routes.draw do
   get  "/apply/confirmation" => "static_pages#apply_confirmation", as: :apply_confirmation
   get  "/pricing"            => "static_pages#pricing",            as: :pricing
   get  "/class-registration" => "static_pages#class_registration", as: :class_registration
+  get  "errors/error_404"
+  get  "errors/error_500"
 
   namespace :admin do
     resources :users, except: [ :new, :create ] do

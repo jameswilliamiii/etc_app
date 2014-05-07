@@ -29,6 +29,7 @@ group :development do
   gem 'thin'
   # Hide assets in logs
   gem 'quiet_assets'
+  gem 'sitemap_generator'
 
 end
 
@@ -77,6 +78,7 @@ gem "paperclip", "~> 4.1"
 
 # Storage through Amazon S3
 gem 'aws-sdk', '~> 1.5.7'
+gem 'aws'
 
 # Preview emails
 gem "mail_view", "~> 2.0.4"
