@@ -55,3 +55,15 @@ You will need to create your first user through console with the following comma
     u.save
 
 This will create your user account and assign you as admin so you can use those functions.  All other users can be added by console or through the app by using the `users/invitation/new` path.  The app is set up to use [devise_invitable gem](https://github.com/scambra/devise_invitable).
+
+## Sitemap
+You will need to modify `config/sitemap.rb` to your domain.
+
+You can create a sitemap and send the updated info to Google and Bing by running the following rake task:
+
+    $    rake sitemap:refresh
+
+To issue a sitemap without pinging Google and Bing:
+
+    $    rake sitemap:refresh:no_ping
+
