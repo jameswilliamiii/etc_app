@@ -43,7 +43,7 @@ namespace 'sitemap' do
   end
 end
 
-Rake::Task["sitemap:create"].enhance do
+Rake::Task[:"sitemap:create"].enhance do
   Rake::Task["sitemap:upload_to_s3"].invoke
 end
 
