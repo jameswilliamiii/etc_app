@@ -43,9 +43,9 @@ namespace 'sitemap' do
   end
 end
 
-Rake::Task[:"sitemap:refresh"].enhance do
-  Rake::Task["sitemap:upload_to_s3"].invoke
-end
+# Rake::Task["sitemap:create"].enhance do
+#   Rake::Task["sitemap:upload_to_s3"].invoke
+# end
 
 Rake::Task[:'sitemap:refresh'].replace do
   s3_options = {
