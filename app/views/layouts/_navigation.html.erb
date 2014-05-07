@@ -4,7 +4,7 @@
       <li class="name">
         <h4>
           <%= link_to root_url do %>
-            <%= image_tag 'etc_logo.svg', alt: 'ETC', class: 'etc_logo' %>
+            <%= image_tag 'https://s3.amazonaws.com/elgintech.org/assets/etc_logo.svg', alt: 'ETC', class: 'etc_logo' %>
           <% end %>
         </h4>
       </li>
@@ -21,7 +21,7 @@
                 <% if current_user.has_profile? %>
                   <%= image_tag current_user.profile.avatar.url(:thumb), class: "nav-profile-pic" %>
                 <% else %>
-                  <%= image_tag "empty_profile_photo.png", class: "nav-profile-pic" %>
+                  <%= image_tag "https://s3.amazonaws.com/elgintech.org/assets/empty_profile_photo.png", class: "nav-profile-pic" %>
                 <% end %>
                 <%= truncate(current_user.name, length: 22) %>
               </div>
@@ -30,7 +30,7 @@
                 <% if current_user.has_profile? %>
                   <%= image_tag current_user.profile.avatar.url(:thumb), class: "nav-profile-pic" %>
                 <% else %>
-                  <%= image_tag "empty_profile_photo.png", class: "nav-profile-pic" %>
+                  <%= image_tag "https://s3.amazonaws.com/elgintech.org/assets/empty_profile_photo.png", class: "nav-profile-pic" %>
                 <% end %>
               </div>
             <% end %>
