@@ -1,0 +1,2 @@
+module ClassOffersHelper
+end

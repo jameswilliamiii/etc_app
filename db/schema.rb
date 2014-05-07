@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428204323) do
+ActiveRecord::Schema.define(version: 20140507220806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "class_offers", force: true do |t|
+    t.text     "summary"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "non_member_cost"
+    t.string   "standard_member_cost"
+    t.string   "premier_member_cost"
+    t.string   "teacher"
+    t.string   "status"
+    t.text     "teacher_profile"
+    t.text     "requirements"
+    t.text     "whats_included"
+    t.text     "learning_points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "class_offers", ["id", "start_date"], name: "index_class_offers_on_id_and_start_date", using: :btree
+
+  create_table "faqs", force: true do |t|
+    t.text     "question"
+    t.text     "answer"
+    t.integer  "class_offer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "faqs", ["id", "class_offer_id"], name: "index_faqs_on_id_and_class_offer_id", using: :btree
 
   create_table "profiles", force: true do |t|
     t.string   "name"
