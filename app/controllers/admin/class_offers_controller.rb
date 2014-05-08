@@ -16,7 +16,7 @@ class Admin::ClassOffersController < ApplicationController
     @faqs = params[class_offer][:faqs]
     if @class_offer.save
       create_faqs(@faqs, @class_offer)
-      redirect_to admin_class_offers_url, notice: "Your new class was successfully created"
+      redirect_to admin_classes_url, notice: "Your new class was successfully created"
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class Admin::ClassOffersController < ApplicationController
 
   def update
     if @class_offer.update_attributes class_offer_params
-      redirect_to admin_class_offers_url, notice: "Your class was successfully updated"
+      redirect_to admin_classes_url, notice: "Your class was successfully updated"
     else
       render 'edit'
     end
@@ -35,7 +35,7 @@ class Admin::ClassOffersController < ApplicationController
 
   def destroy
     @class_offer.destroy
-    redirect_to admin_class_offers_url, notice: "You successfully deleted a class"
+    redirect_to admin_classes_url, notice: "You successfully deleted a class"
   end
 
   private
