@@ -26,13 +26,6 @@ EtcApp::Application.routes.draw do
   get  "errors/error_404"
   get  "errors/error_500"
 
-  get    "classes"          => "class_offers#index",  as: :classes
-  post   "classes"          => "class_offers#create"
-  get    "classes/new"      => "class_offers#new",    as: :new_class
-  get    "classes/:id/edit" => "class_offers#edit",   as: :edit_class
-  patch  "classes/:id/"     => "class_offers#update"
-  delete "classes/:id/"     => "class_offers#destroy"
-
   namespace :admin do
     resources :users, except: [ :new, :create ] do
       post "/invite" => "users#invite_user"
