@@ -9,6 +9,8 @@ class CreateClassOffers < ActiveRecord::Migration
       t.string :premier_member_cost
       t.string :teacher
       t.string :status
+      t.string :name
+      t.string :link
       t.text :teacher_profile
       t.text :requirements
       t.text :whats_included

@@ -4,7 +4,7 @@ class Admin::ClassOffersController < ApplicationController
   before_action :set_class_offer_instance_var, except: [ :index, :new, :create ]
 
   def index
-    @class_offer = ClassOffer.active
+    @class_offers = ClassOffer.active
   end
 
   def new
@@ -13,10 +13,8 @@ class Admin::ClassOffersController < ApplicationController
 
   def create
     @class_offer = ClassOffer.new class_offer_params
-    @faqs = params[class_offer][:faqs]
     if @class_offer.save
-      create_faqs(@faqs, @class_offer)
-      redirect_to admin_classes_url, notice: "Your new class was successfully created"
+      redirect_to admin_class_offer_url(@class_offer), notice: "Your new class was successfully created"
     else
       render 'new'
     end
@@ -27,7 +25,7 @@ class Admin::ClassOffersController < ApplicationController
 
   def update
     if @class_offer.update_attributes class_offer_params
-      redirect_to admin_classes_url, notice: "Your class was successfully updated"
+      redirect_to admin_class_offer_url(@class_offer), notice: "Your class was successfully updated"
     else
       render 'edit'
     end
@@ -35,20 +33,16 @@ class Admin::ClassOffersController < ApplicationController
 
   def destroy
     @class_offer.destroy
-    redirect_to admin_classes_url, notice: "You successfully deleted a class"
+    redirect_to admin_class_offers_url, notice: "You successfully deleted a class"
   end
 
   private
 
   def class_offer_params
-    params.require(:class_offer).permit(:summary, :start_date, :end_date, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :requirements, :whats_included, :learning_points, faqs_attributes: [ :question, :answer ])
+    params.require(:class_offer).permit(:summary, :start_date, :end_date, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :requirements, :whats_included, :learning_points, :name, :link, faqs_attributes: [ :question, :answer ])
   end
 
   def set_class_offer_instance_var
     @class_offer = ClassOffer.find params[:id]
-  end
-
-  def create_faqs(faqs, class_offer)
-
   end
 end

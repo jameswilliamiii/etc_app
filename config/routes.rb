@@ -30,7 +30,7 @@ EtcApp::Application.routes.draw do
     resources :users, except: [ :new, :create ] do
       post "/invite" => "users#invite_user"
     end
-    resources :class_offers, except: [ :show ], path: "classes", as: :classes
+    resources :class_offers, path: "classes"
   end
 
   if Rails.env.development?

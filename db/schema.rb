@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507220806) do
+ActiveRecord::Schema.define(version: 20140507220719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20140507220806) do
     t.string   "premier_member_cost"
     t.string   "teacher"
     t.string   "status"
+    t.string   "name"
+    t.string   "link"
     t.text     "teacher_profile"
     t.text     "requirements"
     t.text     "whats_included"
@@ -34,16 +36,6 @@ ActiveRecord::Schema.define(version: 20140507220806) do
   end
 
   add_index "class_offers", ["id", "start_date"], name: "index_class_offers_on_id_and_start_date", using: :btree
-
-  create_table "faqs", force: true do |t|
-    t.text     "question"
-    t.text     "answer"
-    t.integer  "class_offer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "faqs", ["id", "class_offer_id"], name: "index_faqs_on_id_and_class_offer_id", using: :btree
 
   create_table "profiles", force: true do |t|
     t.string   "name"

@@ -1,0 +1,83 @@
+<%= form_for [:admin, @class_offer], html: { :"data-abide" => "", :multipart => true } do |f| %>
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :name, "Class Name" %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="medium-4 medium-offset-2 columns">
+      <%= f.label :status %>
+      <%= f.select :status, [ [ "Active", "active" ], [ "Closed", "closed" ] ], { prompt: "Please select", required: true } %>
+      <small class="error">You must select a status</small>
+      <% if @class_offer.errors.include?(:status) %>
+        <div class="errors">
+          <small class="error"><%= @class_offer.errors.full_messages_for(:status).join(", ") %></small>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.label :summary %>
+      <%= f.text_area :summary, rows: 5 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.label :link, "RSVP Link" %>
+      <%= f.text_field :link %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.label :teacher, "Teacher's Name" %>
+      <%= f.text_field :teacher %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.label :teacher_profile, "Teacher's Profile" %>
+      <%= f.text_area :teacher_profile, rows: 5 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns">
+      <%= f.label :requirements %>
+      <%= f.text_area :requirements, rows: 8 %>
+    </div>
+    <div class="medium-4 columns">
+      <%= f.label :whats_included, "What's included" %>
+      <%= f.text_area :whats_included, rows: 8 %>
+    </div>
+    <div class="medium-4 columns">
+      <%= f.label :learning_points do %>
+      What you will learn
+      <% end %>
+      <%= f.text_area :learning_points, rows: 8, placeholder: "Separate each learning point by a comma" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns">
+      <%= f.label :non_member_cost, "Non-Member Cost" %>
+      <%= f.text_field :non_member_cost %>
+    </div>
+    <div class="medium-4 columns">
+      <%= f.label :standard_member_cost, "Standard Member Cost" %>
+      <%= f.text_field :standard_member_cost %>
+    </div>
+    <div class="medium-4 columns">
+      <%= f.label :premier_member_cost, "Premier Member Cost" %>
+      <%= f.text_field :premier_member_cost %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns">
+      <%= f.label :start_date, "Start Date" %>
+      <%= f.date_field :start_date %>
+    </div>
+    <div class="medium-4 columns end">
+      <%= f.label :end_date, "Start Date" %>
+      <%= f.date_field :end_date %>
+    </div>
+  </div>
+  <%= f.submit class: "button radius success" %>
+<% end %>
