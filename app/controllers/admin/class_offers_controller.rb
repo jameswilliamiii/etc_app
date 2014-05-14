@@ -39,7 +39,7 @@ class Admin::ClassOffersController < ApplicationController
   private
 
   def class_offer_params
-    params.require(:class_offer).permit(:summary, :start_date, :end_date, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :requirements, :whats_included, :learning_points, :name, :link, faqs_attributes: [ :question, :answer ])
+    params.require(:class_offer).permit(:summary, :start_date, :end_date, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :requirements, :time, :learning_points, :name, :non_member_link, :standard_member_link, :premier_member_link, faqs_attributes: [ :question, :answer ])
   end
 
   def set_class_offer_instance_var

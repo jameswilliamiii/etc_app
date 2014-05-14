@@ -4,9 +4,9 @@
 
           <div class="row">
             <div class="large-7 medium-7 columns">
-              <h3 class="blue heavy"><%= @class_offer.name %> <span class="label <%= class_status(@class_offer) %>"><%= @class_offer.status %></span></h3>
+              <h3 class="blue heavy"><%= @class_offer.name %> <span class="label <%= class_status(@class_offer) %>"><%= @class_offer.status.upcase %></span></h3>
               <h5 class="blue class-question">Class Summary</h5>
-              <h6 class="class-desc"><%= h @class_offer.summary.html_safe %></h6>
+              <h6 class="class-desc"><%= simple_format(h @class_offer.summary.html_safe) %></h6>
               <h5 class="blue class-question">Schedule</h5>
               <h6 class="class-desc">
                 <ul class="medium-block-grid-2">
@@ -16,17 +16,15 @@
               </h6>
               <h5 class="blue class-question">Taught By</h5>
               <div class="class-desc">
-                <p class="teacher-details"><b><%= @class_offer.teacher %></b><br><%= @class_offer.teacher_profile %></p>
+                <p class="teacher-details"><b><%= @class_offer.teacher %></b><br><%= h @class_offer.teacher_profile.html_safe %></p>
               </div>
               <h5 class="blue class-question">Requirements</h5>
-              <h6 class="class-desc"><%= @class_offer.requirements %></h6>
-              <h5 class="blue class-question">What's Included</h5>
-              <h6 class="class-desc"><%= h @class_offer.whats_included.html_safe %></h6>
+              <h6 class="class-desc"><%= simple_format(h @class_offer.requirements.html_safe) %></h6>
               <h5 class="blue class-question">What you will learn</h5>
               <div class="section">
                 <ul class="medium-block-grid-2">
                   <% @class_offer.learning_points.split(",").each do |point| %>
-                    <li><%= point %></li>
+                    <li class="learning-point"><%= point %></li>
                   <% end %>
                 </ul>
               </div>

@@ -4,7 +4,7 @@
       <%= f.label :name, "Class Name" %>
       <%= f.text_field :name %>
     </div>
-    <div class="medium-4 medium-offset-2 columns">
+    <div class="medium-3 columns end">
       <%= f.label :status %>
       <%= f.select :status, [ [ "Active", "active" ], [ "Closed", "closed" ] ], { prompt: "Please select", required: true } %>
       <small class="error">You must select a status</small>
@@ -16,67 +16,63 @@
     </div>
   </div>
   <div class="row">
-    <div class="medium-12 columns">
+    <div class="medium-9 columns end">
       <%= f.label :summary %>
       <%= f.text_area :summary, rows: 5 %>
     </div>
   </div>
   <div class="row">
-    <div class="medium-12 columns">
-      <%= f.label :link, "RSVP Link" %>
-      <%= f.text_field :link %>
+    <div class="medium-6 columns">
+      <%= f.label "RSVP Link" %>
+      <%= f.text_field :non_member_link, placeholder: "Non-Members" %>
+      <%= f.text_field :standard_member_link, placeholder: "Standard Members" %>
+      <%= f.text_field :premier_member_link, placeholder: "Premier Members" %>
+    </div>
+    <div class="medium-3 columns end">
+      <%= f.label "Cost" %>
+      <%= f.text_field :non_member_cost, placeholder: "Non-Members" %>
+      <%= f.text_field :standard_member_cost, placeholder: "Standard Members" %>
+      <%= f.text_field :premier_member_cost, placeholder: "Premier Members" %>
     </div>
   </div>
   <div class="row">
-    <div class="medium-12 columns">
+    <div class="medium-3 columns">
+      <%= f.label :start_date, "Start Date" %>
+      <%= f.date_field :start_date %>
+    </div>
+    <div class="medium-3 columns">
+      <%= f.label :end_date, "End Date" %>
+      <%= f.date_field :end_date %>
+    </div>
+    <div class="medium-3 columns end">
+      <%= f.label :time, "Day and/or Time" %>
+      <%= f.text_field :time, placeholder: "ex: Wednesdays 6-8PM" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-9 columns">
+      <%= f.label :requirements %>
+      <%= f.text_area :requirements, rows: 5 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-9 columns">
+      <%= f.label :learning_points do %>
+      What you will learn
+      <% end %>
+      <%= f.text_area :learning_points, rows: 5, placeholder: "Separate each learning point by a comma" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-6 columns end">
       <%= f.label :teacher, "Teacher's Name" %>
       <%= f.text_field :teacher %>
     </div>
   </div>
   <div class="row">
-    <div class="medium-12 columns">
+    <div class="medium-9 columns end">
       <%= f.label :teacher_profile, "Teacher's Profile" %>
       <%= f.text_area :teacher_profile, rows: 5 %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="medium-4 columns">
-      <%= f.label :requirements %>
-      <%= f.text_area :requirements, rows: 8 %>
-    </div>
-    <div class="medium-4 columns">
-      <%= f.label :whats_included, "What's included" %>
-      <%= f.text_area :whats_included, rows: 8 %>
-    </div>
-    <div class="medium-4 columns">
-      <%= f.label :learning_points do %>
-      What you will learn
-      <% end %>
-      <%= f.text_area :learning_points, rows: 8, placeholder: "Separate each learning point by a comma" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="medium-4 columns">
-      <%= f.label :non_member_cost, "Non-Member Cost" %>
-      <%= f.text_field :non_member_cost %>
-    </div>
-    <div class="medium-4 columns">
-      <%= f.label :standard_member_cost, "Standard Member Cost" %>
-      <%= f.text_field :standard_member_cost %>
-    </div>
-    <div class="medium-4 columns">
-      <%= f.label :premier_member_cost, "Premier Member Cost" %>
-      <%= f.text_field :premier_member_cost %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="medium-4 columns">
-      <%= f.label :start_date, "Start Date" %>
-      <%= f.date_field :start_date %>
-    </div>
-    <div class="medium-4 columns end">
-      <%= f.label :end_date, "Start Date" %>
-      <%= f.date_field :end_date %>
     </div>
   </div>
   <%= f.submit class: "button radius success" %>

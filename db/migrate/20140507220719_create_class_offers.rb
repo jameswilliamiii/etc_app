@@ -10,10 +10,12 @@ class CreateClassOffers < ActiveRecord::Migration
       t.string :teacher
       t.string :status
       t.string :name
-      t.string :link
+      t.string :non_member_link
+      t.string :standard_member_link
+      t.string :premier_member_link
+      t.string :time
       t.text :teacher_profile
       t.text :requirements
-      t.text :whats_included
       t.text :learning_points
 
       t.timestamps
