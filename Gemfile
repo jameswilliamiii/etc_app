@@ -89,6 +89,9 @@ gem 'newrelic_rpm'
 # Create sitemaps using rake tasks
 gem 'sitemap_generator'
 
+# Add users to mailchimp
+gem 'mailchimp'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
