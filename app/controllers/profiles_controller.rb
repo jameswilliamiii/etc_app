@@ -2,9 +2,14 @@ class ProfilesController < ApplicationController
   before_action :set_profile_instance_var, except: [ :index, :new, :create ]
   before_action :authenticate_user!, except: [ :index, :show ]
   before_action :user_owns_profile?, except: [ :index, :show, :new, :create ]
+  before_action :profile_is_public?, only: [ :show ]
 
   def index
-    @profiles = Profile.filter(params).page params[:page]
+    if user_signed_in?
+      @profiles = Profile.filter(params).page params[:page]
+    else
+      @profiles = Profile.filter(params).only_public.page params[:page]
+    end
     unless @profiles.present?
       ids = Profile.pluck(:id)
       @random_profiles = Profile.find(ids.sample(2))
@@ -80,6 +85,12 @@ class ProfilesController < ApplicationController
       render 'crop'
     else
       redirect_to @profile
+    end
+  end
+
+  def profile_is_public?
+    unless user_signed_in? || @profile.is_public?
+      redirect_to profiles_url, alert: "Sorry, the profile you are trying to view is private, and can only be seen by ETC members."
     end
   end
 end

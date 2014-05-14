@@ -35,7 +35,11 @@ class Profile < ActiveRecord::Base
   end
 
   def self.ordered_by_membership_type
-    joins(:user).order('membership_type DESC').order('member_since ASC').readonly(false)
+    joins(:user).order('membership_type ASC').order('member_since ASC').readonly(false)
+  end
+
+  def self.only_public
+    where public: true
   end
 
   def self.filter(attributes)
@@ -63,7 +67,7 @@ class Profile < ActiveRecord::Base
   end
 
   def is_public?
-    self.public = true
+    self.public == true
   end
 
   def is_personal?
