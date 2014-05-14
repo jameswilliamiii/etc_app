@@ -50,10 +50,9 @@
             <div class="row">
               <div class="medium-6 columns">
                 <%= label_tag "application[business]" do %>
-                  Business name <span>*</span>
+                  Business name
                 <% end %>
-                <%= text_field_tag "application[business]", nil, required: true %>
-                <small class="error">This section is required</small>
+                <%= text_field_tag "application[business]" %>
               </div>
               <div class="medium-6 columns">
                 <%= label_tag "application[url]", "Business or demo/prototype URL" %>
