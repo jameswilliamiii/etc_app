@@ -4,7 +4,7 @@ class Admin::ClassOffersController < ApplicationController
   before_action :set_class_offer_instance_var, except: [ :index, :new, :create ]
 
   def index
-    @class_offers = ClassOffer.active
+    @class_offers = ClassOffer.page params[:page]
   end
 
   def new
@@ -45,7 +45,7 @@ class Admin::ClassOffersController < ApplicationController
   private
 
   def class_offer_params
-    params.require(:class_offer).permit(:summary, :start_date, :end_date, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :requirements, :time, :learning_points, :name, :link, :avatar, :crop_x, :crop_y, :crop_w, :crop_h)
+    params.require(:class_offer).permit(:summary, :start_date, :end_date, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :requirements, :time, :learning_points, :name, :status, :link, :avatar, :crop_x, :crop_y, :crop_w, :crop_h)
   end
 
   def set_class_offer_instance_var

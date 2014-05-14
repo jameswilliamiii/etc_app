@@ -10,7 +10,6 @@ class ClassOffer < ActiveRecord::Base
 
   validates_presence_of [ :name, :summary, :start_date, :end_date, :time, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :learning_points, :link ]
   validates_attachment :avatar, content_type: { :content_type => ["image/jpg", "image/gif", "image/png", "image/jpeg"], message: "must be png, jpg, or gif format" }
-  before_create :make_class_active
   before_save :update_costs
 
   def cropping?
@@ -31,15 +30,11 @@ class ClassOffer < ActiveRecord::Base
     self.status == "active"
   end
 
-  def is_CLOSED?
+  def is_closed?
     self.status == "closed"
   end
 
   private
-
-  def make_class_active
-    self.status = "active"
-  end
 
   def update_costs
     self.non_member_cost = self.non_member_cost.gsub('$', '').upcase
