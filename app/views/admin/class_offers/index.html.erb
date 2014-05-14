@@ -24,7 +24,6 @@
             <th>Name</th>
             <th>Teacher</th>
             <th>Status</th>
-            <th>Link</th>
             <th>Summary</th>
             <th>Cost</th>
             <th class="actions">Actions</th>
@@ -33,10 +32,9 @@
         <tbody>
           <% @class_offers.each do |class_offer| %>
             <tr>
-              <td><%= link_to class_offer.name, class_offer_url(class_offer) %></td>
+              <td><%= link_to class_offer.name, admin_class_offer_url(class_offer) %></td>
               <td><%= class_offer.teacher %></td>
               <td class="uppercase"><span class="label <%= class_status(class_offer) %>"><%= class_offer.status %></span></td>
-              <td><%= link_to truncate(class_offer.link, length: 10), class_offer.link %></td>
               <td><%= truncate(class_offer.summary, length: 30) %></td>
               <td>Non-Member: <%= class_offer.non_member_cost %><br>Standard Member: <%= class_offer.standard_member_cost %><br>Premier Member: <%= class_offer.premier_member_cost %></td>
               <td>

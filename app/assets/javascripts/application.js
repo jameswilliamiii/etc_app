@@ -74,6 +74,9 @@ $(function(){ $(document).foundation();
   });
 
   //Image preview in the Profile form
+  function truncateString(str, length) {
+    return str.length > length ? str.substring(0, length - 3) + '...' : str
+  }
   $('input[type=file]').change(function () {
     var input = $(this);
     if (input[0].files && input[0].files[0]) {
@@ -85,9 +88,12 @@ $(function(){ $(document).foundation();
       reader.readAsDataURL(input[0].files[0]);
       if (file) {
         //Put the file name into a div with id of 'filename'
-        $('#filename').html(file.name);
+        $('#filename').html(truncateString(file.name, 15));
       }
     }
+  });
+  $('#class_offer_start_date').change(function(){
+    $('#class_offer_end_date').val($(this).val());
   });
 
 });
@@ -95,5 +101,6 @@ $(function(){ $(document).foundation();
 // Fire file upload for profiles form
 function chooseFile() {
   $("#profile_avatar").click();
+  $("#class_offer_avatar").click();
   return false;
 }

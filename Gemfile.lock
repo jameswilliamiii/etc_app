@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 266a32a5230af67e397e92a9e8c2f314ff4fe555
+  specs:
+    paperclip (4.1.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
+
+GIT
   remote: https://github.com/jameswilliamiii/kaminari.git
   revision: 0a4d5905dec1c4efcf2bf8f5fc2c70d1bf5cbf0d
   specs:
@@ -148,11 +158,6 @@ GEM
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
-    paperclip (4.1.1)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
     pg (0.17.1)
     pg_search (0.7.3)
       activerecord (>= 3.1)
@@ -287,7 +292,7 @@ DEPENDENCIES
   launchy
   mail_view (~> 2.0.4)
   newrelic_rpm
-  paperclip (~> 4.1)
+  paperclip!
   pg
   pg_search
   quiet_assets

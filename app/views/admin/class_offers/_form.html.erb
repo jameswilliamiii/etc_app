@@ -1,12 +1,13 @@
 <%= form_for [:admin, @class_offer], html: { :"data-abide" => "", :multipart => true } do |f| %>
   <div class="row">
     <div class="medium-6 columns">
-      <%= f.label :name, "Class Name" %>
+      <%= f.label :name, "Class Name", required: true %>
       <%= f.text_field :name %>
+      <small class="error">Class name is required</small>
     </div>
     <div class="medium-3 columns end">
       <%= f.label :status %>
-      <%= f.select :status, [ [ "Active", "active" ], [ "Closed", "closed" ] ], { prompt: "Please select", required: true } %>
+      <%= f.select :status, [ [ "Active", "active" ], [ "Closed", "closed" ], [ "Saved", "saved" ] ], { prompt: "Please select", required: true } %>
       <small class="error">You must select a status</small>
       <% if @class_offer.errors.include?(:status) %>
         <div class="errors">
@@ -18,35 +19,49 @@
   <div class="row">
     <div class="medium-9 columns end">
       <%= f.label :summary %>
-      <%= f.text_area :summary, rows: 5 %>
+      <%= f.text_area :summary, rows: 5, required: true %>
+      <small class="error">Class summary is required</small>
     </div>
   </div>
   <div class="row">
-    <div class="medium-6 columns">
-      <%= f.label "RSVP Link" %>
-      <%= f.text_field :non_member_link, placeholder: "Non-Members" %>
-      <%= f.text_field :standard_member_link, placeholder: "Standard Members" %>
-      <%= f.text_field :premier_member_link, placeholder: "Premier Members" %>
+    <div class="medium-9 columns end">
+      <%= f.label :link, "RSVP Link" %>
+      <%= f.text_field :link, required: true, pattern: "url" %>
+      <small class="error">A valid link is required</small>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-3 columns">
+      <%= f.label "Non-Member Cost" %>
+      <%= f.text_field :non_member_cost, required: true %>
+      <small class="error">The cost of the class is required</small>
+    </div>
+    <div class="medium-3 columns">
+      <%= f.label :standard_member_cost, "Standard Member Cost" %>
+      <%= f.text_field :standard_member_cost, required: true %>
+      <small class="error">The cost of the class is required</small>
     </div>
     <div class="medium-3 columns end">
-      <%= f.label "Cost" %>
-      <%= f.text_field :non_member_cost, placeholder: "Non-Members" %>
-      <%= f.text_field :standard_member_cost, placeholder: "Standard Members" %>
-      <%= f.text_field :premier_member_cost, placeholder: "Premier Members" %>
+      <%= f.label :premier_member_cost, "Premier Member Cost" %>
+      <%= f.text_field :premier_member_cost, required: true %>
+      <small class="error">The cost of the class is required</small>
     </div>
   </div>
   <div class="row">
     <div class="medium-3 columns">
       <%= f.label :start_date, "Start Date" %>
-      <%= f.date_field :start_date %>
+      <%= f.date_field :start_date, required: true, pattern: "date" %>
+      <small class="error">A start date is required</small>
     </div>
     <div class="medium-3 columns">
       <%= f.label :end_date, "End Date" %>
-      <%= f.date_field :end_date %>
+      <%= f.date_field :end_date, required: true, pattern: "date" %>
+      <small class="error">An end date is required</small>
     </div>
     <div class="medium-3 columns end">
       <%= f.label :time, "Day and/or Time" %>
-      <%= f.text_field :time, placeholder: "ex: Wednesdays 6-8PM" %>
+      <%= f.text_field :time, placeholder: "ex: Wednesdays 6-8PM", required: true %>
+      <small class="error">A day and/or time is required</small>
     </div>
   </div>
   <div class="row">
@@ -60,20 +75,40 @@
       <%= f.label :learning_points do %>
       What you will learn
       <% end %>
-      <%= f.text_area :learning_points, rows: 5, placeholder: "Separate each learning point by a comma" %>
+      <%= f.text_area :learning_points, rows: 5, placeholder: "Separate each learning point by a comma", required: true %>
+      <small class="error">You must list what will be learned</small>
     </div>
   </div>
   <div class="row">
+    <div class="medium-3 columns">
+      <div class="form-photo">
+        <%= image_tag @class_offer.avatar.url(:thumb), id: "image-preview" %>
+        <div class="file-upload-hidden">
+          <%= f.file_field :avatar %>
+        </div>
+        <div class="file-upload-visible">
+          <div class="filename">
+          </div>
+          <%= link_to "#", class: "button small secondary radius", onclick: "chooseFile(); return false;" do %>
+            <span id="filename">CHOOSE IMAGE</span>
+          <% end %>
+        </div>
+        <div class="errors">
+          <% if @class_offer.errors.include?(:avatar) %>
+            <small class="error"><%= @class_offer.errors.full_messages_for(:avatar).join(", ") %></small>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <div class="medium-6 columns end">
       <%= f.label :teacher, "Teacher's Name" %>
-      <%= f.text_field :teacher %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="medium-9 columns end">
+      <%= f.text_field :teacher, required: true %>
+      <small class="error">The teacher's name is required</small>
       <%= f.label :teacher_profile, "Teacher's Profile" %>
-      <%= f.text_area :teacher_profile, rows: 5 %>
+      <%= f.text_area :teacher_profile, rows: 6, required: true %>
+      <small class="error">A teacher profile is required</small>
     </div>
   </div>
+  <br>
   <%= f.submit class: "button radius success" %>
 <% end %>

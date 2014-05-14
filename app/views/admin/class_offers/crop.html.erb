@@ -1,0 +1,57 @@
+<% content_for :head do %>
+  <script type="text/javascript" charset="utf-8">
+    $(function() {
+      $('#cropbox').Jcrop({
+        onChange: update_crop,
+        onSelect: update_crop,
+        setSelect: [0, 0, 500, 500],
+        aspectRatio: 1
+      });
+    });
+    function update_crop(coords) {
+      var rx = 150/coords.w;
+      var ry = 150/coords.h;
+      $('#preview').css({
+        width: Math.round(rx * <%= @class_offer.avatar_geometry(:medium).width %>) + 'px',
+        height: Math.round(ry * <%= @class_offer.avatar_geometry(:medium).height %>) + 'px',
+        marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+        marginTop: '-' + Math.round(ry * coords.y) + 'px'
+      });
+
+      var ratio = <%= @class_offer.avatar_geometry(:original).width %> / <%= @class_offer.avatar_geometry(:medium).width %>;
+      $('#crop_x').val(Math.floor(coords.x * ratio));
+      $('#crop_y').val(Math.floor(coords.y * ratio));
+      $('#crop_w').val(Math.floor(coords.w * ratio));
+      $('#crop_h').val(Math.floor(coords.h * ratio));
+    }
+  </script>
+<% end %>
+
+<div class="row">
+  <div class="large-12 columns">
+    <div class="wrapper">
+      <h3>Crop the teacher's profile image</h3>
+      <ul class="inline-list crop">
+        <li>
+          <%= image_tag @class_offer.avatar.url(:medium), id: 'cropbox' %>
+        </li>
+        <li>
+          <div class="preview">
+            <h5 class="subheader preview-text">Preview</h5>
+            <div class="jcrop">
+              <%= image_tag @class_offer.avatar.url(:medium), :id => "preview" %>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="crop-form">
+        <%= form_for [:admin, @class_offer] do |f| %>
+          <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+            <%= f.hidden_field attribute, :id => attribute %>
+          <% end %>
+          <%= f.submit "CROP IMAGE", class: "button radius success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

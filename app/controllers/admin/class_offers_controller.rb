@@ -14,7 +14,8 @@ class Admin::ClassOffersController < ApplicationController
   def create
     @class_offer = ClassOffer.new class_offer_params
     if @class_offer.save
-      redirect_to admin_class_offer_url(@class_offer), notice: "Your new class was successfully created"
+      flash[:notice] = "Your new class has been successfully created"
+      crop_avatar?
     else
       render 'new'
     end
@@ -25,10 +26,15 @@ class Admin::ClassOffersController < ApplicationController
 
   def update
     if @class_offer.update_attributes class_offer_params
-      redirect_to admin_class_offer_url(@class_offer), notice: "Your class was successfully updated"
+      flash[:notice] = "Your class was successfully updated"
+      crop_avatar?
     else
       render 'edit'
     end
+  end
+
+  def crop
+
   end
 
   def destroy
@@ -39,10 +45,18 @@ class Admin::ClassOffersController < ApplicationController
   private
 
   def class_offer_params
-    params.require(:class_offer).permit(:summary, :start_date, :end_date, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :requirements, :time, :learning_points, :name, :non_member_link, :standard_member_link, :premier_member_link, faqs_attributes: [ :question, :answer ])
+    params.require(:class_offer).permit(:summary, :start_date, :end_date, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :requirements, :time, :learning_points, :name, :link, :avatar, :crop_x, :crop_y, :crop_w, :crop_h)
   end
 
   def set_class_offer_instance_var
     @class_offer = ClassOffer.find params[:id]
+  end
+
+  def crop_avatar?
+    if params[:class_offer][:avatar].present?
+      render 'crop'
+    else
+      redirect_to admin_class_offer_url(@class_offer)
+    end
   end
 end

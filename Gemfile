@@ -73,7 +73,7 @@ gem 'acts-as-taggable-on', '~> 3.1.1'
 gem 'kaminari', git: 'https://github.com/jameswilliamiii/kaminari.git'
 
 # File uploads
-gem "paperclip", "~> 4.1"
+gem 'paperclip', github: 'thoughtbot/paperclip'
 
 # Storage through Amazon S3
 gem 'aws-sdk', '~> 1.5.7'
