@@ -14,7 +14,7 @@ class StaticPagesController < ApplicationController
 
   def apply_email
     form = params[:application]
-    add_to_email_list(params[:application]['email'])
+    add_to_email_list(params[:application]['email']) if Rails.env.production?
     ContactMailer.membership_application(form).deliver
     redirect_to apply_confirmation_url, notice: "Your application was successfully submitted"
   end
