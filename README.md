@@ -29,6 +29,8 @@ This app uses the following environment variables.
     ENV["MANDRILL_API_KEY"] # Only for production
     ENV["WEB_CONCURRENCY"] = "1" # Unicorn - Set 1 for DEVELOPMENT, 3 PRODUCTION
     ENV["NEW_RELIC_KEY"] # Use license key from New Relic
+    ENV["MC_API_KEY"] # API key for Mailchimp to add users to mail list.
+    ENV["MC_CURRENT_USER_LIST_ID"] # Mailchimp list ID that members will be added to.
 
 You will need to make sure these are set up locally or your app will throw errors.
 
