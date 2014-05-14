@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
   end
 
   def classes
+    @class_offers = ClassOffer.active
   end
 
   def apply
