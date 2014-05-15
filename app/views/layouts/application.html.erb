@@ -15,13 +15,12 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Elgin Technology Center | Connect * Create * Collaborate" %></title>
 
-    <!--[if !IE]><!-->
+
       <%= stylesheet_link_tag 'application' %>
-    <!--<![endif]-->
+
 
     <!--[if IE]>
-      <%= stylesheet_link_tag 'application_a' %>
-      <%= stylesheet_link_tag 'application_b' %>
+
     <![endif]-->
 
     <%= javascript_include_tag "vendor/modernizr" %>
