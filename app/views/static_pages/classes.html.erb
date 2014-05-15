@@ -1,9 +1,17 @@
 <div class="row">
   <div class="large-12 columns">
     <div class="wrapper">
+      <div data-alert class="alert-box secondary">
+        Is there a class that you think we should offer?  <%= link_to "Tell us", "mailto:info@elgintech.org" %> about it.
+        <a href="#" class="close">&times;</a>
+      </div>
       <h2>Upcoming Education Opportunities</h2>
       <h5 class="subheader">
-        We are proud to offer the following education opportunities:
+        <% if @class_offers.present? %>
+          We are proud to offer the following education opportunities:
+        <% else %>
+          There are currently no classes open for registration.
+        <% end %>
       </h5>
 
       <ul class="no-bullet classes">
