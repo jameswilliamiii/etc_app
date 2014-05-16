@@ -1,6 +1,7 @@
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "http://www.elgintech.org/"
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
+SitemapGenerator::Sitemap.sitemaps_host = "https://#{ENV['S3_BUCKET']}.s3.amazonaws.com/"
 SitemapGenerator::Sitemap.create do
   add home_path
   add user_root_path
@@ -10,9 +11,9 @@ SitemapGenerator::Sitemap.create do
   add class_registration_path
   add profiles_path
 
-  # Profile.each do |profile|
-  #   add profile_path(profile), lastmod: profile.updated_at
-  # end
+  Profile.all.each do |profile|
+    add profile_path(profile), lastmod: profile.updated_at
+  end
 
 
   # Put links creation logic here.
