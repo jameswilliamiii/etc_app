@@ -228,7 +228,7 @@ GEM
     sexp_processor (4.4.3)
     shoulda-matchers (2.6.1)
       activesupport (>= 3.0.0)
-    sitemap_generator (5.0.2)
+    sitemap_generator (5.0.3)
       builder
     slim (2.0.2)
       temple (~> 0.6.6)
