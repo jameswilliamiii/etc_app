@@ -8,7 +8,7 @@
         Is there a class that you think we should offer?  <%= link_to "Tell us", "mailto:info@elgintech.org" %> about it.
         <a href="#" class="close">&times;</a>
       </div>
-      <h2>Upcoming Education Opportunities</h2>
+      <h2><%= @class_offers.count %> Upcoming Education Opportunities</h2>
       <h5 class="subheader">
         <% if @class_offers.present? %>
           We are proud to offer the following education opportunities:
