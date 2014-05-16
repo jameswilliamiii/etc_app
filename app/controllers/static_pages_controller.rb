@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
   end
 
   def classes
-    @class_offers = ClassOffer.active
+    @class_offers = ClassOffer.active.order('start_date ASC')
   end
 
   def apply
