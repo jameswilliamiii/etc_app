@@ -23,6 +23,12 @@ EtcApp::Application.routes.draw do
   get  "/apply/confirmation" => "static_pages#apply_confirmation", as: :apply_confirmation
   get  "/pricing"            => "static_pages#pricing",            as: :pricing
   get  "/class-registration" => "static_pages#class_registration", as: :class_registration
+
+
+  unless Rails.application.config.consider_all_requests_local
+    match '*not_found', to: 'errors#error_404', via: "get"
+  end
+
   get  "errors/error_404"
   get  "errors/error_500"
 
@@ -35,10 +41,6 @@ EtcApp::Application.routes.draw do
 
   if Rails.env.development?
     mount MailPreview => 'mail_view'
-  end
-
-  unless Rails.application.config.consider_all_requests_local
-    match '*not_found', to: 'errors#error_404', via: "get"
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
