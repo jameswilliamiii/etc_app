@@ -34,6 +34,10 @@ class ClassOffer < ActiveRecord::Base
     self.status == "closed"
   end
 
+  def is_saved?
+    self.status == "saved"
+  end
+
   private
 
   def update_costs
