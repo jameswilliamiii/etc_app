@@ -30,4 +30,11 @@ describe StaticPagesController do
     end
   end
 
+  describe "GET 'apply_confirmation'" do
+    it "returns http success" do
+      get 'apply_confirmation'
+      response.should be_success
+    end
+  end
+
 end

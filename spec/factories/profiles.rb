@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :profile do
     name "MyString"
     company "MyString"
-    public false
+    public true
     details "MyText"
     twitter "MyString"
     facebook "MyString"
@@ -12,5 +12,10 @@ FactoryGirl.define do
     github "MyString"
     website "MyString"
     email "MyString"
+    profile_type "personal"
+    association :user
+    factory :private_profile do
+      public false
+    end
   end
 end

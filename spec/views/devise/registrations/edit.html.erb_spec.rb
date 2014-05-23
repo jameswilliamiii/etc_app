@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "class_offers/edit.html.erb" do
+describe "devise/registrations/edit.html.erb" do
   pending "add some examples to (or delete) #{__FILE__}"
 end

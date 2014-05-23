@@ -1,11 +1,16 @@
 require 'spec_helper'
 
-describe UserController do
+describe UsersController do
+
+  before(:each) do
+    @user = create :user
+    sign_in @user
+  end
 
   describe "GET 'show'" do
-    it "returns http success" do
+    it "renders :show template" do
       get 'show'
-      response.should be_success
+      response.should render_template :show
     end
   end
 
