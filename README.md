@@ -68,3 +68,9 @@ To issue a sitemap without pinging Google and Bing:
 
     $    rake sitemap:refresh:no_ping
 
+## Testing
+This app is set up to run tests using RSpec.  You can run the tests using the following command:
+
+    $    rake test:prepare
+    $    rspec
+
