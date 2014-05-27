@@ -18,4 +18,12 @@ module ProfilesHelper
       profile.user.membership_type.titleize
     end
   end
+
+  def profile_name(profile)
+    if profile.is_personal?
+      profile.name
+    else
+      profile.company
+    end
+  end
 end

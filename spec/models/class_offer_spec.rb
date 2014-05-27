@@ -58,5 +58,6 @@ describe ClassOffer do
     it "should update non_member_cost to make text uppercase"
     it "should update standard_member_cost to make text uppercase"
     it "should update premier_member_cost to make text uppercase"
+    it "should validate the attachment type for :avatar"
   end
 end

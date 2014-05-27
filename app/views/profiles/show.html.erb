@@ -1,5 +1,14 @@
 <%= content_for :title do %>
-  Profile | <%= @profile.name %>
+  ETC Profile | <%= profile_name(@profile) %>
+<% end %>
+<%= content_for :desc do %>
+  <%= truncate(@profile.details, length: 50) %>
+<% end %>
+<%= content_for :og do %>
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:title" content="<%= profile_name(@profile) %>" />
+  <meta property="og:description" content="<%= truncate(@profile.details, length: 50) %>" />
+  <meta property="og:image" content="<%= image_path @profile.avatar.url(:original) %>" />
 <% end %>
 <div class="row">
   <div class="large-12 columns">

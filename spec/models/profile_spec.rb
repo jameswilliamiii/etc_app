@@ -30,4 +30,5 @@ describe Profile do
   end
   it "should only show profiles which are public"
   it { should have_db_index(:profile_type) }
+  it "should validate the attachment type for :avatar"
 end
