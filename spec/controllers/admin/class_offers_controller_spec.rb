@@ -52,4 +52,21 @@ describe Admin::ClassOffersController do
     end
   end
 
+  describe "Permit params for :create action" do
+    arr = [ :summary, :start_date, :end_date, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :requirements, :time, :learning_points, :name, :status, :link, :avatar, :crop_x, :crop_y, :crop_w, :crop_h ]
+    arr.each do |k|
+      it {should permit(k).for(:create)}
+    end
+  end
+
+  describe "Permit params for :update action" do
+    before :each do
+      @class_offer = create :class_offer
+    end
+    arr = [ :summary, :start_date, :end_date, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :requirements, :time, :learning_points, :name, :status, :link, :avatar, :crop_x, :crop_y, :crop_w, :crop_h ]
+    arr.each do |k|
+      it {should permit(k).for(:update, params: { id: ClassOffer.first.id, class_offer: @class_offer.attributes })}
+    end
+  end
+
 end

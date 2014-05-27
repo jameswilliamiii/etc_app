@@ -55,4 +55,14 @@ describe Admin::UsersController do
     end
   end
 
+  describe "Permit params for :update action" do
+    before :each do
+      @user = create :user
+    end
+    arr = [ :admin, :first_name, :last_name, :email, :member_since, :membership_type, :email, :admin ]
+    arr.each do |k|
+      it {should permit(k).for(:update, params: { id: User.first.id, user: @user.attributes })}
+    end
+  end
+
 end

@@ -59,4 +59,21 @@ describe ProfilesController do
     end
   end
 
+  describe "Permit params for :create action" do
+    arr = [ :name, :company, :public, :details, :twitter, :facebook, :linkedin, :github, :website, :email, :profile_type, :user_id, :skill_list, :avatar ]
+    arr.each do |k|
+      it {should permit(k).for(:create)}
+    end
+  end
+
+  describe "Permit params for :update action" do
+    before :each do
+      @profile = create :profile, user: @user
+    end
+    arr = [ :name, :company, :public, :details, :twitter, :facebook, :linkedin, :github, :website, :email, :profile_type, :user_id, :skill_list, :avatar, :crop_x, :crop_y, :crop_h, :crop_w ]
+    arr.each do |k|
+      it {should permit(k).for(:update, params: { id: Profile.first.id, profile: @profile.attributes })}
+    end
+  end
+
 end
