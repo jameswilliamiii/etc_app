@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   after_create :add_to_mailchimp_list if Rails.env.production?
   after_destroy :remove_from_members_group if Rails.env.production?
 
-  validates_presence_of [ :email, :first_name, :last_name, :membership_type ]
+  validates_presence_of [ :email, :first_name, :last_name, :membership_type, :member_since ]
 
   def is_admin?
     self.admin == true
