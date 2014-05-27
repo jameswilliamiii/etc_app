@@ -24,4 +24,10 @@ describe User do
     it "should remove the user's email from Members Group / Premier "
     it "should remove the user's email from Members Group / Standard "
   end
+  it { should have_db_index(:email).unique(true) }
+  it { should have_db_index(:invitation_token).unique(true) }
+  it { should have_db_index(:invitations_count) }
+  it { should have_db_index(:invited_by_id) }
+  it { should have_db_index(:membership_type) }
+  it { should have_db_index(:reset_password_token).unique(true) }
 end

@@ -15,4 +15,5 @@ describe Profile do
   it "should filter results by membership_type"
   it "should be be invalid if profile is not public"
   it "should only show profiles which are public"
+  it { should have_db_index(:profile_type) }
 end

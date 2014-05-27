@@ -29,4 +29,6 @@ describe ClassOffer do
     it "should update standard_member_cost to make text uppercase"
     it "should update premier_member_cost to make text uppercase"
   end
+  it { should have_db_index(:id)}
+  it { should have_db_index(:start_date)}
 end
