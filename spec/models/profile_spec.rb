@@ -31,7 +31,16 @@ describe Profile do
       Profile.last.should eq youngest
     end
   end
-  it "should filter results by a skill"
+  describe "should filter results by a skill" do
+    it "should return item when skill matches" do
+      premier_member = create :profile, skill_list: "ruby"
+      Profile.filter({ "skill" => "ruby" }).should include premier_member
+    end
+    it "should not return object when skill does not match" do
+      premier_member = create :profile, skill_list: "ruby"
+      Profile.filter({ "skill" => "html" }).should_not include premier_member
+    end
+  end
   describe "should filter results by membership_type" do
     it "should include the premier_member user profile" do
       @premier_member = create :profile
@@ -54,4 +63,5 @@ describe Profile do
   end
   it { should have_db_index(:profile_type) }
   it "should validate the attachment type for :avatar"
+  it "should be invalid without an attachment with a 'jpg, jpeg, gif, or png' format"
 end

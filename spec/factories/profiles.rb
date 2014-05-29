@@ -17,5 +17,8 @@ FactoryGirl.define do
     factory :private_profile do
       public false
     end
+    factory :company_profile do
+        profile_type "company"
+    end
   end
 end
