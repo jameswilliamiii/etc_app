@@ -53,5 +53,5 @@ Rake::Task[:'sitemap:refresh'].replace do
                 secret_access_key: ENV['S3_SECRET_ACCESS_KEY']
                }
   bucket_name = ENV['S3_BUCKET']
-  SitemapGenerator::Sitemap.ping_search_engines("https://#{bucket_name}.s3.amazonaws.com/sitemaps/sitemap.xml.gz")
+  SitemapGenerator::Sitemap.ping_search_engines("https://#{ENV['S3_BUCKET']}.s3.amazonaws.com/sitemaps/sitemap.xml.gz")
 end
