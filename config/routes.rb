@@ -24,11 +24,6 @@ EtcApp::Application.routes.draw do
   get  "/pricing"            => "static_pages#pricing",            as: :pricing
   get  "/class-registration" => "static_pages#class_registration", as: :class_registration
 
-
-  unless Rails.application.config.consider_all_requests_local
-    match '*not_found', to: 'errors#error_404', via: "get"
-  end
-
   get  "errors/error_404"
   get  "errors/error_500"
 
