@@ -1,6 +1,12 @@
 <%= content_for :title do %>
   Elgin Technology Center Class Offerings
 <% end %>
+<%= content_for :og do %>
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:title" content="Elgin Technology Center Class Offerings" />
+  <meta property="og:description" content="<%= @class_offers.count %> Upcoming Education Opportunities" />
+  <meta property="og:image" content="<%= image_path @profile.avatar.url(:original) %>" />
+<% end %>
 <div class="row">
   <div class="large-12 columns">
     <div class="wrapper">
