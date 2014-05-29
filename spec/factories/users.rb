@@ -1,8 +1,9 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
+require 'faker'
 
 FactoryGirl.define do
   factory :user do
-    email "test@test.com"
+    email { Faker::Internet.email }
     password "12345678"
     password_confirmation "12345678"
     membership_type "premier"
@@ -17,8 +18,9 @@ FactoryGirl.define do
       end
     end
     factory :standard_member do
-      after :create do |user|
-        user.update_attributes membership_type: "standard"
+      before :create do |user|
+        user.membership_type = "standard"
+        user.save
       end
     end
   end
