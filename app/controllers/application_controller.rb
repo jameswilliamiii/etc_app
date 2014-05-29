@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
     logger.error "ERROR: #{status} || #{exception.inspect}"
     logger.error exception.backtrace.join('')
     logger.error "USER ID: #{current_user.id}" if user_signed_in?
+    @not_found_path = request.original_url
     respond_to do |format|
       format.html { render template: "errors/error_#{status}", layout: 'layouts/application', status: status }
       format.all { render nothing: true, status: status }

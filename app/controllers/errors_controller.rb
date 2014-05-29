@@ -1,6 +1,6 @@
 class ErrorsController < ApplicationController
   def error_404
-    @not_found_path = params[:not_found]
+    @not_found_path = request.original_url
     respond_to do |format|
       format.html { render :error_404 }
       format.all { format.all  { render nothing: true, status: 404 } }
