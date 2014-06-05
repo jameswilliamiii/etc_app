@@ -23,7 +23,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @user.mailchimp_group_deactivated(@user.email) if Rails.env.production?
     @user.destroy
     redirect_to admin_users_url, notice: "#{@user.name} was successfully deleted"
   end
