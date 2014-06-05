@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :profiles
 
   after_create :add_to_mailchimp_list if Rails.env.production?
-  after_destroy :remove_from_members_group if Rails.env.production?
+  before_destroy :remove_from_members_group if Rails.env.production?
 
   validates_presence_of [ :email, :first_name, :last_name, :membership_type, :member_since ]
 
