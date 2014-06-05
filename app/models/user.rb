@@ -87,4 +87,8 @@ class User < ActiveRecord::Base
                                                             })
   end
 
+  handle_asynchronously :mailchimp_group_premier
+  handle_asynchronously :mailchimp_group_standard
+  handle_asynchronously :mailchimp_remove_from_members_group
+
 end

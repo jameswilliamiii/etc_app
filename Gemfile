@@ -92,6 +92,9 @@ gem 'sitemap_generator'
 # Add users to mailchimp
 gem 'mailchimp'
 
+# Delayed jobs
+gem 'delayed_job_active_record', '~> 4.0.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
