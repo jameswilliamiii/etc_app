@@ -39,6 +39,15 @@ You can generate a secret token for rails by running the following command.  Sto
 
 Repeat that same step two more times to get unique keys for `ENV["DEVISE_SECRET_KEY"]` and `ENV["DEVISE_PEPPER"]`.
 
+This application is set up to scale Heroku background workers in staging and production using the workless gem, so you should add the following environment variables on those servers:
+
+    heroku config:add HEROKU_API_KEY=yourapikey APP_NAME=yourherokuappname
+    heroku config:add WORKLESS_MAX_WORKERS=2
+    heroku config:add WORKLESS_MIN_WORKERS=0
+    heroku config:add WORKLESS_WORKERS_RATIO=50
+
+Find more info about using the workless gem [here](https://github.com/lostboy/workless).
+
 ## Step 3
 
 You will need to create your first user through console with the following commands.  Make sure your password is at least 8 characters long.

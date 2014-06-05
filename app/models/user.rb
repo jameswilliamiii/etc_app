@@ -87,8 +87,10 @@ class User < ActiveRecord::Base
                                                             })
   end
 
+  # Use delayed_job to handle these background tasks including sending all devise and devise_invitable mailers.  These calls must remain below the method declarations.
   handle_asynchronously :mailchimp_group_premier
   handle_asynchronously :mailchimp_group_standard
   handle_asynchronously :mailchimp_remove_from_members_group
+  handle_asynchronously :send_devise_notification, :queue => 'devise' if Rails.env.production?
 
 end

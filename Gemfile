@@ -95,6 +95,9 @@ gem 'mailchimp'
 # Delayed jobs
 gem 'delayed_job_active_record', '~> 4.0.0'
 
+# Scale up worker dynos on Heroku when delayed_jobs are present
+gem 'workless', '~>1.2.3'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
