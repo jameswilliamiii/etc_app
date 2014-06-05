@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :profiles
 
   after_create :add_to_mailchimp_list if Rails.env.production?
-  before_destroy :remove_from_members_group if Rails.env.production?
+  after_update :add_to_mailchimp_list if Rails.env.production?
 
   validates_presence_of [ :email, :first_name, :last_name, :membership_type, :member_since ]
 
@@ -53,10 +53,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def remove_from_members_group
-    self.mailchimp_remove_from_members_group
-  end
-
   def mailchimp_group_premier
     Mailchimp::API.new(ENV['MC_API_KEY']).list_subscribe({
                                                             :id => ENV["MC_CURRENT_USER_LIST_ID"],
@@ -77,10 +73,10 @@ class User < ActiveRecord::Base
                                                           })
   end
 
-  def mailchimp_remove_from_members_group
+  def mailchimp_group_deactivated(user_email)
     Mailchimp::API.new(ENV['MC_API_KEY']).list_update_member({
                                                               :id => ENV["MC_CURRENT_USER_LIST_ID"],
-                                                              :email_address => self.email,
+                                                              :email_address => user_email,
                                                               :merge_vars => {:GROUPINGS => {0 => {:name => "Member Groups", :groups => ""}}},
                                                               :double_optin => false,
                                                               :update_existing => true
@@ -90,7 +86,7 @@ class User < ActiveRecord::Base
   # Use delayed_job to handle these background tasks including sending all devise and devise_invitable mailers.  These calls must remain below the method declarations.
   handle_asynchronously :mailchimp_group_premier
   handle_asynchronously :mailchimp_group_standard
-  handle_asynchronously :mailchimp_remove_from_members_group
+  handle_asynchronously :mailchimp_group_deactivated
   handle_asynchronously :send_devise_notification, :queue => 'devise' if Rails.env.production?
 
 end

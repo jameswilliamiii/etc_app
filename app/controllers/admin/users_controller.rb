@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @users = User.filter(params).page params[:page]
+    @users = User.filter(params).order("first_name ASC").page params[:page]
   end
 
   def show
@@ -23,6 +23,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
+    @user.mailchimp_group_deactivated(@user.email) if Rails.env.production?
     @user.destroy
     redirect_to admin_users_url, notice: "#{@user.name} was successfully deleted"
   end
