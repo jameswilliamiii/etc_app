@@ -65,14 +65,6 @@ $(function(){ $(document).foundation();
       });
     }else{ jQuery('body').addClass('svg'); }
 
-  //Show More / Show Less
-  $('.show-links a').click(function(e){
-    $(this).parent().next('.show-more').slideToggle('slow');
-    $(this).siblings().toggle();
-    $(this).toggle();
-    e.preventDefault();
-  });
-
   //Image preview in the Profile form
   function truncateString(str, length) {
     return str.length > length ? str.substring(0, length - 3) + '...' : str
