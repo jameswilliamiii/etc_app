@@ -1,0 +1,22 @@
+<%= content_for :title do %>
+  Elgin Technology Center Class Offerings
+<% end %>
+<%= content_for :og do %>
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:title" content="<%= @class_offer.name %>" />
+  <meta property="og:description" content="<%= @class_offer.summary %>" />
+  <meta property="og:image" content="<%= @class_offer.avatar.url(:original) %>" />
+<% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="wrapper">
+      <div class="profile-breadcrumbs">
+        <ul class="breadcrumbs">
+          <li><%= link_to "All Classes", classes_url %></li>
+          <li class="unavailable"><%= @class_offer.name %></li>
+        </ul>
+      </div>
+      <%= render 'layouts/class_offer', object: @class_offer %>
+    </div>
+  </div>
+</div>

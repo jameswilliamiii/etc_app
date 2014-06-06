@@ -1,5 +1,7 @@
 EtcApp::Application.routes.draw do
 
+  get "class_offers/index"
+  get "class_offers/show"
   get "user/show"
   root 'static_pages#home'
 
@@ -17,7 +19,6 @@ EtcApp::Application.routes.draw do
 
   get  "/index"              => "static_pages#home",               as: :home
   get  "/events"             => "static_pages#events",             as: :events
-  get  "/classes"            => "static_pages#classes",            as: :classes
   get  "/apply"              => "static_pages#apply",              as: :apply
   post "/apply"              => "static_pages#apply_email",        as: :application
   get  "/apply/confirmation" => "static_pages#apply_confirmation", as: :apply_confirmation
@@ -37,6 +38,8 @@ EtcApp::Application.routes.draw do
   if Rails.env.development?
     mount MailPreview => 'mail_view'
   end
+
+  resources :classes, only: [ :index, :show ], controller: :class_offers
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

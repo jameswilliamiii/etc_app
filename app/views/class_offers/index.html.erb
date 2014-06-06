@@ -28,7 +28,7 @@
           <li>
             <div class="row">
               <div class="large-8 medium-7 columns">
-                <h3 class="blue heavy"><%= class_offer.name %> <span class="label <%= class_status(class_offer) %>"><%= class_offer.status.upcase %></span></h3>
+                <h3 class="blue heavy"><%= link_to class_offer.name, class_url(class_offer) %> <span class="label <%= class_status(class_offer) %>"><%= class_offer.status.upcase %></span></h3>
                 <h5 class="blue class-question">Class Summary</h5>
                 <h6 class="class-desc"><%= simple_format(h class_offer.summary.html_safe) %></h6>
                 <h5 class="blue class-question">Schedule</h5>

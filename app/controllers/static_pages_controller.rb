@@ -5,10 +5,6 @@ class StaticPagesController < ApplicationController
   def events
   end
 
-  def classes
-    @class_offers = ClassOffer.active.order('start_date ASC')
-  end
-
   def apply
   end
 

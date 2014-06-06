@@ -9,32 +9,14 @@
 }
 
 .class-pricing {
-  text-align: center;
-  background-color: $light-gray;
   margin-bottom: 0.8rem;
-  .class-label {
-    background-color: $etc-blue;
-    color: white;
-    text-transform: uppercase;
-    padding:0 0.3rem 0.1rem;
-    border-top-right-radius: $global-radius;
-    -webkit-border-top-right-radius: $global-radius;
-    -moz-border-top-right-radius: $global-radius;
-    border-top-left-radius: $global-radius;
-    -webkit-border-top-left-radius: $global-radius;
-    -moz-border-top-left-radius: $global-radius;
+  p {
+    font-size: 0.7rem;
+    margin-bottom: 0;
+    text-align: center;
   }
-  .class-price {
-    padding:0.5rem;
-    border-bottom: 1px solid $light-gray-border;
-    border-left: 1px solid $light-gray-border;
-    border-right: 1px solid $light-gray-border;
-    border-bottom-right-radius: $global-radius;
-    -webkit-border-bottom-right-radius: $global-radius;
-    -moz-border-bottom-right-radius: $global-radius;
-    border-bottom-left-radius: $global-radius;
-    -webkit-border-bottom-left-radius: $global-radius;
-    -moz-border-bottom-left-radius: $global-radius;
+  h5 {
+    text-align: center;
   }
 }
 .class-desc {
@@ -47,3 +29,25 @@
     margin-right: 1.0rem;
   }
 }
+.class-wrapper {
+  background-color: $light-gray;
+  border: 1px solid $light-gray-border;
+  border-radius: $global-radius;
+  -webkit-border-radius: $global-radius;
+  -moz-border-radius: $global-radius;
+  padding: 0.5rem 1rem 0.1rem;
+  margin-bottom: 0.8rem;
+}
+.teacher-details {
+  min-height: 80px;
+}
+.class-side-bar {
+  @media #{$medium-up} {
+    margin-top: 1.0rem;
+  }
+  @media #{$small-only} {
+    text-align: center;
+  }
+  div { margin-bottom: 1rem; }
+}
+ul.pricing { margin-bottom: 0; }
