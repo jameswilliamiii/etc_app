@@ -22,125 +22,32 @@
           There are currently no classes open for registration.
         <% end %>
       </h5>
-
-      <ul class="no-bullet classes">
+      <div class="classes">
         <% @class_offers.each do |class_offer| %>
-          <li>
+          <div class="class-index-wrapper">
             <div class="row">
-              <div class="large-8 medium-7 columns">
-                <h3 class="blue heavy"><%= link_to class_offer.name, class_url(class_offer) %> <span class="label <%= class_status(class_offer) %>"><%= class_offer.status.upcase %></span></h3>
-                <h5 class="blue class-question">Class Summary</h5>
+              <div class="small-12 columns">
+                <h3 class="heavy"><%= link_to class_offer.name, class_url(class_offer) %> <span class="label <%= class_status(class_offer) %>"><%= class_offer.status.upcase %></span></h3>
+                <h5 class="subheader class-question">Class Summary</h5>
                 <h6 class="class-desc"><%= simple_format(h class_offer.summary.html_safe) %></h6>
-                <h5 class="blue class-question">Schedule</h5>
-                <h6 class="class-desc">
+                <h5 class="subheader class-question">Schedule</h5>
+                <div class="class-desc">
                   <ul class="inline-list">
-                    <li><b>Start:</b> <%= class_offer.start_date.strftime('%D') %></li>
-                    <li><b>End:</b> <%= class_offer.end_date.strftime('%D') %></li>
-                    <li><b>When:</b> <%= class_offer.time %></li>
+                    <%= class_schedule(class_offer) %>
                   </ul>
-                </h6>
-                <h5 class="blue class-question">Cost</h5>
-                <ul class="small-block-grid-3 pricing">
-                  <li>
-                    <div class="class-pricing">
-                      <div class="class-label">
-                        <small>Non-Member</small>
-                      </div>
-                      <div class="class-price">
-                        <%= dollar_sign?(class_offer.non_member_cost) %><%= class_offer.non_member_cost %>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class-pricing">
-                      <div class="class-label">
-                        <small>Standard</small>
-                      </div>
-                      <div class="class-price">
-                        <%= dollar_sign?(class_offer.standard_member_cost) %><%= class_offer.standard_member_cost %>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class-pricing">
-                      <div class="class-label">
-                        <small>Premier</small>
-                      </div>
-                      <div class="class-price">
-                        <%= dollar_sign?(class_offer.premier_member_cost) %><%= class_offer.premier_member_cost %>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
+                </div>
+                <br>
                 <div class="show-links">
-                  <a href="#" remote="true" class="show-more-link"><b>+ Learn More</b></a>
-                  <a href="#" remote="true" class="show-less-link"><b>- Show Less</b></a>
+                  <%= link_to "LEARN MORE", class_url(class_offer) %>
                 </div>
-                <div class="show-more">
-                  <h5 class="blue class-question">What you will learn</h5>
-                  <div class="section">
-                    <ul class="medium-block-grid-2">
-                      <% class_offer.learning_points.split(",").each do |point| %>
-                        <li class="no-padding"><%= point %></li>
-                      <% end %>
-                    </ul>
-                  </div>
-                  <h5 class="blue class-question">Requirements</h5>
-                  <h6 class="class-desc"><%= simple_format(h class_offer.requirements.html_safe) %></h6>
-                  <h5 class="blue class-question">Taught By</h5>
-                  <div class="class-desc">
-                    <%= image_tag class_offer.avatar.url(:thumb), class: "circular-profile-pic-small left" %>
-                    <p class="teacher-details"><b><%= class_offer.teacher %></b><br><%= h class_offer.teacher_profile.html_safe %></p>
-                  </div>
-                </div>
-              </div>
-              <div class="large-3 medium-4 columns large-offset-1">
-                <% if class_offer.start_date < 1.day.ago %>
-                  <%= link_to 'REGISTER NOW', '#', class: 'button small radius success cta register disabled' %>
-                <% else %>
-                  <%= link_to 'REGISTER NOW', class_offer.link, class: 'button small radius success cta register' %>
-                <% end %>
-                <h5 class="blue class-question">Share</h5>
-                <ul class="inline-list share">
-                  <li>
-                    <a href="https://twitter.com/home?status=Check%20out%20<%= class_offer.name %>%20by%20@ElginTech%20<%= classes_url %>" class="share" title="Twitter">
-                      <span class="fa-stack">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-twitter fa-stack-1x icon"></i>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=<%= classes_url %>" class="share" title="Facebook">
-                      <span class="fa-stack">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-facebook fa-stack-1x icon"></i>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://plus.google.com/share?url=<%= classes_url %>" class="share" title="Google+">
-                      <span class="fa-stack">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-google-plus fa-stack-1x icon"></i>
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-                <h5 class="blue class-question">Questions</h5>
-                <ul class="inline-list share">
-                  <li>
-                    <a href="mailto:info@elgintech.org" class="share" title="Email us">info@elgintech.org</a>
-                  </li>
-                </ul>
               </div>
             </div>
-          </li>
+          </div>
           <% unless class_offer == @class_offers.last %>
             <div class="dotted-line"></div>
           <% end %>
         <% end %>
-      </ul>
+      </div>
 
     </div>
   </div>
