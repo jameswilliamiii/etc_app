@@ -24,6 +24,10 @@ class Profile < ActiveRecord::Base
 
   paginates_per 6
 
+  def to_param
+    self.is_personal_profile? ? [id, name.parameterize].join("-") : [id, company.parameterize].join("-")
+  end
+
   def cropping?
     !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
   end
@@ -72,6 +76,14 @@ class Profile < ActiveRecord::Base
 
   def is_personal?
     self.profile_type == "personal"
+  end
+
+  def is_personal_profile?
+    self.profile_type == "personal"
+  end
+
+  def is_company_profile?
+    self.profile_type == "company"
   end
 
   private
