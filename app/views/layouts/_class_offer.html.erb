@@ -92,7 +92,7 @@
         <h5 class="subheader class-question">Questions</h5>
         <a href="mailto:info@elgintech.org" class="share" title="Email us">info@elgintech.org</a>
       </div>
-      <% if current_user.is_admin? %>
+      <% if user_signed_in? && current_user.is_admin? %>
         <div>
           <h5 class="blue class-question">Actions</h5>
           <%= link_to edit_admin_class_offer_url(@class_offer), title: "Edit", class: "share" do %>
