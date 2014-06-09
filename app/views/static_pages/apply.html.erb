@@ -99,6 +99,14 @@
                   <%= text_area_tag "application[ques_5]", nil, rows: 5, required: true %>
                   <small class="error">This section is required</small>
                 </div>
+                <div class="row">
+                  <div class="medium-6 columns end">
+                    <%= label_tag "application[ques_6]" do %>
+                      Referral code
+                    <% end %>
+                    <%= text_field_tag "application[ques_6]" %>
+                  </div>
+                </div>
                 <%= submit_tag "SUBMIT APPLICATION", class: "button radius success" %>
               </div>
             </div>

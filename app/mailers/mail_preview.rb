@@ -24,7 +24,8 @@ class MailPreview < MailView
               "ques_2"=>"We are working on some amazing things like teleportation.",
               "ques_3"=>"I am a natural born killer when it comes to forming successful businesses.",
               "ques_4"=>"All kinds of great tools like ruby, rails, and a whole bunch of tools that have abbreviations.",
-              "ques_5"=>"Give back?  I am a taker, not a giver!"
+              "ques_5"=>"Give back?  I am a taker, not a giver!",
+              "ques_6"=>"RELAUNCH"
             }
     ContactMailer.membership_application(form)
   end
