@@ -15,6 +15,10 @@ SitemapGenerator::Sitemap.create do
     add profile_path(profile), lastmod: profile.updated_at
   end
 
+  ClassOffer.active.each do |class_offer|
+    add class_path(class_offer), lastmod: class_offer.updated_at
+  end
+
 
   # Put links creation logic here.
   #
