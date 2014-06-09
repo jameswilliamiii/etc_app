@@ -16,13 +16,6 @@ describe StaticPagesController do
     end
   end
 
-  describe "GET 'classes'" do
-    it "returns http success" do
-      get 'classes'
-      response.should be_success
-    end
-  end
-
   describe "GET 'apply'" do
     it "returns http success" do
       get 'apply'

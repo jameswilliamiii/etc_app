@@ -14,6 +14,13 @@ describe Admin::ClassOffersController do
     end
   end
 
+  describe "GET 'show'" do
+    it "renders :show template" do
+      get 'show', id: create(:class_offer)
+      response.should render_template :show
+    end
+  end
+
   describe "GET 'new'" do
     it "renders :new template" do
       get 'new'
