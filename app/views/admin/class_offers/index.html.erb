@@ -24,6 +24,7 @@
       <table class="responsive users-table">
         <thead>
           <tr>
+            <th>Date</th>
             <th>Name</th>
             <th>Teacher</th>
             <th>Status</th>
@@ -35,6 +36,7 @@
         <tbody>
           <% @class_offers.each do |class_offer| %>
             <tr>
+              <td><%= class_offer.start_date.strftime('%D') %> <br> <%= class_offer.end_date.strftime('%D') %></td>
               <td><%= link_to class_offer.name, admin_class_offer_url(class_offer) %></td>
               <td><%= class_offer.teacher %></td>
               <td class="uppercase"><span class="label <%= class_status(class_offer) %>"><%= class_offer.status %></span></td>
