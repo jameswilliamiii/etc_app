@@ -4,7 +4,7 @@ class Admin::ClassOffersController < ApplicationController
   before_action :set_class_offer_instance_var, except: [ :index, :new, :create ]
 
   def index
-    @class_offers = ClassOffer.page params[:page]
+    @class_offers = ClassOffer.unscoped.order('created_at DESC').page params[:page]
   end
 
   def new
