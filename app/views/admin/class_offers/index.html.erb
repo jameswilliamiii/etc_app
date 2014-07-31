@@ -28,8 +28,6 @@
             <th>Name</th>
             <th>Teacher</th>
             <th>Status</th>
-            <th>Summary</th>
-            <th>Cost</th>
             <th class="actions">Actions</th>
           </tr>
         </thead>
@@ -40,8 +38,6 @@
               <td><%= link_to class_offer.name, admin_class_offer_url(class_offer) %></td>
               <td><%= class_offer.teacher %></td>
               <td class="uppercase"><span class="label <%= class_status(class_offer) %>"><%= class_offer.status %></span></td>
-              <td><%= truncate(class_offer.summary, length: 30) %></td>
-              <td>Non-Member: <%= class_offer.non_member_cost %><br>Standard Member: <%= class_offer.standard_member_cost %><br>Premier Member: <%= class_offer.premier_member_cost %></td>
               <td>
                 <ul class="inline-list uppercase">
                   <li>
