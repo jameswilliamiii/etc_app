@@ -10,7 +10,7 @@ class ClassOffer < ActiveRecord::Base
 
   default_scope {order :start_date}
 
-  validates_presence_of [ :name, :summary, :start_date, :end_date, :time, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :learning_points, :link ]
+  validates_presence_of [ :name, :summary, :start_date, :end_date, :time, :non_member_cost, :standard_member_cost, :premier_member_cost, :teacher, :teacher_profile, :link ]
   validates_attachment :avatar, content_type: { :content_type => ["image/jpg", "image/gif", "image/png", "image/jpeg"], message: "must be png, jpg, or gif format" }
   before_save :update_costs
 

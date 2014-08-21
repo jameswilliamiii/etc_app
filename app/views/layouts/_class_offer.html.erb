@@ -41,16 +41,18 @@
         <%= link_to 'REGISTER NOW', object.link, class: 'button small radius success cta register' %>
       <% end %>
     </div>
-    <div class="class-wrapper">
-      <h5 class="subheader class-question">What you will learn</h5>
-      <div class="section">
-        <ul class="circle">
-          <% object.learning_points.split(",").each do |point| %>
-            <li class="no-padding"><%= point %></li>
-          <% end %>
-        </ul>
+    <% if object.learning_points.present? %>
+      <div class="class-wrapper">
+        <h5 class="subheader class-question">What you will learn</h5>
+        <div class="section">
+          <ul class="circle">
+            <% object.learning_points.split(",").each do |point| %>
+              <li class="no-padding"><%= point %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-    </div>
+    <% end %>
     <% if object.requirements.present? %>
       <div class="class-wrapper">
         <h5 class='subheader class-question'>Requirements</h5>
