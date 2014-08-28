@@ -17,4 +17,9 @@ class StaticPagesController < ApplicationController
 
   def apply_confirmation
   end
+
+  def social_media_week
+
+  end
+
 end
