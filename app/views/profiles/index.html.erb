@@ -35,7 +35,9 @@
                 <h5 class="subheader profile-header-spacer">Profiles matching: <i><%= params[:search] %><%= params[:skill] %></i></h5>
               <% end %>
               <% @profiles.each do |profile| %>
-                <%= render 'profile_card', object: profile %>
+                <% if profile.user.present? %>
+                  <%= render 'profile_card', object: profile %>
+                <% end %>
               <% end %>
               <% if @random_profiles.present? %>
                 <h5 class="subheader">Sorry, there are no profiles matching: <i><%= params[:search] %><%= params[:skill] %><%= params[:membership_type] %></i></h5>
