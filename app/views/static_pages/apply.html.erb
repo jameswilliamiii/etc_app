@@ -51,6 +51,38 @@
               </div>
             </div>
             <div class="row">
+              <div class="small-12 columns">
+                <%= label_tag "application[address]" do %>
+                  Street Address <span>*</span>
+                <% end %>
+                <%= text_field_tag "application[address]", nil, required: true %>
+                <small class="error">A street address is required</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="medium-6 columns">
+                <%= label_tag "application[city]" do %>
+                  City <span>*</span>
+                <% end %>
+                <%= text_field_tag "application[city]", nil, required: true %>
+                <small class="error">A city is required</small>
+              </div>
+              <div class="medium-3 columns">
+                <%= label_tag "application[state]" do %>
+                  State <span>*</span>
+                <% end %>
+                <%= select_tag "application[state]", options_for_select(us_states, "IL"), required: true %>
+                <small class="error">A state selection is required</small>
+              </div>
+              <div class="medium-3 columns">
+                <%= label_tag "application[zip]" do %>
+                  Zip <span>*</span>
+                <% end %>
+                <%= text_field_tag "application[zip]", nil, required: true, pattern: "zipcode" %>
+                <small class="error">A valid zip code is required</small>
+              </div>
+            </div>
+            <div class="row">
               <div class="medium-6 columns">
                 <%= label_tag "application[business]" do %>
                   Business name

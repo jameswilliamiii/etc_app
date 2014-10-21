@@ -725,6 +725,9 @@
             <b>Last name:</b> <%= @form["last_name"] %>
           </p>
           <p>
+            <b>Address:</b> <%= @form["address"] %>, <%= @form["city"] %>, <%= @form["state"] %> <%= @form["zip"] %>
+          </p>
+          <p>
             <b>Email:</b> <%= link_to @form["email"], "mailto:#{@form['email']}" %>
           </p>
           <p>
