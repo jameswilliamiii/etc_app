@@ -24,7 +24,6 @@ EtcApp::Application.routes.draw do
   get  "/apply/confirmation" => "static_pages#apply_confirmation", as: :apply_confirmation
   get  "/pricing"            => "static_pages#pricing",            as: :pricing
   get  "/class-registration" => "static_pages#class_registration", as: :class_registration
-  get  "social-media-week"   => "static_pages#social_media_week"
 
   get  "errors/error_404"
   get  "errors/error_500"
