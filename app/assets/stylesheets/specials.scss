@@ -1,0 +1,65 @@
+@import url(http://fonts.googleapis.com/css?family=Nixie+One);
+@import url(http://fonts.googleapis.com/css?family=Fenix);
+
+div.specials-image {
+  padding: 40px 0;
+  background: url('/assets/specials-background.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 805px;
+
+  .logo {
+    text-align: center;
+    img {
+      width: 250px;
+      margin-bottom: 30px;
+    }
+  }
+  .content {
+    h1, h2 {
+      color: white;
+      text-shadow: 2px 2px #000000;
+    }
+    h1.tag-line {
+      font-size: 55px;
+      font-family: 'Nixie One', sans-serif;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 35px;
+      font-weight: 100;
+      line-height: 1.5;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px #000000;
+    }
+  }
+  .panel {
+    margin-top: 35px;
+    text-align: center;
+    .cta {
+      font-family: 'Nixie One', sans-serif;
+      font-weight: 700;
+      color:#325180;
+      margin-bottom: 1.25rem;
+    }
+  }
+}
+footer.specials {
+  background-color: black;
+  padding: 10px 0;
+  ul {
+    list-style-type: none;
+    text-align: center;
+    margin-bottom: 0;
+    li {
+      display: inline-block;
+      padding: 5px 10px;
+      p {
+        font-size: 12px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

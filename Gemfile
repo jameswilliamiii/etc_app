@@ -42,6 +42,8 @@ group :assets do
   gem 'uglifier', '>= 1.3.0'
 end
 
+gem 'haml'
+
 # Using pg for dev and production
 gem 'pg'
 

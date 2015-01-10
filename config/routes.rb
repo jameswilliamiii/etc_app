@@ -41,6 +41,9 @@ EtcApp::Application.routes.draw do
 
   resources :classes, only: [ :index, :show ], controller: :class_offers
 
+  post "specials/email" => "specials#email", as: :specials_email
+  get  "specials/:campaign" => "specials#show", as: :special
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,27 @@
+/ = content_for(:styles) do
+= content_for(:title) do
+  Coworking at Elgin Technology Center
+
+.specials-image
+  .row
+    .medium-12.columns
+      .logo
+        = image_tag "etc_logo.svg"
+  .row
+    .medium-8.columns.content
+      %h1.tag-line A new year, a new you,<br> a better place to work.
+      %h2
+        Collaborate with other developers and entrepreneurs in our coworking space designed to get things done.
+        Private desk plans start at $200 per month.
+    .medium-4.columns
+      .panel.radius
+        = form_tag specials_email_url, method: "post", :"data-abide" => "" do
+          %h3.cta Find out how ETC can help you
+          = text_field_tag :name, nil, placeholder: "Name", required: true
+          %small.error Name is required
+          = email_field_tag :email, nil, placeholder: "Email", required: true, pattern: "email"
+          %small.error A valid email is required
+          = telephone_field :phone, nil, placeholder: "Phone", pattern: "phone"
+          %small.error A valid phone number is required
+          = hidden_field_tag :campaign, params[:campaign]
+          = submit_tag "Tell me more", class: "button radius success"

@@ -307,6 +307,7 @@ DEPENDENCIES
   faker
   font-awesome-rails
   foundation-rails (~> 5.2.1)
+  haml
   jbuilder (~> 1.2)
   jquery-rails
   kaminari!
