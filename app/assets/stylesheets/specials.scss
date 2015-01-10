@@ -23,16 +23,35 @@ div.specials-image {
       text-shadow: 2px 2px #000000;
     }
     h1.tag-line {
-      font-size: 55px;
       font-family: 'Nixie One', sans-serif;
       margin-bottom: 30px;
+      @media #{$small-only} {
+        font-size: 35px;
+        font-weight: 700;
+        text-align: center;
+      }
+      @media #{$medium-only} {
+        font-size: 40px;
+      }
+      @media #{$large-up} {
+        font-size: 55px;
+      }
     }
     h2 {
-      font-size: 35px;
       font-weight: 100;
       line-height: 1.5;
       letter-spacing: 2px;
       text-shadow: 2px 2px #000000;
+      @media #{$small-only} {
+        font-size: 25px;
+        font-weight: 200;
+      }
+      @media #{$medium-only} {
+        font-size: 25px;
+      }
+      @media #{$large-up} {
+        font-size: 35px;
+      }
     }
   }
   .panel {
@@ -43,6 +62,15 @@ div.specials-image {
       font-weight: 700;
       color:#325180;
       margin-bottom: 1.25rem;
+      @media #{$small-only} {
+        font-size: 20px;
+      }
+      @media #{$medium-only} {
+        font-size: 20px;
+      }
+      @media #{$large-up} {
+        font-size: 27px;
+      }
     }
   }
 }

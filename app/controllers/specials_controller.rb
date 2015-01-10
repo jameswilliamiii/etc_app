@@ -5,7 +5,9 @@ class SpecialsController < ApplicationController
   end
 
   def email
-
+    @name = params[:name]
+    @email = params[:email]
+    @phone = params[:phone]
   end
 
 end

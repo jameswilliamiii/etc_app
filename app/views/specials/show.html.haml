@@ -17,11 +17,14 @@
       .panel.radius
         = form_tag specials_email_url, method: "post", :"data-abide" => "" do
           %h3.cta Find out how ETC can help you
-          = text_field_tag :name, nil, placeholder: "Name", required: true
-          %small.error Name is required
-          = email_field_tag :email, nil, placeholder: "Email", required: true, pattern: "email"
-          %small.error A valid email is required
-          = telephone_field :phone, nil, placeholder: "Phone", pattern: "phone"
-          %small.error A valid phone number is required
+          %div
+            = text_field_tag :name, nil, placeholder: "Name", required: true
+            %small.error Name is required
+          %div
+            = email_field_tag :email, nil, placeholder: "Email", required: true, pattern: "email"
+            %small.error A valid email is required
+          %div
+            = telephone_field :phone, nil, placeholder: "Phone", pattern: "phone"
+            %small.error A valid phone number is required
           = hidden_field_tag :campaign, params[:campaign]
           = submit_tag "Tell me more", class: "button radius success"
