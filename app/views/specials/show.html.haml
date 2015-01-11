@@ -3,6 +3,11 @@
   %link{href: 'http://fonts.googleapis.com/css?family=Fenix', rel:'stylesheet', type:'text/css'}
 = content_for(:title) do
   Coworking at Elgin Technology Center
+= content_for :og do
+  %meta{property: "og:url", content: request.original_url}
+  %meta{property: "og:title", content: "Coworking at Elgin Technology Center"}
+  %meta{property: "og:description", content: "A new year, a new you,<br> a better place to work."}
+  %meta{property: "og:image", content: asset_url('specials-background-og.jpg')}
 
 .specials-notice
   = render 'layouts/alerts_and_notices'
