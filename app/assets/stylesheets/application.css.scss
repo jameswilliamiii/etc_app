@@ -167,3 +167,17 @@
   .detailed-points .price {
   margin-bottom: 0;
   }
+  .specials-notice {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    .alert-box.success {
+      font-size: 20px;
+      text-align: center;
+      font-weight: 200;
+      @media #{$small-only} {
+        font-size: 17px;
+        line-height: 1.2
+      }
+    }
+  }

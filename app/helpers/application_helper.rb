@@ -14,4 +14,8 @@ module ApplicationHelper
       h "<li> #{class_offer.start_date.strftime('%D')} through #{class_offer.end_date.strftime('%D')}, #{class_offer.time} </li>".html_safe
     end
   end
+
+  def is_ad_campaign?
+    controller_name == 'specials'
+  end
 end

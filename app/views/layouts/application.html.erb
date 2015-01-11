@@ -42,12 +42,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/navigation' unless controller_name == 'specials' %>
-    <%= render 'layouts/alerts_and_notices' %>
+    <%= render 'layouts/navigation' unless is_ad_campaign? %>
+    <%= render 'layouts/alerts_and_notices' unless is_ad_campaign? %>
 
     <%= yield %>
 
-    <% if controller_name != 'specials' %>
+    <% if !is_ad_campaign? %>
       <%= render 'layouts/footer' %>
     <% else %>
       <%= render 'specials/footer' %>
