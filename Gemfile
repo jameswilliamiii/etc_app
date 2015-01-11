@@ -26,6 +26,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'brakeman', :require => false
+  gem 'byebug'
   gem 'thin'
   # Hide assets in logs
   gem 'quiet_assets'
