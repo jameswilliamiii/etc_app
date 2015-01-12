@@ -88,6 +88,10 @@ $(function(){ $(document).foundation();
     $('#class_offer_end_date').val($(this).val());
   });
 
+  // Add height to background image on specials#show
+  var height = $(window).height();
+  $('.specials-image').css('height', height);
+
 });
 
 // Fire file upload for profiles form
