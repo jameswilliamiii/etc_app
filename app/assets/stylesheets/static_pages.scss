@@ -68,7 +68,7 @@ h2.uvp {
         -ms-transition: color 300ms ease-in;
         -o-transition: color 300ms ease-in;
         transition: color 300ms ease-in;
-        color:#325180;
+        color:#FF9B00;
       }
     }
   }
@@ -138,10 +138,15 @@ h2.uvp {
   img {
     height:50px;
     max-height:50px;
+    width:auto;
   }
   img.rg-logo {
     height: 62px;
     max-height: 62px;
+    width:auto;
+  }
+  ul {
+    margin: 0;
   }
   li {
     @media #{$small-only} {
@@ -243,6 +248,9 @@ div.wrapper {
 }
 ul.benefits {
   font-size: 0.825rem;
+}
+input[type="checkbox"] + label, input[type="radio"] + label.premier-label {
+  margin-right: 40px;
 }
 
 /*events.html styles*/

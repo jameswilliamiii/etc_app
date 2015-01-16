@@ -61,13 +61,13 @@
         <% else %>
           <li><%= link_to "Events", events_url, class: "dropdown-top-item" %></li>
           <li><%= link_to "Classes", classes_url, class: "dropdown-top-item" %></li>
-          <li class="has-dropdown">
-            <%= link_to "Members", '#', class: "dropdown-top-item" %>
+<!--           <li class="has-dropdown">
+            <%#= link_to "Members", '#', class: "dropdown-top-item" %>
             <ul class="dropdown">
-              <li><%= link_to "Directory", profiles_url %></li>
-              <li><%= link_to "Sign In", new_user_session_url, class: "last-dropdown-item" %></li>
+              <li><%#= link_to "Directory", profiles_url %></li>
+              <li><%#= link_to "Sign In", new_user_session_url, class: "last-dropdown-item" %></li>
             </ul>
-          </li>
+          </li> -->
           <li><%= link_to "Join ETC", apply_url, class: "dropdown-top-item dropdown-last-top-item" %></li>
           <!-- <li><a href="#">Blog</a></li> -->
         <% end %>

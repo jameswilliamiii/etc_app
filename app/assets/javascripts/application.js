@@ -89,8 +89,13 @@ $(function(){ $(document).foundation();
   });
 
   // Add height to background image on specials#show
-  var height = $(window).height();
-  $('.specials-image').css('height', height);
+  var windowHeight = $(window).height();
+  var divHeight = $('.specials-image').height();
+  if (windowHeight >= divHeight) {
+    $('.specials-image').css('height', windowHeight);
+  } else {
+    $('.specials-image').css('height', divHeight);
+  }
 
 });
 

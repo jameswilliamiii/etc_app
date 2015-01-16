@@ -12,9 +12,15 @@
               <div class="medium-12 columns">
                 <%= label_tag "Membership type" %>
                 <%= radio_button_tag "application[membership_type]", "premier", is_premier?(params) %>
-                <%= label_tag "application[membership_type_premier]", "Premier" %>
+                <%= label_tag "application[membership_type_premier]", "Premier", class: "premier-label" do %>
+                  Premier
+                  <span data-tooltip aria-haspopup="true" class="has-tip" title="Private desk"><%= fa_icon "question-circle" %></span>
+                <% end %>
                 <%= radio_button_tag "application[membership_type]", "standard", is_standard?(params) %>
-                <%= label_tag "application[membership_type_standard]", "Standard" %>
+                <%= label_tag "application[membership_type_standard]", "Standard" do %>
+                  Standard
+                  <span data-tooltip aria-haspopup="true" class="has-tip" title="Open coworking"><%= fa_icon "question-circle" %></span>
+                <% end %>
               </div>
             </div>
             <div class="row">
@@ -126,10 +132,9 @@
                 </div>
                 <div>
                   <%= label_tag "application[ques_5]" do %>
-                    How can you give back to this collaborative community (mentorship, workshops, trainings, skills, etc)? <span>*</span>
+                    How can you give back to this collaborative community (mentorship, workshops, trainings, skills, etc)?
                   <% end %>
-                  <%= text_area_tag "application[ques_5]", nil, rows: 5, required: true %>
-                  <small class="error">This section is required</small>
+                  <%= text_area_tag "application[ques_5]", nil, rows: 5 %>
                 </div>
                 <div class="row">
                   <div class="medium-6 columns end">

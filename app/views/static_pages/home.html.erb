@@ -51,39 +51,41 @@
             <li>
               <ul class="pricing-table">
                 <li class="title">PREMIER</li>
-                <li class="price">$100 <small>per month</small></li>
+                <li class="price">$200 <small>per month *</small></li>
                 <li class="description">
-                  For the entrepreneur or freelancer looking for an inspirational and collaborative space to call home.  Premier members have access to everything they need to launch, grow, and evolve their business.
+                  For the entrepreneur or freelancer looking for an office, private desk, and lockable storage in a collaborative environment.
                 </li>
-                <li class="bullet-item">Open Coworking Space</li>
-                <li class="bullet-item">Private Offices <span>*</span></li>
-                <li class="bullet-item">Month-to-Month Membership</li>
+                <li class="bullet-item">Semi-private Office</li>
+                <li class="bullet-item">Private desk</li>
+                <li class="bullet-item">Lockable storage</li>
+                <li class="bullet-item">Quarterly or Monthly Membership</li>
                 <li class="bullet-item">24-Hour Access</li>
-                <li class="bullet-item">Free Education</li>
-                <li class="bullet-item">Personal or Company Directory Profile</li>
-                <li class="bullet-item">Free Conference Room Usage</li>
                 <li class="bullet-item">Mentoring Office Hours</li>
                 <li class="bullet-item">Member Only Events</li>
+                <li class="bullet-item">Free Conference Room Usage</li>
+                <li class="bullet-item">Personal or Company Directory Profile</li>
                 <li class="cta-button"><%= link_to "JOIN ETC", apply_url(membership_type: "premier"), class: "button radius success" %></li>
               </ul>
-              <div class="pricing-table-small-text"><small>* Private offices include an additional cost</small></div>
+              <div class="pricing-table-small-text"><small>* $250 per month if signing a month-to-month agreement.</small></div>
             </li>
             <li>
               <ul class="pricing-table">
                 <li class="title">STANDARD</li>
-                <li class="price">$35 <small>per month *</small></li>
+                <li class="price">$100 <small>per month</small></li>
                 <li class="description">
-                  For the entrepreneur or freelancer who already has an office, but wants to stay connected with the tech community.  Standard members have access to the network and tools needed to take their business to the next level.
+                  For the entrepreneur or freelancer who wants to work and collaborate with like minded people in an inspirational space.
                 </li>
-                <li class="bullet-item">Quarterly Membership</li>
-                <li class="bullet-item">Discounted Education</li>
-                <li class="bullet-item">Personal or Company Directory Profile</li>
-                <li class="bullet-item">Discounted conference room rental</li>
+                <li class="bullet-item">Open coworking</li>
+                <li class="bullet-item">Lockable storage upon request</li>
+                <li class="bullet-item">Month-to-month membership</li>
+                <li class="bullet-item">24-Hour Access</li>
                 <li class="bullet-item">Mentoring Office Hours</li>
                 <li class="bullet-item">Member Only Events</li>
+                <li class="bullet-item">Free Conference Room Usage</li>
+                <li class="bullet-item">Personal or Company Directory Profile</li>
+                <li class="bullet-item">&nbsp</li>
                 <li class="cta-button"><%= link_to "JOIN ETC", apply_url(membership_type: "standard"), class: "button radius success" %></li>
               </ul>
-              <div class="pricing-table-small-text"><small>* $105 paid quarterly</small></div>
             </li>
           </ul>
         </div>
@@ -99,8 +101,9 @@
     <li><a href="http://edisonave.com" title="Edison Avenue"><%= image_tag 'https://d33z4cqleaobgx.cloudfront.net/assets/ea-logo.png', alt: 'Edison Avenue' %></a></li>
     <li><a href="http://reflectioncommunications.com/" title="Reflection Communications"><%= image_tag 'https://d33z4cqleaobgx.cloudfront.net/assets/rc-logo.svg', alt: 'Reflection Communications' %></a></li>
   </ul>
-  <%= link_to "Check Out Other Members", profiles_url, class: "button radius" %>
+  <%#= link_to "Check Out Other Members", profiles_url, class: "button radius" %>
 </div>
+
 <div class="email-form">
   <div class="row">
     <div class="large-12 columns">

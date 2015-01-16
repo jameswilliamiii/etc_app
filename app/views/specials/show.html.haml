@@ -1,40 +1,49 @@
 = content_for(:styles) do
   %link{href: 'http://fonts.googleapis.com/css?family=Nixie+One', rel:'stylesheet', type:'text/css'}
   %link{href: 'http://fonts.googleapis.com/css?family=Fenix', rel:'stylesheet', type:'text/css'}
+
 = content_for(:title) do
   Coworking at Elgin Technology Center
+
 = content_for :og do
   %meta{property: "og:url", content: request.original_url}
   %meta{property: "og:title", content: "Coworking at Elgin Technology Center"}
   %meta{property: "og:description", content: "A new year, a new you,<br> a better place to work."}
   %meta{property: "og:image", content: "https://s3.amazonaws.com/elgintech.org/assets/specials-background-og.png"}
 
-.specials-notice
-  = render 'layouts/alerts_and_notices'
+/ Used when turning off the nav for the specials landing page.
+/ .specials-notice
+/   = render 'layouts/alerts_and_notices'
 
 .specials-image
-  .row
-    .medium-12.columns
-      .logo
-        = image_tag "etc_logo.svg"
+  / .row
+  /   .medium-12.columns
+  /     .logo
+  /       = image_tag "etc_logo.svg"
   .row
     .medium-8.columns.content
       %h1.tag-line A new year, a new you,<br> a better place to work.
       %h2
         Collaborate with other developers and entrepreneurs in our coworking space designed to get things done.
-        Private desk plans start at $200 per month.
+      / %h3
+      /   Coworking plans start at $100 per month.
     .medium-4.columns
-      .panel.radius
-        = form_tag specials_email_url, method: "post", :"data-abide" => "" do
-          %h3.cta Find out how ETC can help you
-          %div
-            = text_field_tag :name, nil, placeholder: "Name", required: true
-            %small.error Name is required
-          %div
-            = email_field_tag :email, nil, placeholder: "Email", required: true, pattern: "email"
-            %small.error A valid email is required
-          %div
-            = telephone_field :phone, nil, placeholder: "Phone", pattern: "phone"
-            %small.error A valid phone number is required
-          = hidden_field_tag :campaign, params[:campaign]
-          = submit_tag "Tell me more", class: "button radius success"
+      .holder
+        .ribbon
+          Plans start at $100 per month
+        .triangle-l
+        .triangle-r
+        .panel.radius
+          = form_tag specials_email_url, method: "post", :"data-abide" => "" do
+            %h3.cta Find out how ETC can help you
+            %div
+              = text_field_tag :name, nil, placeholder: "Name", required: true
+              %small.error Name is required
+            %div
+              = email_field_tag :email, nil, placeholder: "Email", required: true, pattern: "email"
+              %small.error A valid email is required
+            %div
+              = telephone_field :phone, nil, placeholder: "Phone", pattern: "phone"
+              %small.error A valid phone number is required
+            = hidden_field_tag :campaign, params[:campaign]
+            = submit_tag "Tell me more", class: "button radius success"

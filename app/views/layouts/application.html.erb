@@ -42,15 +42,16 @@
   </head>
 
   <body>
-    <%= render 'layouts/navigation' unless is_ad_campaign? %>
-    <%= render 'layouts/alerts_and_notices' unless is_ad_campaign? %>
+    <%= render 'layouts/navigation' %>
+    <%= render 'layouts/alerts_and_notices' %>
 
     <%= yield %>
 
     <% if !is_ad_campaign? %>
       <%= render 'layouts/footer' %>
     <% else %>
-      <%= render 'specials/footer' %>
+      <%#= render 'specials/footer' %>
+      <%= render 'layouts/footer' %>
     <% end %>
 
   </body>
