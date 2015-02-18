@@ -89,13 +89,19 @@ $(function(){ $(document).foundation();
   });
 
   // Add height to background image on specials#show
-  var windowHeight = $(window).height();
-  var divHeight = $('.specials-image').height();
-  if (windowHeight >= divHeight) {
-    $('.specials-image').css('height', windowHeight);
-  } else {
-    $('.specials-image').css('height', divHeight);
-  }
+  // var windowHeight = $(window).height();
+  // var divHeight = $('.specials-image').height();
+  // if (windowHeight >= divHeight) {
+  //   $('.specials-image').css('height', windowHeight);
+  // } else {
+  //   $('.specials-image').css('height', divHeight);
+  // }
+
+  $('.tell-me-more').click(function() {
+    var value = $(this)[0].id
+    var input = $('input#plan');
+    input.val(value);
+  });
 
 });
 

@@ -21,29 +21,91 @@
   /     .logo
   /       = image_tag "etc_logo.svg"
   .row
-    .medium-8.columns.content
-      %h1.tag-line A new year, a new you,<br> a better place to work.
-      %h2
-        Collaborate with other developers and entrepreneurs in our coworking space designed to get things done.
+    / .medium-8.columns.content
+    .medium-12.columns.content
+      %h1.tag-line.center A new year, a new you,<br> a better place to work.
+      %h2.center
+        Collaborate with other entrepreneurs in our coworking space designed to get things done.
       / %h3
       /   Coworking plans start at $100 per month.
-    .medium-4.columns
-      .holder
-        .ribbon
-          Plans start at $100 per month
-        .triangle-l
-        .triangle-r
-        .panel.radius
-          = form_tag specials_email_url, method: "post", :"data-abide" => "" do
-            %h3.cta Find out how ETC can help you
-            %div
-              = text_field_tag :name, nil, placeholder: "Name", required: true
-              %small.error Name is required
-            %div
-              = email_field_tag :email, nil, placeholder: "Email", required: true, pattern: "email"
-              %small.error A valid email is required
-            %div
-              = telephone_field :phone, nil, placeholder: "Phone", pattern: "phone"
-              %small.error A valid phone number is required
-            = hidden_field_tag :campaign, params[:campaign]
-            = submit_tag "Tell me more", class: "button radius success"
+    / .medium-4.columns
+    /   .holder
+    /     .ribbon
+    /       Plans start at $100 per month
+    /     .triangle-l
+    /     .triangle-r
+    /     .panel.radius
+    /       = form_tag specials_email_url, method: "post", :"data-abide" => "" do
+    /         %h3.cta Find out how ETC can help you
+    /         %div
+    /           = text_field_tag :name, nil, placeholder: "Name", required: true
+    /           %small.error Name is required
+    /         %div
+    /           = email_field_tag :email, nil, placeholder: "Email", required: true, pattern: "email"
+    /           %small.error A valid email is required
+    /         %div
+    /           = telephone_field :phone, nil, placeholder: "Phone", pattern: "phone"
+    /           %small.error A valid phone number is required
+    /         = hidden_field_tag :campaign, params[:campaign]
+    /         = submit_tag "Tell me more", class: "button radius success"
+  .row.specials-pricing
+    .medium-10.medium-centered.columns
+      %ul.medium-block-grid-2
+        %li
+          %ul.pricing-table
+            %li.title PREMIER
+            %li.price $200 <small>per month *</small>
+            %li.description
+              For the entrepreneur or freelancer looking for an office, private desk, and lockable storage in a collaborative environment.
+            %li.bullet-item Semi-private Office
+            %li.bullet-item Private desk
+            %li.bullet-item Lockable storage
+            %li.bullet-item Quarterly or Monthly Membership
+            %li.bullet-item 24-Hour Access
+            %li.bullet-item Mentoring Office Hours
+            %li.bullet-item Member Only Events
+            %li.bullet-item Free Conference Room Usage
+            %li.bullet-item Personal or Company Directory Profile
+            %li.cta-button
+              = link_to "Tell me more", "#", data: { reveal_id: "tellMeMoreModal" }, id: "premier", class: "button radius success tell-me-more"
+
+          .pricing-table-small-text <small>* $250 per month if signing a month-to-month agreement.</small>
+        %li
+          %ul.pricing-table
+            %li.title STANDARD
+            %li.price $100 <small>per month</small>
+            %li.description
+              For the entrepreneur or freelancer who wants to work and collaborate with like minded people in an inspirational space.
+            %li.bullet-item Open coworking
+            %li.bullet-item Lockable storage upon request
+            %li.bullet-item Month-to-month membership
+            %li.bullet-item 24-Hour Access
+            %li.bullet-item Mentoring Office Hours
+            %li.bullet-item Member Only Events
+            %li.bullet-item Free Conference Room Usage
+            %li.bullet-item Personal or Company Directory Profile
+            %li.bullet-item &nbsp
+            %li.cta-button
+              = link_to "Tell me more", "#", data: { reveal_id: "tellMeMoreModal" }, id: "standard", class: "button radius success tell-me-more"
+
+.reveal-modal{ id: "tellMeMoreModal", "data-reveal" => "" }
+  .row
+    .medium-9.medium-centered.columns
+      = form_tag specials_email_url, method: "post", :"data-abide" => "" do
+        %h3 Learn more about how ETC can help you launch, grow, or evolve your business.
+        %div
+          = text_field_tag :name, nil, placeholder: "Name", required: true
+          %small.error Name is required
+        %div
+          = email_field_tag :email, nil, placeholder: "Email", required: true, pattern: "email"
+          %small.error A valid email is required
+        %div
+          = telephone_field :phone, nil, placeholder: "Phone", pattern: "phone"
+          %small.error A valid phone number is required
+        %div
+          = text_area_tag :comments, nil, placeholder: "Ask us any questions you might have...", rows: 5
+
+        = hidden_field_tag :campaign, params[:campaign]
+        = hidden_field_tag :plan
+        = submit_tag "Tell me more", class: "button radius success"
+  %a.close-reveal-modal &#215;

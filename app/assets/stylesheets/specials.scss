@@ -5,7 +5,7 @@ div.specials-image {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 805px;
+  // min-height: 400px;
 
   .logo {
     text-align: center;
@@ -155,5 +155,32 @@ footer.specials {
     font-size: 20px;
     text-align: center;
     font-weight: 200;
+  }
+}
+.specials-pricing {
+  padding: 50px 0;
+  .pricing-table {
+    border: none;
+  }
+  .pricing-table-small-text small{
+    color: #FFF;
+  }
+}
+.reveal-modal {
+  h3 {
+    font-family: 'Nixie One', sans-serif;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #325180;
+    @media #{$small-only} {
+      font-size: 23px;
+      text-align: center;
+    }
+    @media #{$medium-only} {
+      font-size: 28px;
+    }
+    @media #{$large-up} {
+      font-size: 35px;
+    }
   }
 }
