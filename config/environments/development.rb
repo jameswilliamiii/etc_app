@@ -27,5 +27,17 @@ EtcApp::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = false
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp-mail.outlook.com",
+    :user_name => ENV["EMAIL_USERNAME"],
+    :password  => ENV["EMAIL_PASSWORD"],
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end
